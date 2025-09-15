@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" standalone="yes"?>
-<gameSystem xmlns="http://www.battlescribe.net/schema/gameSystemSchema" id="sys-352e-adc2-7639-d6a9" name="Warhammer 40,000 10th Edition" revision="59" battleScribeVersion="2.03" type="gameSystem">
+<gameSystem xmlns="http://www.battlescribe.net/schema/gameSystemSchema" id="sys-352e-adc2-7639-d6a9" name="Warhammer 40,000 10th Edition" revision="60" battleScribeVersion="2.03" type="gameSystem">
   <publications>
     <publication id="48fc-15aa-b307-9443" name="10th Edition Core Rules" shortName="10th Ed Core"/>
     <publication name="Github" hidden="false" id="8db3-575d-91b-47f8" shortName="BSData/wh40k-10e" publisherUrl="https://github.com/BSData/wh40k-10e"/>
@@ -46,6 +46,9 @@
           </conditions>
         </modifier>
       </modifiers>
+    </costType>
+    <costType name="Space Hulk: Requisition" id="ba9c-608d-dedc-1ee0" defaultCostLimit="-1" hidden="true">
+      <comment>Tracking number for Space Hulk</comment>
     </costType>
   </costTypes>
   <profileTypes>
@@ -630,6 +633,42 @@
         <constraint type="max" value="0" field="51b2-306e-1021-d207" scope="force" shared="true" id="215f-8816-ff04-d1ef" includeChildSelections="true" includeChildForces="true"/>
       </constraints>
     </forceEntry>
+    <forceEntry name="Space Hulk" id="0d6d-d36a-5a9a-ce09" hidden="false">
+      <categoryLinks>
+        <categoryLink name="Configuration" hidden="false" id="5318-bd8c-a551-27fb" targetId="4ac9-fd30-1e3d-b249"/>
+        <categoryLink name="Character" hidden="false" id="45ce-ca5c-67d2-78dd" targetId="9cfd-1c32-585f-7d5c">
+          <constraints>
+            <constraint type="min" value="1" field="selections" scope="roster" shared="true" id="0f9c-950b-675a-281f" includeChildSelections="true" includeChildForces="true"/>
+          </constraints>
+        </categoryLink>
+        <categoryLink name="Battleline" hidden="false" id="d3eb-b343-8bd3-d6a8" targetId="e338-111e-d0c6-b687" primary="false"/>
+        <categoryLink name="Infantry" hidden="false" id="d6cb-8d14-2992-dc72" targetId="cf47-a0d7-7207-29dc" primary="false"/>
+        <categoryLink name="Swarm" hidden="false" id="1dcc-9b36-0285-6a43" targetId="b00b-5bae-444f-964e" primary="false"/>
+        <categoryLink name="Mounted" hidden="false" id="de77-020b-3bb3-235d" targetId="14a0-40c9-2748-ae6e" primary="false"/>
+        <categoryLink name="Beast" hidden="false" id="a6d8-8e94-bf8a-6fec" targetId="4c3e-9310-a516-3590" primary="false"/>
+        <categoryLink name="Monster" hidden="false" id="a42f-b5da-2ee9-e4a4" targetId="9693-cf84-fe69-37a9" primary="false"/>
+        <categoryLink name="Vehicle" hidden="false" id="b6b3-e7d3-efc8-b68e" targetId="dbd4-63-af05-998" primary="false"/>
+        <categoryLink name="Drone" hidden="false" id="f374-3298-f823-8675" targetId="2471-e2e0-3f55-d6cb" primary="false"/>
+        <categoryLink name="Dedicated Transport" hidden="false" id="089b-e17e-18f1-8464" targetId="ba07-411c-2832-1f79" primary="false"/>
+        <categoryLink name="Unit" hidden="false" id="601c-57cc-a6d2-2cf6" targetId="1160-70ae-a862-b1a8" primary="false"/>
+      </categoryLinks>
+      <modifiers>
+        <modifier type="set" value="true" field="hidden">
+          <conditionGroups>
+            <conditionGroup type="or">
+              <conditions>
+                <condition type="instanceOf" value="1" field="selections" scope="primary-catalogue" childId="46d8-abc8-ef3a-9f85" shared="true"/>
+                <condition type="instanceOf" value="1" field="selections" scope="primary-catalogue" childId="880c-c7e-4a43-a0c1" shared="true"/>
+                <condition type="instanceOf" value="1" field="selections" scope="primary-catalogue" childId="bdc0-c0d-72d7-87e2" shared="true"/>
+                <condition type="instanceOf" value="1" field="selections" scope="primary-catalogue" childId="25dd-7aa0-6bf4-f2d5" shared="true"/>
+                <condition type="instanceOf" value="1" field="selections" scope="primary-catalogue" childId="25dd-7aa0-6bf4-f2d5" shared="true"/>
+              </conditions>
+            </conditionGroup>
+          </conditionGroups>
+        </modifier>
+      </modifiers>
+      <comment>Space Hulk content</comment>
+    </forceEntry>
   </forceEntries>
   <entryLinks>
     <entryLink id="7380-3e40-6ed6-b7cc" name="Battle Size" hidden="false" collective="false" import="true" targetId="564e-fbc6-5266-3ea4" type="selectionEntry"/>
@@ -762,10 +801,17 @@
         <modifier type="set-primary" value="4ac9-fd30-1e3d-b249" field="category"/>
         <modifier type="set" value="true" field="hidden">
           <conditionGroups>
-            <conditionGroup type="and">
+            <conditionGroup type="or">
+              <conditionGroups>
+                <conditionGroup type="and">
+                  <conditions>
+                    <condition type="notInstanceOf" value="1" field="selections" scope="force" childId="cac3-71d1-ea4b-795d" shared="true"/>
+                    <condition type="atLeast" value="1" field="forces" scope="roster" childId="cac3-71d1-ea4b-795d" shared="true"/>
+                  </conditions>
+                </conditionGroup>
+              </conditionGroups>
               <conditions>
-                <condition type="notInstanceOf" value="1" field="selections" scope="force" childId="cac3-71d1-ea4b-795d" shared="true"/>
-                <condition type="atLeast" value="1" field="forces" scope="roster" childId="cac3-71d1-ea4b-795d" shared="true"/>
+                <condition type="instanceOf" value="1" field="selections" scope="force" childId="0d6d-d36a-5a9a-ce09" shared="true"/>
               </conditions>
             </conditionGroup>
           </conditionGroups>
@@ -929,6 +975,18 @@
           </conditionGroups>
         </modifier>
       </modifiers>
+    </selectionEntry>
+    <selectionEntry type="upgrade" import="true" name="Requisition Points" hidden="false" id="89fa-bfdc-6f8b-3d6e">
+      <comment>Space Hulk content</comment>
+      <costs>
+        <cost name="pts" typeId="51b2-306e-1021-d207" value="0"/>
+        <cost name="Crusade Points" typeId="b03b-c239-15a5-da55" value="0"/>
+        <cost name="Crusade: Battle Honours" typeId="75bb-ded1-c86d-bdf0" value="0"/>
+        <cost name="Crusade: Experience" typeId="a623-fe74-1d33-cddf" value="0"/>
+        <cost name="Crusade: Weapon Modifications" typeId="716d-91b7-d55a-1022" value="0"/>
+        <cost name="Blackstone Fragments" typeId="ac6b-ced3-9b5e-9a6e" value="0"/>
+        <cost name="Space Hulk: Requisition" typeId="ba9c-608d-dedc-1ee0" value="1"/>
+      </costs>
     </selectionEntry>
   </sharedSelectionEntries>
   <sharedRules>
@@ -9158,6 +9216,1982 @@ If a model is in Hover mode, then until the end of the battle, its Move characte
       <constraints>
         <constraint type="max" value="1" field="selections" scope="parent" shared="true" id="1dce-7584-846f-e698" includeChildSelections="false"/>
       </constraints>
+    </selectionEntryGroup>
+    <selectionEntryGroup name="Expertise" id="5a83-de9d-1ee5-d48f" hidden="false" collapsible="false" import="true">
+      <selectionEntries>
+        <selectionEntry type="upgrade" import="true" name="Marksmanship" hidden="false" id="6ed5-24cf-6e62-1d5d">
+          <profiles>
+            <profile name="Marksmanship" typeId="9cc3-6d83-4dd3-9b64" typeName="Abilities" hidden="false" id="10d1-ee3f-f8fb-670f">
+              <characteristics>
+                <characteristic name="Description" typeId="9b8f-694b-e5e-b573">Add +1 to the wound roll with ranged attacks against targets at half range.</characteristic>
+              </characteristics>
+            </profile>
+          </profiles>
+          <comment>Space Hulk content</comment>
+        </selectionEntry>
+        <selectionEntry type="upgrade" import="true" name="Quickness" hidden="false" id="8433-8bd7-5bbe-c117">
+          <profiles>
+            <profile name="Quickness" typeId="9cc3-6d83-4dd3-9b64" typeName="Abilities" hidden="false" id="cb32-9108-c077-2a25">
+              <characteristics>
+                <characteristic name="Description" typeId="9b8f-694b-e5e-b573">Add 3 inches to this model&apos;s move characteristic. Bodyguard models also gain this benefit. A model can only be selected for quickness if its base movement characteristic is 6 inches or more.</characteristic>
+              </characteristics>
+            </profile>
+          </profiles>
+          <comment>Space Hulk content</comment>
+        </selectionEntry>
+        <selectionEntry type="upgrade" import="true" name="Clairvoyance" hidden="false" id="42f7-dfca-e478-2b57">
+          <profiles>
+            <profile name="Clairvoyance" typeId="9cc3-6d83-4dd3-9b64" typeName="Abilities" hidden="false" id="88f0-935c-27ee-fe4b">
+              <characteristics>
+                <characteristic name="Description" typeId="9b8f-694b-e5e-b573">You can reroll the hit roll on all Psychic Attacks made by this model.</characteristic>
+              </characteristics>
+            </profile>
+          </profiles>
+          <comment>Space Hulk content</comment>
+          <modifiers>
+            <modifier type="set" value="true" field="hidden">
+              <conditions>
+                <condition type="notInstanceOf" value="1" field="selections" scope="ancestor" childId="13bf-2bee-3ae0-b414" shared="true"/>
+              </conditions>
+            </modifier>
+          </modifiers>
+        </selectionEntry>
+        <selectionEntry type="upgrade" import="true" name="Operations" hidden="false" id="9406-f824-ab3c-19fb">
+          <profiles>
+            <profile name="Operations" typeId="9cc3-6d83-4dd3-9b64" typeName="Abilities" hidden="false" id="f313-14ae-2536-c3a6">
+              <characteristics>
+                <characteristic name="Description" typeId="9b8f-694b-e5e-b573">This model gains the Lone Operative and Stealth keywords and can&apos;t have a bodyguard. This cannot be a model that has a 2+ save on its datasheet.</characteristic>
+              </characteristics>
+            </profile>
+          </profiles>
+          <comment>Space Hulk content</comment>
+        </selectionEntry>
+        <selectionEntry type="upgrade" import="true" name="Combat" hidden="false" id="1154-ae09-f0a3-4bb3">
+          <profiles>
+            <profile name="Combat" typeId="9cc3-6d83-4dd3-9b64" typeName="Abilities" hidden="false" id="4ed4-c7cf-0400-5255">
+              <characteristics>
+                <characteristic name="Description" typeId="9b8f-694b-e5e-b573">This Model can reroll 1s to hit and to wound when using melee attacks.</characteristic>
+              </characteristics>
+            </profile>
+          </profiles>
+          <comment>Space Hulk content</comment>
+        </selectionEntry>
+        <selectionEntry type="upgrade" import="true" name="Strategy" hidden="false" id="afa2-74a0-9359-34bc">
+          <profiles>
+            <profile name="Strategy" typeId="9cc3-6d83-4dd3-9b64" typeName="Abilities" hidden="false" id="a716-51db-896e-63f2">
+              <characteristics>
+                <characteristic name="Description" typeId="9b8f-694b-e5e-b573">After deployment, before the game begins, you may re-deploy this unit, or redeploy 3 models (if murder squad) or 3 other units (in normal games)</characteristic>
+              </characteristics>
+            </profile>
+          </profiles>
+          <comment>Space Hulk content</comment>
+        </selectionEntry>
+        <selectionEntry type="upgrade" import="true" name="Durability" hidden="false" id="d229-98f0-cff6-c1d5">
+          <profiles>
+            <profile name="Durability" typeId="9cc3-6d83-4dd3-9b64" typeName="Abilities" hidden="false" id="ad78-6ed3-3d72-7155">
+              <characteristics>
+                <characteristic name="Description" typeId="9b8f-694b-e5e-b573">This model gains -1 damage.</characteristic>
+              </characteristics>
+            </profile>
+          </profiles>
+          <comment>Space Hulk content</comment>
+        </selectionEntry>
+      </selectionEntries>
+      <constraints>
+        <constraint type="max" value="1" field="selections" scope="self" shared="true" id="530e-a623-528e-dbba" includeChildSelections="true"/>
+      </constraints>
+      <comment>Space Hulk content</comment>
+      <modifiers>
+        <modifier type="set" value="true" field="hidden">
+          <conditions>
+            <condition type="equalTo" value="0" field="selections" scope="parent" childId="5c0e-4c31-d51b-e470" shared="true"/>
+          </conditions>
+        </modifier>
+      </modifiers>
+    </selectionEntryGroup>
+    <selectionEntryGroup name="Expertise Enhancements" id="8af7-be51-b381-21c5" hidden="false" collapsible="true" flatten="false">
+      <comment>Space Hulk content</comment>
+      <selectionEntries>
+        <selectionEntry type="upgrade" import="true" name="Imbued Warpbite" hidden="false" id="1f9d-142d-782e-b977">
+          <comment>Space Hulk content</comment>
+          <costs>
+            <cost name="pts" typeId="51b2-306e-1021-d207" value="0"/>
+            <cost name="Crusade Points" typeId="b03b-c239-15a5-da55" value="0"/>
+            <cost name="Crusade: Battle Honours" typeId="75bb-ded1-c86d-bdf0" value="0"/>
+            <cost name="Crusade: Experience" typeId="a623-fe74-1d33-cddf" value="0"/>
+            <cost name="Crusade: Weapon Modifications" typeId="716d-91b7-d55a-1022" value="0"/>
+            <cost name="Blackstone Fragments" typeId="ac6b-ced3-9b5e-9a6e" value="0"/>
+            <cost name="Space Hulk: Requisition" typeId="ba9c-608d-dedc-1ee0" value="1"/>
+          </costs>
+          <profiles>
+            <profile name="Imbued Warpbite" typeId="9cc3-6d83-4dd3-9b64" typeName="Abilities" hidden="false" id="3d83-ce8f-d569-2e27">
+              <characteristics>
+                <characteristic name="Description" typeId="9b8f-694b-e5e-b573">All Melee Psychic attacks now have the keyword Devastating Wounds 5+</characteristic>
+              </characteristics>
+              <comment>Space Hulk content</comment>
+            </profile>
+          </profiles>
+          <constraints>
+            <constraint type="max" value="1" field="selections" scope="roster" shared="true" id="bf13-98bd-9042-9d13" includeChildSelections="true" includeChildForces="true"/>
+          </constraints>
+          <modifiers>
+            <modifier type="set" value="true" field="hidden">
+              <conditions>
+                <condition type="notEqualTo" value="1" field="selections" scope="parent" childId="42f7-dfca-e478-2b57" shared="true"/>
+              </conditions>
+            </modifier>
+          </modifiers>
+        </selectionEntry>
+        <selectionEntry type="upgrade" import="true" name="Phase Shifter" hidden="false" id="2553-4d2d-605d-baea" page="">
+          <profiles>
+            <profile name="Phase Shifter" typeId="9cc3-6d83-4dd3-9b64" typeName="Abilities" hidden="false" id="12ee-c3d3-cde6-2ddd">
+              <characteristics>
+                <characteristic name="Description" typeId="9b8f-694b-e5e-b573">If you begin a normal move with this unit, including bodyguard, you may instead remove it and place it into strategic reserves. At the end of your opponent’s movement phase, place it anywhere on the board 6 inches away from enemy models. This unit cannot make a charge move this turn.</characteristic>
+              </characteristics>
+              <comment>Space Hulk content</comment>
+            </profile>
+          </profiles>
+          <costs>
+            <cost name="pts" typeId="51b2-306e-1021-d207" value="0"/>
+            <cost name="Crusade Points" typeId="b03b-c239-15a5-da55" value="0"/>
+            <cost name="Crusade: Battle Honours" typeId="75bb-ded1-c86d-bdf0" value="0"/>
+            <cost name="Crusade: Experience" typeId="a623-fe74-1d33-cddf" value="0"/>
+            <cost name="Crusade: Weapon Modifications" typeId="716d-91b7-d55a-1022" value="0"/>
+            <cost name="Blackstone Fragments" typeId="ac6b-ced3-9b5e-9a6e" value="0"/>
+            <cost name="Space Hulk: Requisition" typeId="ba9c-608d-dedc-1ee0" value="1"/>
+          </costs>
+          <comment>Space Hulk content</comment>
+          <constraints>
+            <constraint type="max" value="1" field="selections" scope="roster" shared="true" id="1549-8193-048b-ccfb" includeChildSelections="true" includeChildForces="true"/>
+          </constraints>
+          <modifiers>
+            <modifier type="set" value="true" field="hidden">
+              <conditions>
+                <condition type="notEqualTo" value="1" field="selections" scope="parent" childId="42f7-dfca-e478-2b57" shared="true"/>
+              </conditions>
+            </modifier>
+          </modifiers>
+        </selectionEntry>
+        <selectionEntry type="upgrade" import="true" name="Anti-Matter Suit" hidden="false" id="45a0-212f-5a36-a6a2" page="">
+          <costs>
+            <cost name="pts" typeId="51b2-306e-1021-d207" value="0"/>
+            <cost name="Crusade Points" typeId="b03b-c239-15a5-da55" value="0"/>
+            <cost name="Crusade: Battle Honours" typeId="75bb-ded1-c86d-bdf0" value="0"/>
+            <cost name="Crusade: Experience" typeId="a623-fe74-1d33-cddf" value="0"/>
+            <cost name="Crusade: Weapon Modifications" typeId="716d-91b7-d55a-1022" value="0"/>
+            <cost name="Blackstone Fragments" typeId="ac6b-ced3-9b5e-9a6e" value="0"/>
+            <cost name="Space Hulk: Requisition" typeId="ba9c-608d-dedc-1ee0" value="1"/>
+          </costs>
+          <profiles>
+            <profile name="Anti-Matter Suit" typeId="9cc3-6d83-4dd3-9b64" typeName="Abilities" hidden="false" id="3a0c-3d4d-edbc-058f">
+              <characteristics>
+                <characteristic name="Description" typeId="9b8f-694b-e5e-b573">This model may move through any terrain as if it were not there, as long as it is at the maximum number of wounds.</characteristic>
+              </characteristics>
+              <comment>Space Hulk content</comment>
+            </profile>
+          </profiles>
+          <comment>Space Hulk content</comment>
+          <constraints>
+            <constraint type="max" value="1" field="selections" scope="roster" shared="true" id="d801-1528-a099-64f1" includeChildSelections="true" includeChildForces="true"/>
+          </constraints>
+          <modifiers>
+            <modifier type="set" value="true" field="hidden">
+              <conditions>
+                <condition type="notEqualTo" value="1" field="selections" scope="parent" childId="9406-f824-ab3c-19fb" shared="true"/>
+              </conditions>
+            </modifier>
+          </modifiers>
+        </selectionEntry>
+        <selectionEntry type="upgrade" import="true" name="Warp Resistance" hidden="false" id="8041-e997-092c-4693" page="">
+          <costs>
+            <cost name="pts" typeId="51b2-306e-1021-d207" value="0"/>
+            <cost name="Crusade Points" typeId="b03b-c239-15a5-da55" value="0"/>
+            <cost name="Crusade: Battle Honours" typeId="75bb-ded1-c86d-bdf0" value="0"/>
+            <cost name="Crusade: Experience" typeId="a623-fe74-1d33-cddf" value="0"/>
+            <cost name="Crusade: Weapon Modifications" typeId="716d-91b7-d55a-1022" value="0"/>
+            <cost name="Blackstone Fragments" typeId="ac6b-ced3-9b5e-9a6e" value="0"/>
+            <cost name="Space Hulk: Requisition" typeId="ba9c-608d-dedc-1ee0" value="1"/>
+          </costs>
+          <profiles>
+            <profile name="Warp Resistance" typeId="9cc3-6d83-4dd3-9b64" typeName="Abilities" hidden="false" id="4b0e-44c4-6efd-1865">
+              <characteristics>
+                <characteristic name="Description" typeId="9b8f-694b-e5e-b573">When making a Hazardous roll on psychic attacks, this model cannot fail the test, but roll it regardless. Instead, on a roll of 4+ this model regains d3 wounds or it&apos;s bodyguard regains d3 wounds. If a bodyguard model has been removed while a bodyguard is still present with full wounds, you may return that model with D3 wounds remaining.
+This ability only works once per battle round.</characteristic>
+              </characteristics>
+              <comment>Space Hulk content</comment>
+            </profile>
+          </profiles>
+          <comment>Space Hulk content</comment>
+          <constraints>
+            <constraint type="max" value="1" field="selections" scope="roster" shared="true" id="8fb9-6be5-e02c-9842" includeChildSelections="true" includeChildForces="true"/>
+          </constraints>
+          <modifiers>
+            <modifier type="set" value="true" field="hidden">
+              <conditions>
+                <condition type="notEqualTo" value="1" field="selections" scope="parent" childId="42f7-dfca-e478-2b57" shared="true"/>
+              </conditions>
+            </modifier>
+          </modifiers>
+        </selectionEntry>
+        <selectionEntry type="upgrade" import="true" name="Undeterred" hidden="false" id="1632-2384-6cec-71df" page="">
+          <costs>
+            <cost name="pts" typeId="51b2-306e-1021-d207" value="0"/>
+            <cost name="Crusade Points" typeId="b03b-c239-15a5-da55" value="0"/>
+            <cost name="Crusade: Battle Honours" typeId="75bb-ded1-c86d-bdf0" value="0"/>
+            <cost name="Crusade: Experience" typeId="a623-fe74-1d33-cddf" value="0"/>
+            <cost name="Crusade: Weapon Modifications" typeId="716d-91b7-d55a-1022" value="0"/>
+            <cost name="Blackstone Fragments" typeId="ac6b-ced3-9b5e-9a6e" value="0"/>
+            <cost name="Space Hulk: Requisition" typeId="ba9c-608d-dedc-1ee0" value="1"/>
+          </costs>
+          <profiles>
+            <profile name="Undeterred" typeId="9cc3-6d83-4dd3-9b64" typeName="Abilities" hidden="false" id="57c6-675b-b5d0-0ca0">
+              <characteristics>
+                <characteristic name="Description" typeId="9b8f-694b-e5e-b573">This model always counts as eligible to perform an action. In addition this model has an OC characteristic of 6.</characteristic>
+              </characteristics>
+              <comment>Space Hulk content</comment>
+            </profile>
+          </profiles>
+          <comment>Space Hulk content</comment>
+          <constraints>
+            <constraint type="max" value="1" field="selections" scope="roster" shared="true" id="62df-6689-55e1-6e11" includeChildSelections="true" includeChildForces="true"/>
+          </constraints>
+          <modifiers>
+            <modifier type="set" value="true" field="hidden">
+              <conditions>
+                <condition type="notEqualTo" value="1" field="selections" scope="parent" childId="9406-f824-ab3c-19fb" shared="true"/>
+              </conditions>
+            </modifier>
+          </modifiers>
+        </selectionEntry>
+        <selectionEntry type="upgrade" import="true" name="Translocator" hidden="false" id="3dc2-62a8-7823-47c1" page="">
+          <costs>
+            <cost name="pts" typeId="51b2-306e-1021-d207" value="0"/>
+            <cost name="Crusade Points" typeId="b03b-c239-15a5-da55" value="0"/>
+            <cost name="Crusade: Battle Honours" typeId="75bb-ded1-c86d-bdf0" value="0"/>
+            <cost name="Crusade: Experience" typeId="a623-fe74-1d33-cddf" value="0"/>
+            <cost name="Crusade: Weapon Modifications" typeId="716d-91b7-d55a-1022" value="0"/>
+            <cost name="Blackstone Fragments" typeId="ac6b-ced3-9b5e-9a6e" value="0"/>
+            <cost name="Space Hulk: Requisition" typeId="ba9c-608d-dedc-1ee0" value="1"/>
+          </costs>
+          <profiles>
+            <profile name="Translocator" typeId="9cc3-6d83-4dd3-9b64" typeName="Abilities" hidden="false" id="9e9e-f299-ee3d-72cd">
+              <characteristics>
+                <characteristic name="Description" typeId="9b8f-694b-e5e-b573">Once per game, at the end of your movement phase, this model can switch locations with any other friendly unit on the board. This can be done within engagement range. If that friendly unit was in engagement range, this model gains Fights First this turn.</characteristic>
+              </characteristics>
+              <comment>Space Hulk content</comment>
+            </profile>
+          </profiles>
+          <comment>Space Hulk content</comment>
+          <constraints>
+            <constraint type="max" value="1" field="selections" scope="roster" shared="true" id="1d11-0b96-dda3-3c49" includeChildSelections="true" includeChildForces="true"/>
+          </constraints>
+          <modifiers>
+            <modifier type="set" value="true" field="hidden">
+              <conditions>
+                <condition type="notEqualTo" value="1" field="selections" scope="parent" childId="9406-f824-ab3c-19fb" shared="true"/>
+              </conditions>
+            </modifier>
+          </modifiers>
+        </selectionEntry>
+        <selectionEntry type="upgrade" import="true" name="Tactical Movement" hidden="false" id="75ad-1ab8-da73-68c9">
+          <comment>Space Hulk content</comment>
+          <costs>
+            <cost name="pts" typeId="51b2-306e-1021-d207" value="0"/>
+            <cost name="Crusade Points" typeId="b03b-c239-15a5-da55" value="0"/>
+            <cost name="Crusade: Battle Honours" typeId="75bb-ded1-c86d-bdf0" value="0"/>
+            <cost name="Crusade: Experience" typeId="a623-fe74-1d33-cddf" value="0"/>
+            <cost name="Crusade: Weapon Modifications" typeId="716d-91b7-d55a-1022" value="0"/>
+            <cost name="Blackstone Fragments" typeId="ac6b-ced3-9b5e-9a6e" value="0"/>
+            <cost name="Space Hulk: Requisition" typeId="ba9c-608d-dedc-1ee0" value="1"/>
+          </costs>
+          <profiles>
+            <profile name="Tactical Movement" typeId="9cc3-6d83-4dd3-9b64" typeName="Abilities" hidden="false" id="3e5e-cc1d-fafd-d67c">
+              <characteristics>
+                <characteristic name="Description" typeId="9b8f-694b-e5e-b573">After this model and bodyguard finishes its shooting attacks it may make a 6 inch normal move.</characteristic>
+              </characteristics>
+              <comment>Space Hulk content</comment>
+            </profile>
+          </profiles>
+          <constraints>
+            <constraint type="max" value="1" field="selections" scope="roster" shared="true" id="432f-7d56-6bd9-32b9" includeChildSelections="true" includeChildForces="true"/>
+          </constraints>
+          <modifiers>
+            <modifier type="set" value="true" field="hidden">
+              <conditions>
+                <condition type="notEqualTo" value="1" field="selections" scope="parent" childId="8433-8bd7-5bbe-c117" shared="true"/>
+              </conditions>
+            </modifier>
+          </modifiers>
+        </selectionEntry>
+        <selectionEntry type="upgrade" import="true" name="Swiftfoot Boots" hidden="false" id="574b-0e61-a724-c1cd">
+          <comment>Space Hulk content</comment>
+          <costs>
+            <cost name="pts" typeId="51b2-306e-1021-d207" value="0"/>
+            <cost name="Crusade Points" typeId="b03b-c239-15a5-da55" value="0"/>
+            <cost name="Crusade: Battle Honours" typeId="75bb-ded1-c86d-bdf0" value="0"/>
+            <cost name="Crusade: Experience" typeId="a623-fe74-1d33-cddf" value="0"/>
+            <cost name="Crusade: Weapon Modifications" typeId="716d-91b7-d55a-1022" value="0"/>
+            <cost name="Blackstone Fragments" typeId="ac6b-ced3-9b5e-9a6e" value="0"/>
+            <cost name="Space Hulk: Requisition" typeId="ba9c-608d-dedc-1ee0" value="1"/>
+          </costs>
+          <profiles>
+            <profile name="Swiftfoot Boots" typeId="9cc3-6d83-4dd3-9b64" typeName="Abilities" hidden="false" id="725b-fccc-7632-ff8c">
+              <characteristics>
+                <characteristic name="Description" typeId="9b8f-694b-e5e-b573">If this model makes an advance move, it can automatically advance up to 6 inches. In addition, if the unit makes an advance move it gains stealth.</characteristic>
+              </characteristics>
+              <comment>Space Hulk content</comment>
+            </profile>
+          </profiles>
+          <constraints>
+            <constraint type="max" value="1" field="selections" scope="roster" shared="true" id="47e5-2e55-6f0d-99e8" includeChildSelections="true" includeChildForces="true"/>
+          </constraints>
+          <modifiers>
+            <modifier type="set" value="true" field="hidden">
+              <conditions>
+                <condition type="notEqualTo" value="1" field="selections" scope="parent" childId="8433-8bd7-5bbe-c117" shared="true"/>
+              </conditions>
+            </modifier>
+          </modifiers>
+        </selectionEntry>
+        <selectionEntry type="upgrade" import="true" name="Relentless" hidden="false" id="78fb-01de-8dda-87f1">
+          <comment>Space Hulk content</comment>
+          <costs>
+            <cost name="pts" typeId="51b2-306e-1021-d207" value="0"/>
+            <cost name="Crusade Points" typeId="b03b-c239-15a5-da55" value="0"/>
+            <cost name="Crusade: Battle Honours" typeId="75bb-ded1-c86d-bdf0" value="0"/>
+            <cost name="Crusade: Experience" typeId="a623-fe74-1d33-cddf" value="0"/>
+            <cost name="Crusade: Weapon Modifications" typeId="716d-91b7-d55a-1022" value="0"/>
+            <cost name="Blackstone Fragments" typeId="ac6b-ced3-9b5e-9a6e" value="0"/>
+            <cost name="Space Hulk: Requisition" typeId="ba9c-608d-dedc-1ee0" value="1"/>
+          </costs>
+          <profiles>
+            <profile name="Relentless" typeId="9cc3-6d83-4dd3-9b64" typeName="Abilities" hidden="false" id="5994-2a34-37c6-1158">
+              <characteristics>
+                <characteristic name="Description" typeId="9b8f-694b-e5e-b573">This unit can advance and shoot, fall back and shoot, and make a charge move on a turn that it made a fall back move.</characteristic>
+              </characteristics>
+              <comment>Space Hulk content</comment>
+            </profile>
+          </profiles>
+          <constraints>
+            <constraint type="max" value="1" field="selections" scope="roster" shared="true" id="b838-275a-691b-8f03" includeChildSelections="true" includeChildForces="true"/>
+          </constraints>
+          <modifiers>
+            <modifier type="set" value="true" field="hidden">
+              <conditions>
+                <condition type="notEqualTo" value="1" field="selections" scope="parent" childId="8433-8bd7-5bbe-c117" shared="true"/>
+              </conditions>
+            </modifier>
+          </modifiers>
+        </selectionEntry>
+        <selectionEntry type="upgrade" import="true" name="Tactical Commander" hidden="false" id="8e2b-cbbf-d269-edd8" page="">
+          <costs>
+            <cost name="pts" typeId="51b2-306e-1021-d207" value="0"/>
+            <cost name="Crusade Points" typeId="b03b-c239-15a5-da55" value="0"/>
+            <cost name="Crusade: Battle Honours" typeId="75bb-ded1-c86d-bdf0" value="0"/>
+            <cost name="Crusade: Experience" typeId="a623-fe74-1d33-cddf" value="0"/>
+            <cost name="Crusade: Weapon Modifications" typeId="716d-91b7-d55a-1022" value="0"/>
+            <cost name="Blackstone Fragments" typeId="ac6b-ced3-9b5e-9a6e" value="0"/>
+            <cost name="Space Hulk: Requisition" typeId="ba9c-608d-dedc-1ee0" value="1"/>
+          </costs>
+          <profiles>
+            <profile name="Tactical Commander" typeId="9cc3-6d83-4dd3-9b64" typeName="Abilities" hidden="false" id="6c18-2df0-92f4-2ae3">
+              <characteristics>
+                <characteristic name="Description" typeId="9b8f-694b-e5e-b573">At the start of each battle round gain an additional 1 CP. This does not count towards the total bonus CP gained.</characteristic>
+              </characteristics>
+              <comment>Space Hulk content</comment>
+            </profile>
+          </profiles>
+          <comment>Space Hulk content</comment>
+          <constraints>
+            <constraint type="max" value="1" field="selections" scope="roster" shared="true" id="3245-731e-7d1e-63fc" includeChildSelections="true" includeChildForces="true"/>
+          </constraints>
+          <modifiers>
+            <modifier type="set" value="true" field="hidden">
+              <conditions>
+                <condition type="notEqualTo" value="1" field="selections" scope="parent" childId="afa2-74a0-9359-34bc" shared="true"/>
+              </conditions>
+            </modifier>
+          </modifiers>
+        </selectionEntry>
+        <selectionEntry type="upgrade" import="true" name="Selected Shielding" hidden="false" id="0442-5b18-4d77-d33b" page="">
+          <costs>
+            <cost name="pts" typeId="51b2-306e-1021-d207" value="0"/>
+            <cost name="Crusade Points" typeId="b03b-c239-15a5-da55" value="0"/>
+            <cost name="Crusade: Battle Honours" typeId="75bb-ded1-c86d-bdf0" value="0"/>
+            <cost name="Crusade: Experience" typeId="a623-fe74-1d33-cddf" value="0"/>
+            <cost name="Crusade: Weapon Modifications" typeId="716d-91b7-d55a-1022" value="0"/>
+            <cost name="Blackstone Fragments" typeId="ac6b-ced3-9b5e-9a6e" value="0"/>
+            <cost name="Space Hulk: Requisition" typeId="ba9c-608d-dedc-1ee0" value="1"/>
+          </costs>
+          <profiles>
+            <profile name="Selected Shielding" typeId="9cc3-6d83-4dd3-9b64" typeName="Abilities" hidden="false" id="857f-c27b-47d8-bf0d">
+              <characteristics>
+                <characteristic name="Description" typeId="9b8f-694b-e5e-b573">Once per game at the start of any phase select any non character model on the battlefield, friendly or unfriendly. That model gains a 2+ invulnerable save for that phase.</characteristic>
+              </characteristics>
+              <comment>Space Hulk content</comment>
+            </profile>
+          </profiles>
+          <comment>Space Hulk content</comment>
+          <constraints>
+            <constraint type="max" value="1" field="selections" scope="roster" shared="true" id="0af6-5c95-ccac-7065" includeChildSelections="true" includeChildForces="true"/>
+          </constraints>
+          <modifiers>
+            <modifier type="set" value="true" field="hidden">
+              <conditions>
+                <condition type="notEqualTo" value="1" field="selections" scope="parent" childId="afa2-74a0-9359-34bc" shared="true"/>
+              </conditions>
+            </modifier>
+          </modifiers>
+        </selectionEntry>
+        <selectionEntry type="upgrade" import="true" name="Eliminate the Target" hidden="false" id="18c8-2f1b-e9a0-2a67" page="">
+          <costs>
+            <cost name="pts" typeId="51b2-306e-1021-d207" value="0"/>
+            <cost name="Crusade Points" typeId="b03b-c239-15a5-da55" value="0"/>
+            <cost name="Crusade: Battle Honours" typeId="75bb-ded1-c86d-bdf0" value="0"/>
+            <cost name="Crusade: Experience" typeId="a623-fe74-1d33-cddf" value="0"/>
+            <cost name="Crusade: Weapon Modifications" typeId="716d-91b7-d55a-1022" value="0"/>
+            <cost name="Blackstone Fragments" typeId="ac6b-ced3-9b5e-9a6e" value="0"/>
+            <cost name="Space Hulk: Requisition" typeId="ba9c-608d-dedc-1ee0" value="1"/>
+          </costs>
+          <profiles>
+            <profile name="Eliminate the Target" typeId="9cc3-6d83-4dd3-9b64" typeName="Abilities" hidden="false" id="cd6b-5dbc-8f8b-b4c5">
+              <characteristics>
+                <characteristic name="Description" typeId="9b8f-694b-e5e-b573">Select one enemy unit at the start of the battle round. For the duration of that battle round all models in your army that make melee or ranged attacks against the unit can reroll the hit roll.</characteristic>
+              </characteristics>
+              <comment>Space Hulk content</comment>
+            </profile>
+          </profiles>
+          <comment>Space Hulk content</comment>
+          <constraints>
+            <constraint type="max" value="1" field="selections" scope="roster" shared="true" id="1600-d1cd-9cc7-e66d" includeChildSelections="true" includeChildForces="true"/>
+          </constraints>
+          <modifiers>
+            <modifier type="set" value="true" field="hidden">
+              <conditions>
+                <condition type="notEqualTo" value="1" field="selections" scope="parent" childId="afa2-74a0-9359-34bc" shared="true"/>
+              </conditions>
+            </modifier>
+          </modifiers>
+        </selectionEntry>
+        <selectionEntry type="upgrade" import="true" name="Crusher" hidden="false" id="9275-2e76-8dec-176b" page="">
+          <costs>
+            <cost name="pts" typeId="51b2-306e-1021-d207" value="0"/>
+            <cost name="Crusade Points" typeId="b03b-c239-15a5-da55" value="0"/>
+            <cost name="Crusade: Battle Honours" typeId="75bb-ded1-c86d-bdf0" value="0"/>
+            <cost name="Crusade: Experience" typeId="a623-fe74-1d33-cddf" value="0"/>
+            <cost name="Crusade: Weapon Modifications" typeId="716d-91b7-d55a-1022" value="0"/>
+            <cost name="Blackstone Fragments" typeId="ac6b-ced3-9b5e-9a6e" value="0"/>
+            <cost name="Space Hulk: Requisition" typeId="ba9c-608d-dedc-1ee0" value="1"/>
+          </costs>
+          <profiles>
+            <profile name="Crusher" typeId="9cc3-6d83-4dd3-9b64" typeName="Abilities" hidden="false" id="3cb9-a35a-5f42-a3e2">
+              <characteristics>
+                <characteristic name="Description" typeId="9b8f-694b-e5e-b573">Add 1 to the number of melee attacks this model makes if its melee weapon is strength 8. Add 1 more additional attack per strength exceeding 8 (i.e a str 10 attack would add +3 attacks).</characteristic>
+              </characteristics>
+              <comment>Space Hulk content</comment>
+            </profile>
+          </profiles>
+          <comment>Space Hulk content</comment>
+          <constraints>
+            <constraint type="max" value="1" field="selections" scope="roster" shared="true" id="de8e-b2eb-7dc3-ec89" includeChildSelections="true" includeChildForces="true"/>
+          </constraints>
+          <modifiers>
+            <modifier type="set" value="true" field="hidden">
+              <conditions>
+                <condition type="notEqualTo" value="1" field="selections" scope="parent" childId="1154-ae09-f0a3-4bb3" shared="true"/>
+              </conditions>
+            </modifier>
+          </modifiers>
+        </selectionEntry>
+        <selectionEntry type="upgrade" import="true" name="Ramming Charge" hidden="false" id="cd26-9102-95fd-68d1" page="">
+          <costs>
+            <cost name="pts" typeId="51b2-306e-1021-d207" value="0"/>
+            <cost name="Crusade Points" typeId="b03b-c239-15a5-da55" value="0"/>
+            <cost name="Crusade: Battle Honours" typeId="75bb-ded1-c86d-bdf0" value="0"/>
+            <cost name="Crusade: Experience" typeId="a623-fe74-1d33-cddf" value="0"/>
+            <cost name="Crusade: Weapon Modifications" typeId="716d-91b7-d55a-1022" value="0"/>
+            <cost name="Blackstone Fragments" typeId="ac6b-ced3-9b5e-9a6e" value="0"/>
+            <cost name="Space Hulk: Requisition" typeId="ba9c-608d-dedc-1ee0" value="1"/>
+          </costs>
+          <profiles>
+            <profile name="Ramming Charge" typeId="9cc3-6d83-4dd3-9b64" typeName="Abilities" hidden="false" id="5039-e17b-0c3e-1ff6">
+              <characteristics>
+                <characteristic name="Description" typeId="9b8f-694b-e5e-b573">When making a charge move you may automatically replace 1 dice with a value of 6 prior to the roll. If the charge roll was a success, choose one unit within engagement range and roll a d6 for each model in the unit. Each 5+ deals 1 mortal wound.</characteristic>
+              </characteristics>
+              <comment>Space Hulk content</comment>
+            </profile>
+          </profiles>
+          <comment>Space Hulk content</comment>
+          <constraints>
+            <constraint type="max" value="1" field="selections" scope="roster" shared="true" id="47a9-630e-1a88-d580" includeChildSelections="true" includeChildForces="true"/>
+          </constraints>
+          <modifiers>
+            <modifier type="set" value="true" field="hidden">
+              <conditions>
+                <condition type="notEqualTo" value="1" field="selections" scope="parent" childId="1154-ae09-f0a3-4bb3" shared="true"/>
+              </conditions>
+            </modifier>
+          </modifiers>
+        </selectionEntry>
+        <selectionEntry type="upgrade" import="true" name="Berserking" hidden="false" id="761a-b272-6e40-2817" page="">
+          <costs>
+            <cost name="pts" typeId="51b2-306e-1021-d207" value="0"/>
+            <cost name="Crusade Points" typeId="b03b-c239-15a5-da55" value="0"/>
+            <cost name="Crusade: Battle Honours" typeId="75bb-ded1-c86d-bdf0" value="0"/>
+            <cost name="Crusade: Experience" typeId="a623-fe74-1d33-cddf" value="0"/>
+            <cost name="Crusade: Weapon Modifications" typeId="716d-91b7-d55a-1022" value="0"/>
+            <cost name="Blackstone Fragments" typeId="ac6b-ced3-9b5e-9a6e" value="0"/>
+            <cost name="Space Hulk: Requisition" typeId="ba9c-608d-dedc-1ee0" value="1"/>
+          </costs>
+          <profiles>
+            <profile name="Berserking" typeId="9cc3-6d83-4dd3-9b64" typeName="Abilities" hidden="false" id="21a1-c92c-c34f-3ead">
+              <characteristics>
+                <characteristic name="Description" typeId="9b8f-694b-e5e-b573">This model gains a Feel No Pain characteristic equivalent to the wounds it has remaining to a maximum of 2+
+I.e (if this model has 3 wounds remaining, it has a 3+fnp.)</characteristic>
+              </characteristics>
+              <comment>Space Hulk content</comment>
+            </profile>
+          </profiles>
+          <comment>Space Hulk content</comment>
+          <constraints>
+            <constraint type="max" value="1" field="selections" scope="roster" shared="true" id="a396-a877-4308-fc6c" includeChildSelections="true" includeChildForces="true"/>
+          </constraints>
+          <modifiers>
+            <modifier type="set" value="true" field="hidden">
+              <conditions>
+                <condition type="notEqualTo" value="1" field="selections" scope="parent" childId="1154-ae09-f0a3-4bb3" shared="true"/>
+              </conditions>
+            </modifier>
+          </modifiers>
+        </selectionEntry>
+        <selectionEntry type="upgrade" import="true" name="Overkill " hidden="false" id="eebc-9ae6-5352-ae70" page="">
+          <costs>
+            <cost name="pts" typeId="51b2-306e-1021-d207" value="0"/>
+            <cost name="Crusade Points" typeId="b03b-c239-15a5-da55" value="0"/>
+            <cost name="Crusade: Battle Honours" typeId="75bb-ded1-c86d-bdf0" value="0"/>
+            <cost name="Crusade: Experience" typeId="a623-fe74-1d33-cddf" value="0"/>
+            <cost name="Crusade: Weapon Modifications" typeId="716d-91b7-d55a-1022" value="0"/>
+            <cost name="Blackstone Fragments" typeId="ac6b-ced3-9b5e-9a6e" value="0"/>
+            <cost name="Space Hulk: Requisition" typeId="ba9c-608d-dedc-1ee0" value="1"/>
+          </costs>
+          <profiles>
+            <profile name="Overkill " typeId="9cc3-6d83-4dd3-9b64" typeName="Abilities" hidden="false" id="6633-bab7-0991-b7c2">
+              <characteristics>
+                <characteristic name="Description" typeId="9b8f-694b-e5e-b573">Ranged attacks deal 1 additional damage per strength above the toughness characteristic of the enemy model. (I.e a ranged attack at strength 7 against toughness 4 would add +3 damage.) Does not work with Torrent or Blast weapons.</characteristic>
+              </characteristics>
+              <comment>Space Hulk content</comment>
+            </profile>
+          </profiles>
+          <comment>Space Hulk content</comment>
+          <constraints>
+            <constraint type="max" value="1" field="selections" scope="roster" shared="true" id="f8f2-e041-fd9f-d658" includeChildSelections="true" includeChildForces="true"/>
+          </constraints>
+          <modifiers>
+            <modifier type="set" value="true" field="hidden">
+              <conditions>
+                <condition type="notEqualTo" value="1" field="selections" scope="parent" childId="6ed5-24cf-6e62-1d5d" shared="true"/>
+              </conditions>
+            </modifier>
+          </modifiers>
+        </selectionEntry>
+        <selectionEntry type="upgrade" import="true" name="Targeting Lense" hidden="false" id="0bd9-9c7c-8f62-3d54" page="">
+          <costs>
+            <cost name="pts" typeId="51b2-306e-1021-d207" value="0"/>
+            <cost name="Crusade Points" typeId="b03b-c239-15a5-da55" value="0"/>
+            <cost name="Crusade: Battle Honours" typeId="75bb-ded1-c86d-bdf0" value="0"/>
+            <cost name="Crusade: Experience" typeId="a623-fe74-1d33-cddf" value="0"/>
+            <cost name="Crusade: Weapon Modifications" typeId="716d-91b7-d55a-1022" value="0"/>
+            <cost name="Blackstone Fragments" typeId="ac6b-ced3-9b5e-9a6e" value="0"/>
+            <cost name="Space Hulk: Requisition" typeId="ba9c-608d-dedc-1ee0" value="1"/>
+          </costs>
+          <profiles>
+            <profile name="Targeting Lense" typeId="9cc3-6d83-4dd3-9b64" typeName="Abilities" hidden="false" id="ef87-4fca-16e0-f915">
+              <characteristics>
+                <characteristic name="Description" typeId="9b8f-694b-e5e-b573">This model can split any number of ranged attacks it makes instead of splitting fire per weapon. All targets must be declared before attacks are made.</characteristic>
+              </characteristics>
+              <comment>Space Hulk content</comment>
+            </profile>
+          </profiles>
+          <comment>Space Hulk content</comment>
+          <constraints>
+            <constraint type="max" value="1" field="selections" scope="roster" shared="true" id="48df-dee4-d5a5-d5bd" includeChildSelections="true" includeChildForces="true"/>
+          </constraints>
+          <modifiers>
+            <modifier type="set" value="true" field="hidden">
+              <conditions>
+                <condition type="notEqualTo" value="1" field="selections" scope="parent" childId="6ed5-24cf-6e62-1d5d" shared="true"/>
+              </conditions>
+            </modifier>
+          </modifiers>
+        </selectionEntry>
+        <selectionEntry type="upgrade" import="true" name="Hair Trigger Discipline" hidden="false" id="4247-faf7-43ec-f1ce" page="">
+          <costs>
+            <cost name="pts" typeId="51b2-306e-1021-d207" value="0"/>
+            <cost name="Crusade Points" typeId="b03b-c239-15a5-da55" value="0"/>
+            <cost name="Crusade: Battle Honours" typeId="75bb-ded1-c86d-bdf0" value="0"/>
+            <cost name="Crusade: Experience" typeId="a623-fe74-1d33-cddf" value="0"/>
+            <cost name="Crusade: Weapon Modifications" typeId="716d-91b7-d55a-1022" value="0"/>
+            <cost name="Blackstone Fragments" typeId="ac6b-ced3-9b5e-9a6e" value="0"/>
+            <cost name="Space Hulk: Requisition" typeId="ba9c-608d-dedc-1ee0" value="1"/>
+          </costs>
+          <profiles>
+            <profile name="Hair Trigger Discipline" typeId="9cc3-6d83-4dd3-9b64" typeName="Abilities" hidden="false" id="5483-e24b-8e22-b643">
+              <characteristics>
+                <characteristic name="Description" typeId="9b8f-694b-e5e-b573">This model&apos;s ranged weapons within a range of 30 inches and below gain the keyword Sustained Hits 2 and Critical Hit range is now 5+.</characteristic>
+              </characteristics>
+              <comment>Space Hulk content</comment>
+            </profile>
+          </profiles>
+          <comment>Space Hulk content</comment>
+          <constraints>
+            <constraint type="max" value="1" field="selections" scope="roster" shared="true" id="42a8-698d-f60d-109c" includeChildSelections="true" includeChildForces="true"/>
+          </constraints>
+          <modifiers>
+            <modifier type="set" value="true" field="hidden">
+              <conditions>
+                <condition type="notEqualTo" value="1" field="selections" scope="parent" childId="6ed5-24cf-6e62-1d5d" shared="true"/>
+              </conditions>
+            </modifier>
+          </modifiers>
+        </selectionEntry>
+        <selectionEntry type="upgrade" import="true" name="Shifting Skin" hidden="false" id="8ef9-025a-df68-4426" page="">
+          <costs>
+            <cost name="pts" typeId="51b2-306e-1021-d207" value="0"/>
+            <cost name="Crusade Points" typeId="b03b-c239-15a5-da55" value="0"/>
+            <cost name="Crusade: Battle Honours" typeId="75bb-ded1-c86d-bdf0" value="0"/>
+            <cost name="Crusade: Experience" typeId="a623-fe74-1d33-cddf" value="0"/>
+            <cost name="Crusade: Weapon Modifications" typeId="716d-91b7-d55a-1022" value="0"/>
+            <cost name="Blackstone Fragments" typeId="ac6b-ced3-9b5e-9a6e" value="0"/>
+            <cost name="Space Hulk: Requisition" typeId="ba9c-608d-dedc-1ee0" value="1"/>
+          </costs>
+          <profiles>
+            <profile name="Shifting Skin" typeId="9cc3-6d83-4dd3-9b64" typeName="Abilities" hidden="false" id="7fa3-6bee-e8c4-c3a0">
+              <characteristics>
+                <characteristic name="Description" typeId="9b8f-694b-e5e-b573">This model gains a 4+ Feel No Pain</characteristic>
+              </characteristics>
+              <comment>Space Hulk content</comment>
+            </profile>
+          </profiles>
+          <comment>Space Hulk content</comment>
+          <constraints>
+            <constraint type="max" value="1" field="selections" scope="roster" shared="true" id="8dc7-97f9-e31d-bf67" includeChildSelections="true" includeChildForces="true"/>
+          </constraints>
+          <modifiers>
+            <modifier type="set" value="true" field="hidden">
+              <conditions>
+                <condition type="notEqualTo" value="1" field="selections" scope="parent" childId="d229-98f0-cff6-c1d5" shared="true"/>
+              </conditions>
+            </modifier>
+          </modifiers>
+        </selectionEntry>
+        <selectionEntry type="upgrade" import="true" name="Unwavering Resolve" hidden="false" id="03d8-b10e-c181-2362" page="">
+          <costs>
+            <cost name="pts" typeId="51b2-306e-1021-d207" value="0"/>
+            <cost name="Crusade Points" typeId="b03b-c239-15a5-da55" value="0"/>
+            <cost name="Crusade: Battle Honours" typeId="75bb-ded1-c86d-bdf0" value="0"/>
+            <cost name="Crusade: Experience" typeId="a623-fe74-1d33-cddf" value="0"/>
+            <cost name="Crusade: Weapon Modifications" typeId="716d-91b7-d55a-1022" value="0"/>
+            <cost name="Blackstone Fragments" typeId="ac6b-ced3-9b5e-9a6e" value="0"/>
+            <cost name="Space Hulk: Requisition" typeId="ba9c-608d-dedc-1ee0" value="1"/>
+          </costs>
+          <profiles>
+            <profile name="Unwavering Resolve" typeId="9cc3-6d83-4dd3-9b64" typeName="Abilities" hidden="false" id="2b9d-fd38-208c-0ac9">
+              <characteristics>
+                <characteristic name="Description" typeId="9b8f-694b-e5e-b573">Add 2 to the Toughness characteristic for this model. In addition, for every wound this model has lost, gain +1 additional toughness.</characteristic>
+              </characteristics>
+              <comment>Space Hulk content</comment>
+            </profile>
+          </profiles>
+          <comment>Space Hulk content</comment>
+          <constraints>
+            <constraint type="max" value="1" field="selections" scope="roster" shared="true" id="7047-6f6f-ea6e-62ec" includeChildSelections="true" includeChildForces="true"/>
+          </constraints>
+          <modifiers>
+            <modifier type="set" value="true" field="hidden">
+              <conditions>
+                <condition type="notEqualTo" value="1" field="selections" scope="parent" childId="d229-98f0-cff6-c1d5" shared="true"/>
+              </conditions>
+            </modifier>
+          </modifiers>
+        </selectionEntry>
+        <selectionEntry type="upgrade" import="true" name="Reflective Armor" hidden="false" id="892b-6c78-f0bc-a597" page="">
+          <costs>
+            <cost name="pts" typeId="51b2-306e-1021-d207" value="0"/>
+            <cost name="Crusade Points" typeId="b03b-c239-15a5-da55" value="0"/>
+            <cost name="Crusade: Battle Honours" typeId="75bb-ded1-c86d-bdf0" value="0"/>
+            <cost name="Crusade: Experience" typeId="a623-fe74-1d33-cddf" value="0"/>
+            <cost name="Crusade: Weapon Modifications" typeId="716d-91b7-d55a-1022" value="0"/>
+            <cost name="Blackstone Fragments" typeId="ac6b-ced3-9b5e-9a6e" value="0"/>
+            <cost name="Space Hulk: Requisition" typeId="ba9c-608d-dedc-1ee0" value="1"/>
+          </costs>
+          <profiles>
+            <profile name="Reflective Armor" typeId="9cc3-6d83-4dd3-9b64" typeName="Abilities" hidden="false" id="c6b7-916f-0d23-8e09">
+              <characteristics>
+                <characteristic name="Description" typeId="9b8f-694b-e5e-b573">Whenever a melee attack is made against the bearer, if that attack failed to hit, set those attacks aside.</characteristic>
+              </characteristics>
+              <comment>Space Hulk content</comment>
+            </profile>
+          </profiles>
+          <comment>Space Hulk content</comment>
+          <constraints>
+            <constraint type="max" value="1" field="selections" scope="roster" shared="true" id="230d-c661-810f-13bc" includeChildSelections="true" includeChildForces="true"/>
+          </constraints>
+          <modifiers>
+            <modifier type="set" value="true" field="hidden">
+              <conditions>
+                <condition type="notEqualTo" value="1" field="selections" scope="parent" childId="d229-98f0-cff6-c1d5" shared="true"/>
+              </conditions>
+            </modifier>
+          </modifiers>
+        </selectionEntry>
+      </selectionEntries>
+      <constraints>
+        <constraint type="max" value="1" field="selections" scope="self" shared="true" id="07b3-8f91-ff24-8d46" includeChildSelections="true"/>
+      </constraints>
+    </selectionEntryGroup>
+    <selectionEntryGroup name="Expertise Wargear" id="f80f-ffe2-668b-6fa1" hidden="false" collapsible="true">
+      <selectionEntryGroups>
+        <selectionEntryGroup name="Ranged Weapons" id="1e42-de7c-dd88-6a0e" hidden="false">
+          <constraints>
+            <constraint type="max" value="1" field="selections" scope="self" shared="true" id="66ce-1667-0267-aacd" includeChildSelections="true"/>
+          </constraints>
+          <selectionEntries>
+            <selectionEntry type="upgrade" import="true" name="The Dispatcher" hidden="false" id="c623-59ad-c898-019c" collective="false">
+              <profiles>
+                <profile name="The Dispatcher" typeId="f77d-b953-8fa4-b762" typeName="Ranged Weapons" hidden="false" id="bec6-d430-c6a8-ec4d">
+                  <characteristics>
+                    <characteristic name="Range" typeId="9896-9419-16a1-92fc">8&quot;</characteristic>
+                    <characteristic name="A" typeId="3bb-c35f-f54-fb08">3</characteristic>
+                    <characteristic name="BS" typeId="94d-8a98-cf90-183e">2+</characteristic>
+                    <characteristic name="S" typeId="2229-f494-25db-c5d3">9</characteristic>
+                    <characteristic name="AP" typeId="9ead-8a10-520-de15">-2</characteristic>
+                    <characteristic name="D" typeId="a354-c1c8-a745-f9e3">D3</characteristic>
+                    <characteristic name="Keywords" typeId="7f1b-8591-2fcf-d01c">Assault</characteristic>
+                  </characteristics>
+                  <comment>Space Hulk content</comment>
+                  <alias>The Dispatcher</alias>
+                </profile>
+              </profiles>
+              <costs>
+                <cost name="pts" typeId="51b2-306e-1021-d207" value="0"/>
+                <cost name="Crusade Points" typeId="b03b-c239-15a5-da55" value="0"/>
+                <cost name="Crusade: Battle Honours" typeId="75bb-ded1-c86d-bdf0" value="0"/>
+                <cost name="Crusade: Experience" typeId="a623-fe74-1d33-cddf" value="0"/>
+                <cost name="Crusade: Weapon Modifications" typeId="716d-91b7-d55a-1022" value="0"/>
+                <cost name="Blackstone Fragments" typeId="ac6b-ced3-9b5e-9a6e" value="0"/>
+                <cost name="Space Hulk: Requisition" typeId="ba9c-608d-dedc-1ee0" value="1"/>
+              </costs>
+              <infoLinks>
+                <infoLink name="Assault" id="0220-5a55-5579-6e79" hidden="false" type="rule" targetId="fc8a-8c24-bae9-cc1c"/>
+              </infoLinks>
+              <categoryLinks>
+                <categoryLink name="Ranged Weapon" hidden="false" id="3f52-aa4f-bdb1-012a" targetId="eeda-8544-a2f3-3fab" primary="false"/>
+              </categoryLinks>
+              <comment>Space Hulk content</comment>
+              <modifiers>
+                <modifier type="set" value="true" field="hidden">
+                  <conditions>
+                    <condition type="notEqualTo" value="1" field="selections" scope="parent" childId="9406-f824-ab3c-19fb" shared="true"/>
+                  </conditions>
+                </modifier>
+              </modifiers>
+            </selectionEntry>
+            <selectionEntry type="upgrade" import="true" name="Assassin&apos;s Gambit" hidden="false" id="a340-5804-0e9d-7b66" collective="false">
+              <profiles>
+                <profile name="Assassin&apos;s Gambit" typeId="f77d-b953-8fa4-b762" typeName="Ranged Weapons" hidden="false" id="a7d1-f755-b235-1335">
+                  <characteristics>
+                    <characteristic name="Range" typeId="9896-9419-16a1-92fc">24&quot;</characteristic>
+                    <characteristic name="A" typeId="3bb-c35f-f54-fb08">6</characteristic>
+                    <characteristic name="BS" typeId="94d-8a98-cf90-183e">3+</characteristic>
+                    <characteristic name="S" typeId="2229-f494-25db-c5d3">6</characteristic>
+                    <characteristic name="AP" typeId="9ead-8a10-520-de15">-3</characteristic>
+                    <characteristic name="D" typeId="a354-c1c8-a745-f9e3">3</characteristic>
+                    <characteristic name="Keywords" typeId="7f1b-8591-2fcf-d01c">Rapid Fire 2</characteristic>
+                  </characteristics>
+                  <comment>Space Hulk content</comment>
+                  <alias> Assassin&apos;s Gambit</alias>
+                </profile>
+                <profile name="The Assassin&apos;s Gambit" typeId="9cc3-6d83-4dd3-9b64" typeName="Abilities" hidden="false" id="f7a2-2c77-54a7-cc5d">
+                  <characteristics>
+                    <characteristic name="Description" typeId="9b8f-694b-e5e-b573">If this model is within half range, Assassin&apos;s Gambit gains Precision.
+If this model is wholly within a terrain feature, attacks made with Assassin&apos;s Gambit can reroll the hit roll.
+If this model is within half range, add +1 to the wound roll for attacks made with Assassin&apos;s Gambit.
+If this model is benefitting from the plunging fire rule, attacks made with Assassin&apos;s Gambit it can ignore invulnerable saves.</characteristic>
+                  </characteristics>
+                  <comment>Space Hulk content</comment>
+                </profile>
+              </profiles>
+              <costs>
+                <cost name="pts" typeId="51b2-306e-1021-d207" value="0"/>
+                <cost name="Crusade Points" typeId="b03b-c239-15a5-da55" value="0"/>
+                <cost name="Crusade: Battle Honours" typeId="75bb-ded1-c86d-bdf0" value="0"/>
+                <cost name="Crusade: Experience" typeId="a623-fe74-1d33-cddf" value="0"/>
+                <cost name="Crusade: Weapon Modifications" typeId="716d-91b7-d55a-1022" value="0"/>
+                <cost name="Blackstone Fragments" typeId="ac6b-ced3-9b5e-9a6e" value="0"/>
+                <cost name="Space Hulk: Requisition" typeId="ba9c-608d-dedc-1ee0" value="1"/>
+              </costs>
+              <infoLinks>
+                <infoLink name="Rapid Fire" id="6e80-bf34-2576-62e7" hidden="false" type="rule" targetId="c5c8-8b58-b8b6-7786"/>
+              </infoLinks>
+              <categoryLinks>
+                <categoryLink name="Ranged Weapon" hidden="false" id="7fba-e8be-ddc9-32fd" targetId="eeda-8544-a2f3-3fab" primary="false"/>
+              </categoryLinks>
+              <comment>Space Hulk content</comment>
+              <modifiers>
+                <modifier type="set" value="true" field="hidden">
+                  <conditions>
+                    <condition type="notEqualTo" value="1" field="selections" scope="parent" childId="9406-f824-ab3c-19fb" shared="true"/>
+                  </conditions>
+                </modifier>
+              </modifiers>
+            </selectionEntry>
+            <selectionEntry type="upgrade" import="true" name="Short Spray SMG" hidden="false" id="83b0-08dc-ba0d-6488" collective="false">
+              <profiles>
+                <profile name="Short Spray SMG" typeId="f77d-b953-8fa4-b762" typeName="Ranged Weapons" hidden="false" id="3ff2-7663-79e5-5fd7">
+                  <characteristics>
+                    <characteristic name="Range" typeId="9896-9419-16a1-92fc">12&quot;</characteristic>
+                    <characteristic name="A" typeId="3bb-c35f-f54-fb08">2</characteristic>
+                    <characteristic name="BS" typeId="94d-8a98-cf90-183e">3+</characteristic>
+                    <characteristic name="S" typeId="2229-f494-25db-c5d3">5</characteristic>
+                    <characteristic name="AP" typeId="9ead-8a10-520-de15">-2</characteristic>
+                    <characteristic name="D" typeId="a354-c1c8-a745-f9e3">1</characteristic>
+                    <characteristic name="Keywords" typeId="7f1b-8591-2fcf-d01c">Assault, Rapid Fire 6</characteristic>
+                  </characteristics>
+                  <comment>Space Hulk content</comment>
+                  <alias>Short Spray SMG</alias>
+                </profile>
+              </profiles>
+              <costs>
+                <cost name="pts" typeId="51b2-306e-1021-d207" value="0"/>
+                <cost name="Crusade Points" typeId="b03b-c239-15a5-da55" value="0"/>
+                <cost name="Crusade: Battle Honours" typeId="75bb-ded1-c86d-bdf0" value="0"/>
+                <cost name="Crusade: Experience" typeId="a623-fe74-1d33-cddf" value="0"/>
+                <cost name="Crusade: Weapon Modifications" typeId="716d-91b7-d55a-1022" value="0"/>
+                <cost name="Blackstone Fragments" typeId="ac6b-ced3-9b5e-9a6e" value="0"/>
+                <cost name="Space Hulk: Requisition" typeId="ba9c-608d-dedc-1ee0" value="1"/>
+              </costs>
+              <infoLinks>
+                <infoLink name="Assault" id="0690-c6bf-6bac-39e6" hidden="false" type="rule" targetId="fc8a-8c24-bae9-cc1c"/>
+                <infoLink name="Rapid Fire" id="02a6-c68e-52f7-323f" hidden="false" type="rule" targetId="c5c8-8b58-b8b6-7786"/>
+              </infoLinks>
+              <categoryLinks>
+                <categoryLink name="Ranged Weapon" hidden="false" id="d71e-0bc3-8dbb-7ca1" targetId="eeda-8544-a2f3-3fab" primary="false"/>
+              </categoryLinks>
+              <comment>Space Hulk content</comment>
+              <modifiers>
+                <modifier type="set" value="true" field="hidden">
+                  <conditions>
+                    <condition type="notEqualTo" value="1" field="selections" scope="parent" childId="8433-8bd7-5bbe-c117" shared="true"/>
+                  </conditions>
+                </modifier>
+              </modifiers>
+            </selectionEntry>
+            <selectionEntry type="upgrade" import="true" name="Twin Molten Projector" hidden="false" id="eef0-b267-23a6-2b28" collective="false">
+              <profiles>
+                <profile name="Twin Molten Projector" typeId="f77d-b953-8fa4-b762" typeName="Ranged Weapons" hidden="false" id="38a3-a4fa-0032-8034">
+                  <characteristics>
+                    <characteristic name="Range" typeId="9896-9419-16a1-92fc">9&quot;</characteristic>
+                    <characteristic name="A" typeId="3bb-c35f-f54-fb08">1</characteristic>
+                    <characteristic name="BS" typeId="94d-8a98-cf90-183e">3+</characteristic>
+                    <characteristic name="S" typeId="2229-f494-25db-c5d3">9</characteristic>
+                    <characteristic name="AP" typeId="9ead-8a10-520-de15">-3</characteristic>
+                    <characteristic name="D" typeId="a354-c1c8-a745-f9e3">D6</characteristic>
+                    <characteristic name="Keywords" typeId="7f1b-8591-2fcf-d01c"> Anti-VEHICLE 4+, Melta 2, Twin-linked, Assault</characteristic>
+                  </characteristics>
+                  <comment>Space Hulk content</comment>
+                  <alias>Twin Molten Projector</alias>
+                </profile>
+              </profiles>
+              <costs>
+                <cost name="pts" typeId="51b2-306e-1021-d207" value="0"/>
+                <cost name="Crusade Points" typeId="b03b-c239-15a5-da55" value="0"/>
+                <cost name="Crusade: Battle Honours" typeId="75bb-ded1-c86d-bdf0" value="0"/>
+                <cost name="Crusade: Experience" typeId="a623-fe74-1d33-cddf" value="0"/>
+                <cost name="Crusade: Weapon Modifications" typeId="716d-91b7-d55a-1022" value="0"/>
+                <cost name="Blackstone Fragments" typeId="ac6b-ced3-9b5e-9a6e" value="0"/>
+                <cost name="Space Hulk: Requisition" typeId="ba9c-608d-dedc-1ee0" value="1"/>
+              </costs>
+              <infoLinks>
+                <infoLink name="Assault" id="c6c0-94e5-1150-dff6" hidden="false" type="rule" targetId="fc8a-8c24-bae9-cc1c"/>
+                <infoLink name="Twin-linked" id="93ef-1422-029f-03da" hidden="false" type="rule" targetId="cf93-ad4d-2f08-a79d"/>
+                <infoLink name="Anti-" id="506f-98e6-4c05-4ab7" hidden="false" type="rule" targetId="4111-82e3-9444-e942"/>
+                <infoLink name="Melta" id="083e-898d-9b64-0af0" hidden="false" type="rule" targetId="7cdb-fb99-44a9-8849"/>
+              </infoLinks>
+              <categoryLinks>
+                <categoryLink name="Ranged Weapon" hidden="false" id="caf6-2a2f-feae-1afb" targetId="eeda-8544-a2f3-3fab" primary="false"/>
+              </categoryLinks>
+              <comment>Space Hulk content</comment>
+              <modifiers>
+                <modifier type="set" value="true" field="hidden">
+                  <conditions>
+                    <condition type="notEqualTo" value="1" field="selections" scope="parent" childId="8433-8bd7-5bbe-c117" shared="true"/>
+                  </conditions>
+                </modifier>
+              </modifiers>
+            </selectionEntry>
+            <selectionEntry type="upgrade" import="true" name="Entangler" hidden="false" id="de5f-12f7-b419-2530" collective="false">
+              <profiles>
+                <profile name="Entangler" typeId="f77d-b953-8fa4-b762" typeName="Ranged Weapons" hidden="false" id="e9b5-bee1-4d44-2135">
+                  <characteristics>
+                    <characteristic name="Range" typeId="9896-9419-16a1-92fc">18&quot;</characteristic>
+                    <characteristic name="A" typeId="3bb-c35f-f54-fb08">3</characteristic>
+                    <characteristic name="BS" typeId="94d-8a98-cf90-183e">3+</characteristic>
+                    <characteristic name="S" typeId="2229-f494-25db-c5d3">4</characteristic>
+                    <characteristic name="AP" typeId="9ead-8a10-520-de15">-1</characteristic>
+                    <characteristic name="D" typeId="a354-c1c8-a745-f9e3">1</characteristic>
+                    <characteristic name="Keywords" typeId="7f1b-8591-2fcf-d01c"/>
+                  </characteristics>
+                  <comment>Space Hulk content</comment>
+                  <alias>Entangler</alias>
+                </profile>
+                <profile name="Entangler&apos;s Snare" typeId="9cc3-6d83-4dd3-9b64" typeName="Abilities" hidden="false" id="3b1f-753f-49fd-fb7e">
+                  <characteristics>
+                    <characteristic name="Description" typeId="9b8f-694b-e5e-b573">If an enemy unit is hit by an attack from the Entangler, reduce that units move by 2 and advance and charge rolls by 2 at the start of its next movement phase.</characteristic>
+                  </characteristics>
+                  <comment>Space Hulk content</comment>
+                </profile>
+              </profiles>
+              <costs>
+                <cost name="pts" typeId="51b2-306e-1021-d207" value="0"/>
+                <cost name="Crusade Points" typeId="b03b-c239-15a5-da55" value="0"/>
+                <cost name="Crusade: Battle Honours" typeId="75bb-ded1-c86d-bdf0" value="0"/>
+                <cost name="Crusade: Experience" typeId="a623-fe74-1d33-cddf" value="0"/>
+                <cost name="Crusade: Weapon Modifications" typeId="716d-91b7-d55a-1022" value="0"/>
+                <cost name="Blackstone Fragments" typeId="ac6b-ced3-9b5e-9a6e" value="0"/>
+                <cost name="Space Hulk: Requisition" typeId="ba9c-608d-dedc-1ee0" value="1"/>
+              </costs>
+              <categoryLinks>
+                <categoryLink name="Ranged Weapon" hidden="false" id="ce71-6a8d-6bb8-dc6a" targetId="eeda-8544-a2f3-3fab" primary="false"/>
+              </categoryLinks>
+              <comment>Space Hulk content</comment>
+              <modifiers>
+                <modifier type="set" value="true" field="hidden">
+                  <conditions>
+                    <condition type="notEqualTo" value="1" field="selections" scope="parent" childId="afa2-74a0-9359-34bc" shared="true"/>
+                  </conditions>
+                </modifier>
+              </modifiers>
+            </selectionEntry>
+            <selectionEntry type="upgrade" import="true" name="Guided Blastrifle" hidden="false" id="db10-4773-963f-80d6" collective="false">
+              <profiles>
+                <profile name="Guided Blastrifle" typeId="f77d-b953-8fa4-b762" typeName="Ranged Weapons" hidden="false" id="f9f2-9f7c-49d0-a8a5">
+                  <characteristics>
+                    <characteristic name="Range" typeId="9896-9419-16a1-92fc">36&quot;</characteristic>
+                    <characteristic name="A" typeId="3bb-c35f-f54-fb08">3</characteristic>
+                    <characteristic name="BS" typeId="94d-8a98-cf90-183e">3+</characteristic>
+                    <characteristic name="S" typeId="2229-f494-25db-c5d3">7</characteristic>
+                    <characteristic name="AP" typeId="9ead-8a10-520-de15">-2</characteristic>
+                    <characteristic name="D" typeId="a354-c1c8-a745-f9e3">2</characteristic>
+                    <characteristic name="Keywords" typeId="7f1b-8591-2fcf-d01c"/>
+                  </characteristics>
+                  <comment>Space Hulk content</comment>
+                  <alias>Guided Blastrifle</alias>
+                </profile>
+                <profile name="Guided Rounds" typeId="9cc3-6d83-4dd3-9b64" typeName="Abilities" hidden="false" id="949f-0271-7c9a-72d1">
+                  <characteristics>
+                    <characteristic name="Description" typeId="9b8f-694b-e5e-b573">If a unit has been hit by the Guided Blastrifle, all ranged attack rolls against that unit this phase gain +1 to hit, ignores modifiers, and ignores cover.</characteristic>
+                  </characteristics>
+                  <comment>Space Hulk content</comment>
+                </profile>
+              </profiles>
+              <costs>
+                <cost name="pts" typeId="51b2-306e-1021-d207" value="0"/>
+                <cost name="Crusade Points" typeId="b03b-c239-15a5-da55" value="0"/>
+                <cost name="Crusade: Battle Honours" typeId="75bb-ded1-c86d-bdf0" value="0"/>
+                <cost name="Crusade: Experience" typeId="a623-fe74-1d33-cddf" value="0"/>
+                <cost name="Crusade: Weapon Modifications" typeId="716d-91b7-d55a-1022" value="0"/>
+                <cost name="Blackstone Fragments" typeId="ac6b-ced3-9b5e-9a6e" value="0"/>
+                <cost name="Space Hulk: Requisition" typeId="ba9c-608d-dedc-1ee0" value="1"/>
+              </costs>
+              <categoryLinks>
+                <categoryLink name="Ranged Weapon" hidden="false" id="922a-7b7c-0b7f-f581" targetId="eeda-8544-a2f3-3fab" primary="false"/>
+              </categoryLinks>
+              <comment>Space Hulk content</comment>
+              <modifiers>
+                <modifier type="set" value="true" field="hidden">
+                  <conditions>
+                    <condition type="notEqualTo" value="1" field="selections" scope="parent" childId="afa2-74a0-9359-34bc" shared="true"/>
+                  </conditions>
+                </modifier>
+              </modifiers>
+            </selectionEntry>
+            <selectionEntry type="upgrade" import="true" name="Multi-Melta-Beam Fusil" hidden="false" id="dbba-8178-4109-8edf" collective="false">
+              <profiles>
+                <profile name="Multi-Melta-Beam Fusil" typeId="f77d-b953-8fa4-b762" typeName="Ranged Weapons" hidden="false" id="5aff-a0c6-1fb0-2183">
+                  <characteristics>
+                    <characteristic name="Range" typeId="9896-9419-16a1-92fc">48&quot;</characteristic>
+                    <characteristic name="A" typeId="3bb-c35f-f54-fb08">2</characteristic>
+                    <characteristic name="BS" typeId="94d-8a98-cf90-183e">3+</characteristic>
+                    <characteristic name="S" typeId="2229-f494-25db-c5d3">13</characteristic>
+                    <characteristic name="AP" typeId="9ead-8a10-520-de15">-4</characteristic>
+                    <characteristic name="D" typeId="a354-c1c8-a745-f9e3">D6</characteristic>
+                    <characteristic name="Keywords" typeId="7f1b-8591-2fcf-d01c">Melta 4</characteristic>
+                  </characteristics>
+                  <comment>Space Hulk content</comment>
+                  <alias>Multi-Melta-Beam Fusil</alias>
+                </profile>
+              </profiles>
+              <costs>
+                <cost name="pts" typeId="51b2-306e-1021-d207" value="0"/>
+                <cost name="Crusade Points" typeId="b03b-c239-15a5-da55" value="0"/>
+                <cost name="Crusade: Battle Honours" typeId="75bb-ded1-c86d-bdf0" value="0"/>
+                <cost name="Crusade: Experience" typeId="a623-fe74-1d33-cddf" value="0"/>
+                <cost name="Crusade: Weapon Modifications" typeId="716d-91b7-d55a-1022" value="0"/>
+                <cost name="Blackstone Fragments" typeId="ac6b-ced3-9b5e-9a6e" value="0"/>
+                <cost name="Space Hulk: Requisition" typeId="ba9c-608d-dedc-1ee0" value="1"/>
+              </costs>
+              <infoLinks>
+                <infoLink name="Melta" id="de6a-5886-fd26-30f0" hidden="false" type="rule" targetId="7cdb-fb99-44a9-8849"/>
+              </infoLinks>
+              <categoryLinks>
+                <categoryLink name="Ranged Weapon" hidden="false" id="3316-546f-38c8-78c2" targetId="eeda-8544-a2f3-3fab" primary="false"/>
+              </categoryLinks>
+              <comment>Space Hulk content</comment>
+              <modifiers>
+                <modifier type="set" value="true" field="hidden">
+                  <conditions>
+                    <condition type="notEqualTo" value="1" field="selections" scope="parent" childId="6ed5-24cf-6e62-1d5d" shared="true"/>
+                  </conditions>
+                </modifier>
+              </modifiers>
+            </selectionEntry>
+            <selectionEntry type="upgrade" import="true" name="Elimination Rifle" hidden="false" id="6148-dca4-6f24-affa" collective="false">
+              <profiles>
+                <profile name="Elimination Rifle" typeId="f77d-b953-8fa4-b762" typeName="Ranged Weapons" hidden="false" id="5e89-a208-9716-604f">
+                  <characteristics>
+                    <characteristic name="Range" typeId="9896-9419-16a1-92fc">48&quot;</characteristic>
+                    <characteristic name="A" typeId="3bb-c35f-f54-fb08">1</characteristic>
+                    <characteristic name="BS" typeId="94d-8a98-cf90-183e">2+</characteristic>
+                    <characteristic name="S" typeId="2229-f494-25db-c5d3">8</characteristic>
+                    <characteristic name="AP" typeId="9ead-8a10-520-de15">-3</characteristic>
+                    <characteristic name="D" typeId="a354-c1c8-a745-f9e3">4</characteristic>
+                    <characteristic name="Keywords" typeId="7f1b-8591-2fcf-d01c">Rapid Fire 1</characteristic>
+                  </characteristics>
+                  <comment>Space Hulk content</comment>
+                  <alias>Elimination Rifle</alias>
+                </profile>
+                <profile name="Careful Elimination" typeId="9cc3-6d83-4dd3-9b64" typeName="Abilities" hidden="false" id="12cc-8bb8-a7f2-41a3">
+                  <characteristics>
+                    <characteristic name="Description" typeId="9b8f-694b-e5e-b573">If this model has not moved, the Elimination Rifle gains Precision and you can reroll the hit roll for attacks made with the Elimination Rifle.</characteristic>
+                  </characteristics>
+                </profile>
+              </profiles>
+              <costs>
+                <cost name="pts" typeId="51b2-306e-1021-d207" value="0"/>
+                <cost name="Crusade Points" typeId="b03b-c239-15a5-da55" value="0"/>
+                <cost name="Crusade: Battle Honours" typeId="75bb-ded1-c86d-bdf0" value="0"/>
+                <cost name="Crusade: Experience" typeId="a623-fe74-1d33-cddf" value="0"/>
+                <cost name="Crusade: Weapon Modifications" typeId="716d-91b7-d55a-1022" value="0"/>
+                <cost name="Blackstone Fragments" typeId="ac6b-ced3-9b5e-9a6e" value="0"/>
+                <cost name="Space Hulk: Requisition" typeId="ba9c-608d-dedc-1ee0" value="1"/>
+              </costs>
+              <infoLinks>
+                <infoLink name="Rapid Fire" id="cdd9-b54c-d277-d848" hidden="false" type="rule" targetId="c5c8-8b58-b8b6-7786"/>
+              </infoLinks>
+              <categoryLinks>
+                <categoryLink name="Ranged Weapon" hidden="false" id="ded6-1e65-1bf1-b0e3" targetId="eeda-8544-a2f3-3fab" primary="false"/>
+              </categoryLinks>
+              <comment>Space Hulk content</comment>
+              <modifiers>
+                <modifier type="set" value="true" field="hidden">
+                  <conditions>
+                    <condition type="notEqualTo" value="1" field="selections" scope="parent" childId="6ed5-24cf-6e62-1d5d" shared="true"/>
+                  </conditions>
+                </modifier>
+              </modifiers>
+            </selectionEntry>
+            <selectionEntry type="upgrade" import="true" name="Modified Laser Tactical Adaptive Targeting Heavy Bolter Rifle" hidden="false" id="142e-f415-7707-0a9c" collective="false">
+              <profiles>
+                <profile name="Modified Laser Tactical Adaptive Targeting Heavy Bolter Rifle" typeId="f77d-b953-8fa4-b762" typeName="Ranged Weapons" hidden="false" id="363d-450d-44f3-57e2">
+                  <characteristics>
+                    <characteristic name="Range" typeId="9896-9419-16a1-92fc">36&quot;</characteristic>
+                    <characteristic name="A" typeId="3bb-c35f-f54-fb08">4</characteristic>
+                    <characteristic name="BS" typeId="94d-8a98-cf90-183e">3+</characteristic>
+                    <characteristic name="S" typeId="2229-f494-25db-c5d3">5</characteristic>
+                    <characteristic name="AP" typeId="9ead-8a10-520-de15">-2</characteristic>
+                    <characteristic name="D" typeId="a354-c1c8-a745-f9e3">2</characteristic>
+                    <characteristic name="Keywords" typeId="7f1b-8591-2fcf-d01c">Assault, Sustained Hits 1</characteristic>
+                  </characteristics>
+                  <comment>Space Hulk content</comment>
+                  <alias>Modified Laser Tactical Adaptive Targeting Heavy Bolter Rifle</alias>
+                </profile>
+                <profile name="Kitbashed" typeId="9cc3-6d83-4dd3-9b64" typeName="Abilities" hidden="false" id="2875-a753-c2f1-7f5a">
+                  <characteristics>
+                    <characteristic name="Description" typeId="9b8f-694b-e5e-b573">You can reroll the hit roll for attacks made with the Modified Laser Tactical Adaptive Targeting Heavy Bolter Rifle.</characteristic>
+                  </characteristics>
+                </profile>
+              </profiles>
+              <costs>
+                <cost name="pts" typeId="51b2-306e-1021-d207" value="0"/>
+                <cost name="Crusade Points" typeId="b03b-c239-15a5-da55" value="0"/>
+                <cost name="Crusade: Battle Honours" typeId="75bb-ded1-c86d-bdf0" value="0"/>
+                <cost name="Crusade: Experience" typeId="a623-fe74-1d33-cddf" value="0"/>
+                <cost name="Crusade: Weapon Modifications" typeId="716d-91b7-d55a-1022" value="0"/>
+                <cost name="Blackstone Fragments" typeId="ac6b-ced3-9b5e-9a6e" value="0"/>
+                <cost name="Space Hulk: Requisition" typeId="ba9c-608d-dedc-1ee0" value="1"/>
+              </costs>
+              <infoLinks>
+                <infoLink name="Assault" id="d39d-b225-d2f1-4930" hidden="false" type="rule" targetId="fc8a-8c24-bae9-cc1c"/>
+                <infoLink name="Sustained Hits" id="a954-ee73-cc8e-20fa" hidden="false" type="rule" targetId="1897-c22c-9597-12b1"/>
+              </infoLinks>
+              <categoryLinks>
+                <categoryLink name="Ranged Weapon" hidden="false" id="a817-8135-cf5b-2a06" targetId="eeda-8544-a2f3-3fab" primary="false"/>
+              </categoryLinks>
+              <comment>Space Hulk content</comment>
+              <modifiers>
+                <modifier type="set" value="true" field="hidden">
+                  <conditions>
+                    <condition type="notEqualTo" value="1" field="selections" scope="parent" childId="6ed5-24cf-6e62-1d5d" shared="true"/>
+                  </conditions>
+                </modifier>
+              </modifiers>
+            </selectionEntry>
+            <selectionEntry type="upgrade" import="true" name="Anti-Matter Revolver" hidden="false" id="1317-bf01-9092-702a" collective="false">
+              <profiles>
+                <profile name="Anti-Matter Revolver" typeId="f77d-b953-8fa4-b762" typeName="Ranged Weapons" hidden="false" id="1f7b-8c00-a15c-4061">
+                  <characteristics>
+                    <characteristic name="Range" typeId="9896-9419-16a1-92fc">12&quot;</characteristic>
+                    <characteristic name="A" typeId="3bb-c35f-f54-fb08">6</characteristic>
+                    <characteristic name="BS" typeId="94d-8a98-cf90-183e">3+</characteristic>
+                    <characteristic name="S" typeId="2229-f494-25db-c5d3">5</characteristic>
+                    <characteristic name="AP" typeId="9ead-8a10-520-de15">-2</characteristic>
+                    <characteristic name="D" typeId="a354-c1c8-a745-f9e3">1</characteristic>
+                    <characteristic name="Keywords" typeId="7f1b-8591-2fcf-d01c">Lethal Hits, Devastating Wounds, Pistol</characteristic>
+                  </characteristics>
+                  <comment>Space Hulk content</comment>
+                  <alias>Anti-Matter Revolver</alias>
+                </profile>
+              </profiles>
+              <costs>
+                <cost name="pts" typeId="51b2-306e-1021-d207" value="0"/>
+                <cost name="Crusade Points" typeId="b03b-c239-15a5-da55" value="0"/>
+                <cost name="Crusade: Battle Honours" typeId="75bb-ded1-c86d-bdf0" value="0"/>
+                <cost name="Crusade: Experience" typeId="a623-fe74-1d33-cddf" value="0"/>
+                <cost name="Crusade: Weapon Modifications" typeId="716d-91b7-d55a-1022" value="0"/>
+                <cost name="Blackstone Fragments" typeId="ac6b-ced3-9b5e-9a6e" value="0"/>
+                <cost name="Space Hulk: Requisition" typeId="ba9c-608d-dedc-1ee0" value="1"/>
+              </costs>
+              <infoLinks>
+                <infoLink name="Lethal Hits" id="945a-46a8-861e-7c39" hidden="false" type="rule" targetId="d1d1-611e-5191-1095"/>
+                <infoLink name="Devastating Wounds" id="4508-a562-3d25-d910" hidden="false" type="rule" targetId="be1e-ac8e-1e2c-3528"/>
+                <infoLink name="Pistol" id="fbf0-61f4-4ee1-4934" hidden="false" type="rule" targetId="8bf7-8812-923d-29e4"/>
+              </infoLinks>
+              <categoryLinks>
+                <categoryLink name="Ranged Weapon" hidden="false" id="ea68-102b-f791-f846" targetId="eeda-8544-a2f3-3fab" primary="false"/>
+              </categoryLinks>
+              <comment>Space Hulk content</comment>
+              <modifiers>
+                <modifier type="set" value="true" field="hidden">
+                  <conditions>
+                    <condition type="notEqualTo" value="1" field="selections" scope="parent" childId="6ed5-24cf-6e62-1d5d" shared="true"/>
+                  </conditions>
+                </modifier>
+              </modifiers>
+            </selectionEntry>
+            <selectionEntry type="upgrade" import="true" name="Displacement Beam" hidden="false" id="ce34-b9c6-4dc2-f9ea" collective="false">
+              <profiles>
+                <profile name="Displacement Beam" typeId="f77d-b953-8fa4-b762" typeName="Ranged Weapons" hidden="false" id="1470-c34f-3e19-3caa">
+                  <characteristics>
+                    <characteristic name="Range" typeId="9896-9419-16a1-92fc">18&quot;</characteristic>
+                    <characteristic name="A" typeId="3bb-c35f-f54-fb08">1</characteristic>
+                    <characteristic name="BS" typeId="94d-8a98-cf90-183e">3+</characteristic>
+                    <characteristic name="S" typeId="2229-f494-25db-c5d3">2</characteristic>
+                    <characteristic name="AP" typeId="9ead-8a10-520-de15">0</characteristic>
+                    <characteristic name="D" typeId="a354-c1c8-a745-f9e3">0</characteristic>
+                    <characteristic name="Keywords" typeId="7f1b-8591-2fcf-d01c">Psychic, Hazardous</characteristic>
+                  </characteristics>
+                  <comment>Space Hulk content</comment>
+                  <alias>Displacement Beam</alias>
+                </profile>
+                <profile name="Switcharoo" typeId="9cc3-6d83-4dd3-9b64" typeName="Abilities" hidden="false" id="e102-b1a8-3e9f-3148">
+                  <characteristics>
+                    <characteristic name="Description" typeId="9b8f-694b-e5e-b573">If an attack made with the Displacement Beam hits an enemy model; each other player, other than the owner of the model that was hit, rolls a d6. Select a non-bodyguard, non-character unit from player who rolled the lowest. Switch the positions of those units. They gain a 2+ invulnerable save for the remainder of the battle round.</characteristic>
+                  </characteristics>
+                </profile>
+              </profiles>
+              <costs>
+                <cost name="pts" typeId="51b2-306e-1021-d207" value="0"/>
+                <cost name="Crusade Points" typeId="b03b-c239-15a5-da55" value="0"/>
+                <cost name="Crusade: Battle Honours" typeId="75bb-ded1-c86d-bdf0" value="0"/>
+                <cost name="Crusade: Experience" typeId="a623-fe74-1d33-cddf" value="0"/>
+                <cost name="Crusade: Weapon Modifications" typeId="716d-91b7-d55a-1022" value="0"/>
+                <cost name="Blackstone Fragments" typeId="ac6b-ced3-9b5e-9a6e" value="0"/>
+                <cost name="Space Hulk: Requisition" typeId="ba9c-608d-dedc-1ee0" value="1"/>
+              </costs>
+              <infoLinks>
+                <infoLink name="Hazardous" id="8353-07e0-4bf3-1bc1" hidden="false" type="rule" targetId="8367-374c-f87-c627"/>
+                <infoLink name="Psychic" id="1dfe-e4fe-67b7-4f01" hidden="false" type="rule" targetId="e9c4-2bb8-12ee-cd1b"/>
+              </infoLinks>
+              <categoryLinks>
+                <categoryLink name="Ranged Weapon" hidden="false" id="2032-579e-035e-8487" targetId="eeda-8544-a2f3-3fab" primary="false"/>
+              </categoryLinks>
+              <comment>Space Hulk content</comment>
+              <modifiers>
+                <modifier type="set" value="true" field="hidden">
+                  <conditions>
+                    <condition type="notEqualTo" value="1" field="selections" scope="parent" childId="42f7-dfca-e478-2b57" shared="true"/>
+                  </conditions>
+                </modifier>
+              </modifiers>
+            </selectionEntry>
+            <selectionEntry type="upgrade" import="true" name="Zombification" hidden="false" id="a6d1-ed7d-395f-5d7d" collective="false">
+              <profiles>
+                <profile name="Zombification " typeId="f77d-b953-8fa4-b762" typeName="Ranged Weapons" hidden="false" id="e807-99ac-abec-1378">
+                  <characteristics>
+                    <characteristic name="Range" typeId="9896-9419-16a1-92fc">-</characteristic>
+                    <characteristic name="A" typeId="3bb-c35f-f54-fb08">3</characteristic>
+                    <characteristic name="BS" typeId="94d-8a98-cf90-183e">3+</characteristic>
+                    <characteristic name="S" typeId="2229-f494-25db-c5d3">4</characteristic>
+                    <characteristic name="AP" typeId="9ead-8a10-520-de15">-2</characteristic>
+                    <characteristic name="D" typeId="a354-c1c8-a745-f9e3">1</characteristic>
+                    <characteristic name="Keywords" typeId="7f1b-8591-2fcf-d01c">Psychic, Hazardous</characteristic>
+                  </characteristics>
+                  <comment>Space Hulk content</comment>
+                  <alias>Zombification </alias>
+                </profile>
+                <profile name="Raise Dead" typeId="9cc3-6d83-4dd3-9b64" typeName="Abilities" hidden="false" id="2901-30a8-186e-07db">
+                  <characteristics>
+                    <characteristic name="Description" typeId="9b8f-694b-e5e-b573">Select a non-VEHICLE model that has been destroyed this game and roll an attack with Zombification against it. If the model would take a wound from these attacks, you may select it and add it to your army for the remainder of the game. Place that model wholly within 6 inches of this model at a maximum of 3 wounds or add it to the bodyguard unit this character is attached to. It cannot be healed or revived through the Warp Resistance enhancement.</characteristic>
+                  </characteristics>
+                </profile>
+              </profiles>
+              <costs>
+                <cost name="pts" typeId="51b2-306e-1021-d207" value="0"/>
+                <cost name="Crusade Points" typeId="b03b-c239-15a5-da55" value="0"/>
+                <cost name="Crusade: Battle Honours" typeId="75bb-ded1-c86d-bdf0" value="0"/>
+                <cost name="Crusade: Experience" typeId="a623-fe74-1d33-cddf" value="0"/>
+                <cost name="Crusade: Weapon Modifications" typeId="716d-91b7-d55a-1022" value="0"/>
+                <cost name="Blackstone Fragments" typeId="ac6b-ced3-9b5e-9a6e" value="0"/>
+                <cost name="Space Hulk: Requisition" typeId="ba9c-608d-dedc-1ee0" value="1"/>
+              </costs>
+              <categoryLinks>
+                <categoryLink name="Ranged Weapon" hidden="false" id="25a3-2ffe-deed-a7b2" targetId="eeda-8544-a2f3-3fab" primary="false"/>
+              </categoryLinks>
+              <comment>Space Hulk content</comment>
+              <modifiers>
+                <modifier type="set" value="true" field="hidden">
+                  <conditions>
+                    <condition type="notEqualTo" value="1" field="selections" scope="parent" childId="42f7-dfca-e478-2b57" shared="true"/>
+                  </conditions>
+                </modifier>
+              </modifiers>
+              <infoLinks>
+                <infoLink name="Psychic" id="0371-4ce4-d96b-4693" hidden="false" type="rule" targetId="e9c4-2bb8-12ee-cd1b"/>
+                <infoLink name="Hazardous" id="0159-9f59-03d9-409e" hidden="false" type="rule" targetId="8367-374c-f87-c627"/>
+              </infoLinks>
+            </selectionEntry>
+            <selectionEntry type="upgrade" import="true" name="Sludge Slugger" hidden="false" id="320c-a2e7-295f-ef63" collective="false">
+              <profiles>
+                <profile name="Sludge Slugger" typeId="f77d-b953-8fa4-b762" typeName="Ranged Weapons" hidden="false" id="ef13-7850-a73a-21e5">
+                  <characteristics>
+                    <characteristic name="Range" typeId="9896-9419-16a1-92fc">6&quot;</characteristic>
+                    <characteristic name="A" typeId="3bb-c35f-f54-fb08">1</characteristic>
+                    <characteristic name="BS" typeId="94d-8a98-cf90-183e">2+</characteristic>
+                    <characteristic name="S" typeId="2229-f494-25db-c5d3">7</characteristic>
+                    <characteristic name="AP" typeId="9ead-8a10-520-de15">-1</characteristic>
+                    <characteristic name="D" typeId="a354-c1c8-a745-f9e3">1</characteristic>
+                    <characteristic name="Keywords" typeId="7f1b-8591-2fcf-d01c">Pistol</characteristic>
+                  </characteristics>
+                  <comment>Space Hulk content</comment>
+                  <alias>Sludge Slugger</alias>
+                </profile>
+                <profile name="Not Anymore" typeId="9cc3-6d83-4dd3-9b64" typeName="Abilities" hidden="false" id="b83d-8462-1f17-b993">
+                  <characteristics>
+                    <characteristic name="Description" typeId="9b8f-694b-e5e-b573">If a unit is hit by an attack made by the Sludge Slugger, reduce that unit’s weapon attacks characteristics by 1 for the remainder of the battle (to a minimum of 1).</characteristic>
+                  </characteristics>
+                  <comment>Space Hulk content</comment>
+                </profile>
+              </profiles>
+              <costs>
+                <cost name="pts" typeId="51b2-306e-1021-d207" value="0"/>
+                <cost name="Crusade Points" typeId="b03b-c239-15a5-da55" value="0"/>
+                <cost name="Crusade: Battle Honours" typeId="75bb-ded1-c86d-bdf0" value="0"/>
+                <cost name="Crusade: Experience" typeId="a623-fe74-1d33-cddf" value="0"/>
+                <cost name="Crusade: Weapon Modifications" typeId="716d-91b7-d55a-1022" value="0"/>
+                <cost name="Blackstone Fragments" typeId="ac6b-ced3-9b5e-9a6e" value="0"/>
+                <cost name="Space Hulk: Requisition" typeId="ba9c-608d-dedc-1ee0" value="1"/>
+              </costs>
+              <infoLinks>
+                <infoLink name="Pistol" id="e35c-69c3-fc21-9820" hidden="false" type="rule" targetId="8bf7-8812-923d-29e4"/>
+              </infoLinks>
+              <categoryLinks>
+                <categoryLink name="Ranged Weapon" hidden="false" id="838f-dc1b-b882-3b84" targetId="eeda-8544-a2f3-3fab" primary="false"/>
+              </categoryLinks>
+              <comment>Space Hulk content</comment>
+              <modifiers>
+                <modifier type="set" value="true" field="hidden">
+                  <conditions>
+                    <condition type="notEqualTo" value="1" field="selections" scope="parent" childId="d229-98f0-cff6-c1d5" shared="true"/>
+                  </conditions>
+                </modifier>
+              </modifiers>
+            </selectionEntry>
+            <selectionEntry type="upgrade" import="true" name="Haze Launcher" hidden="false" id="6b3a-b13d-e99f-c30b" collective="false">
+              <profiles>
+                <profile name="Haze Launcher" typeId="f77d-b953-8fa4-b762" typeName="Ranged Weapons" hidden="false" id="7c76-3eb1-a050-7036">
+                  <characteristics>
+                    <characteristic name="Range" typeId="9896-9419-16a1-92fc">36&quot;</characteristic>
+                    <characteristic name="A" typeId="3bb-c35f-f54-fb08">D6+1</characteristic>
+                    <characteristic name="BS" typeId="94d-8a98-cf90-183e">3+</characteristic>
+                    <characteristic name="S" typeId="2229-f494-25db-c5d3">8</characteristic>
+                    <characteristic name="AP" typeId="9ead-8a10-520-de15">-1</characteristic>
+                    <characteristic name="D" typeId="a354-c1c8-a745-f9e3">1</characteristic>
+                    <characteristic name="Keywords" typeId="7f1b-8591-2fcf-d01c">Blast</characteristic>
+                  </characteristics>
+                  <comment>Space Hulk content</comment>
+                  <alias>Haze Launcher</alias>
+                </profile>
+                <profile name="Now You See Me, Now You Don&apos;t" typeId="9cc3-6d83-4dd3-9b64" typeName="Abilities" hidden="false" id="dca8-6f41-0d2b-888d">
+                  <characteristics>
+                    <characteristic name="Description" typeId="9b8f-694b-e5e-b573">If an attack from the Haze Launcher hits a unit, then, for the rest of the battle round, whenever that unit makes a ranged attack, all enemy targets are considered to have Stealth.</characteristic>
+                  </characteristics>
+                  <comment>Space Hulk content</comment>
+                </profile>
+              </profiles>
+              <costs>
+                <cost name="pts" typeId="51b2-306e-1021-d207" value="0"/>
+                <cost name="Crusade Points" typeId="b03b-c239-15a5-da55" value="0"/>
+                <cost name="Crusade: Battle Honours" typeId="75bb-ded1-c86d-bdf0" value="0"/>
+                <cost name="Crusade: Experience" typeId="a623-fe74-1d33-cddf" value="0"/>
+                <cost name="Crusade: Weapon Modifications" typeId="716d-91b7-d55a-1022" value="0"/>
+                <cost name="Blackstone Fragments" typeId="ac6b-ced3-9b5e-9a6e" value="0"/>
+                <cost name="Space Hulk: Requisition" typeId="ba9c-608d-dedc-1ee0" value="1"/>
+              </costs>
+              <infoLinks>
+                <infoLink name="Blast" id="dcf9-feb0-6988-935d" hidden="false" type="rule" targetId="6c1f-1cf7-ff25-c99e"/>
+              </infoLinks>
+              <categoryLinks>
+                <categoryLink name="Ranged Weapon" hidden="false" id="b9c6-de98-f82b-9813" targetId="eeda-8544-a2f3-3fab" primary="false"/>
+              </categoryLinks>
+              <comment>Space Hulk content</comment>
+              <modifiers>
+                <modifier type="set" value="true" field="hidden">
+                  <conditions>
+                    <condition type="notEqualTo" value="1" field="selections" scope="parent" childId="d229-98f0-cff6-c1d5" shared="true"/>
+                  </conditions>
+                </modifier>
+              </modifiers>
+            </selectionEntry>
+          </selectionEntries>
+        </selectionEntryGroup>
+        <selectionEntryGroup name="Melee Weapons" id="57c6-3a40-a768-3611" hidden="false">
+          <constraints>
+            <constraint type="max" value="1" field="selections" scope="self" shared="true" id="c3d6-9650-2bea-cf9c" includeChildSelections="true"/>
+          </constraints>
+          <selectionEntries>
+            <selectionEntry type="upgrade" import="true" name="Phase-Matter Gauntlet" hidden="false" id="7590-b321-18e3-582e" collective="false">
+              <profiles>
+                <profile name="Phase-Matter Gauntlet" typeId="8a40-4aaa-c780-9046" typeName="Melee Weapons" hidden="false" id="9f4f-9690-2f18-9f78">
+                  <characteristics>
+                    <characteristic name="Range" typeId="914c-b413-91e3-a132">Melee</characteristic>
+                    <characteristic name="A" typeId="2337-daa1-6682-b110">3</characteristic>
+                    <characteristic name="WS" typeId="95d1-95f-45b4-11d6">3</characteristic>
+                    <characteristic name="S" typeId="ab33-d393-96ce-ccba">7</characteristic>
+                    <characteristic name="AP" typeId="41a0-1301-112a-e2f2">-3</characteristic>
+                    <characteristic name="D" typeId="3254-9fe6-d824-513e">1</characteristic>
+                    <characteristic name="Keywords" typeId="893f-9000-ccf7-648e"/>
+                  </characteristics>
+                  <comment>Space Hulk content</comment>
+                  <alias>Phase-Matter Gauntlet</alias>
+                </profile>
+                <profile name="Phase-Shift Beam" typeId="9cc3-6d83-4dd3-9b64" typeName="Abilities" hidden="false" id="b314-e555-f49e-a59c">
+                  <characteristics>
+                    <characteristic name="Description" typeId="9b8f-694b-e5e-b573">At the end of the fight phase, select one unit that was wounded by the Phase-Matter Gauntlet. Place that unit into Reserves. It gains the Deepstrike keyword. (If it was a bodyguard unit, that player must select the whole unit to place into Reserves. If the last bodyguard model was slain, then the unit becomes separated and this effect applies to the remaining models.) If a unit was placed into reserves this way, you may make a normal move up to 6 inches with this model.</characteristic>
+                  </characteristics>
+                  <comment>Space Hulk content</comment>
+                </profile>
+              </profiles>
+              <costs>
+                <cost name="pts" typeId="51b2-306e-1021-d207" value="0"/>
+                <cost name="Crusade Points" typeId="b03b-c239-15a5-da55" value="0"/>
+                <cost name="Crusade: Battle Honours" typeId="75bb-ded1-c86d-bdf0" value="0"/>
+                <cost name="Crusade: Experience" typeId="a623-fe74-1d33-cddf" value="0"/>
+                <cost name="Crusade: Weapon Modifications" typeId="716d-91b7-d55a-1022" value="0"/>
+                <cost name="Blackstone Fragments" typeId="ac6b-ced3-9b5e-9a6e" value="0"/>
+                <cost name="Space Hulk: Requisition" typeId="ba9c-608d-dedc-1ee0" value="1"/>
+              </costs>
+              <categoryLinks>
+                <categoryLink name="Ranged Weapon" hidden="false" id="a5e4-9a86-c80b-aa01" targetId="eeda-8544-a2f3-3fab" primary="false"/>
+              </categoryLinks>
+              <comment>Space Hulk content</comment>
+              <modifiers>
+                <modifier type="set" value="true" field="hidden">
+                  <conditions>
+                    <condition type="notEqualTo" value="1" field="selections" scope="parent" childId="9406-f824-ab3c-19fb" shared="true"/>
+                  </conditions>
+                </modifier>
+              </modifiers>
+            </selectionEntry>
+            <selectionEntry type="upgrade" import="true" name="Adapting Liquiblade" hidden="false" id="d63c-6f2c-60d3-a394" collective="false">
+              <profiles>
+                <profile name="Adapting Liquiblade" typeId="8a40-4aaa-c780-9046" typeName="Melee Weapons" hidden="false" id="7f0f-8a17-f9e4-ed78">
+                  <characteristics>
+                    <characteristic name="Range" typeId="914c-b413-91e3-a132">Melee</characteristic>
+                    <characteristic name="A" typeId="2337-daa1-6682-b110">6</characteristic>
+                    <characteristic name="WS" typeId="95d1-95f-45b4-11d6">2</characteristic>
+                    <characteristic name="S" typeId="ab33-d393-96ce-ccba">4</characteristic>
+                    <characteristic name="AP" typeId="41a0-1301-112a-e2f2">-2</characteristic>
+                    <characteristic name="D" typeId="3254-9fe6-d824-513e">2</characteristic>
+                    <characteristic name="Keywords" typeId="893f-9000-ccf7-648e"/>
+                  </characteristics>
+                  <comment>Space Hulk content</comment>
+                  <alias>Adapting Liquiblade</alias>
+                </profile>
+                <profile name="Shifting Blade" typeId="9cc3-6d83-4dd3-9b64" typeName="Abilities" hidden="false" id="b778-be2a-62c3-c358">
+                  <characteristics>
+                    <characteristic name="Description" typeId="9b8f-694b-e5e-b573">At the start of the battle select any one unit by **[Datasheet]** name. (I.e. Blood letters, Assault Intercessors, Captain in Gravis Armor) The Adapting Liquiblade gains Anti-**[Datasheet]** 2+ for the battle</characteristic>
+                  </characteristics>
+                  <comment>Space Hulk content</comment>
+                </profile>
+              </profiles>
+              <costs>
+                <cost name="pts" typeId="51b2-306e-1021-d207" value="0"/>
+                <cost name="Crusade Points" typeId="b03b-c239-15a5-da55" value="0"/>
+                <cost name="Crusade: Battle Honours" typeId="75bb-ded1-c86d-bdf0" value="0"/>
+                <cost name="Crusade: Experience" typeId="a623-fe74-1d33-cddf" value="0"/>
+                <cost name="Crusade: Weapon Modifications" typeId="716d-91b7-d55a-1022" value="0"/>
+                <cost name="Blackstone Fragments" typeId="ac6b-ced3-9b5e-9a6e" value="0"/>
+                <cost name="Space Hulk: Requisition" typeId="ba9c-608d-dedc-1ee0" value="1"/>
+              </costs>
+              <categoryLinks>
+                <categoryLink name="Ranged Weapon" hidden="false" id="2991-1e73-fa78-29f7" targetId="eeda-8544-a2f3-3fab" primary="false"/>
+              </categoryLinks>
+              <comment>Space Hulk content</comment>
+              <modifiers>
+                <modifier type="set" value="true" field="hidden">
+                  <conditions>
+                    <condition type="notEqualTo" value="1" field="selections" scope="parent" childId="9406-f824-ab3c-19fb" shared="true"/>
+                  </conditions>
+                </modifier>
+              </modifiers>
+            </selectionEntry>
+            <selectionEntry type="upgrade" import="true" name="Bloodthirsty Talons " hidden="false" id="b557-41f0-d688-93a6" collective="false">
+              <profiles>
+                <profile name="Bloodthirsty Talons " typeId="8a40-4aaa-c780-9046" typeName="Melee Weapons" hidden="false" id="8170-1669-51b9-cb51">
+                  <characteristics>
+                    <characteristic name="Range" typeId="914c-b413-91e3-a132">Melee</characteristic>
+                    <characteristic name="A" typeId="2337-daa1-6682-b110">5</characteristic>
+                    <characteristic name="WS" typeId="95d1-95f-45b4-11d6">2</characteristic>
+                    <characteristic name="S" typeId="ab33-d393-96ce-ccba">5</characteristic>
+                    <characteristic name="AP" typeId="41a0-1301-112a-e2f2">-2</characteristic>
+                    <characteristic name="D" typeId="3254-9fe6-d824-513e">1</characteristic>
+                    <characteristic name="Keywords" typeId="893f-9000-ccf7-648e">Twin-linked</characteristic>
+                  </characteristics>
+                  <comment>Space Hulk content</comment>
+                  <alias>Bloodthirsty Talons </alias>
+                </profile>
+                <profile name="Bloodlust" typeId="9cc3-6d83-4dd3-9b64" typeName="Abilities" hidden="false" id="9ba8-500f-badd-b351">
+                  <characteristics>
+                    <characteristic name="Description" typeId="9b8f-694b-e5e-b573">After making attacks with Bloodthirsty Talons, if the target was destroyed, models in this unit may make a consolidation move up to 6 inches.</characteristic>
+                  </characteristics>
+                  <comment>Space Hulk content</comment>
+                </profile>
+              </profiles>
+              <costs>
+                <cost name="pts" typeId="51b2-306e-1021-d207" value="0"/>
+                <cost name="Crusade Points" typeId="b03b-c239-15a5-da55" value="0"/>
+                <cost name="Crusade: Battle Honours" typeId="75bb-ded1-c86d-bdf0" value="0"/>
+                <cost name="Crusade: Experience" typeId="a623-fe74-1d33-cddf" value="0"/>
+                <cost name="Crusade: Weapon Modifications" typeId="716d-91b7-d55a-1022" value="0"/>
+                <cost name="Blackstone Fragments" typeId="ac6b-ced3-9b5e-9a6e" value="0"/>
+                <cost name="Space Hulk: Requisition" typeId="ba9c-608d-dedc-1ee0" value="1"/>
+              </costs>
+              <categoryLinks>
+                <categoryLink name="Ranged Weapon" hidden="false" id="e451-cf60-1bd1-c289" targetId="eeda-8544-a2f3-3fab" primary="false"/>
+              </categoryLinks>
+              <comment>Space Hulk content</comment>
+              <modifiers>
+                <modifier type="set" value="true" field="hidden">
+                  <conditions>
+                    <condition type="notEqualTo" value="1" field="selections" scope="parent" childId="8433-8bd7-5bbe-c117" shared="true"/>
+                  </conditions>
+                </modifier>
+              </modifiers>
+              <infoLinks>
+                <infoLink name="Twin-linked" id="ba0a-2433-88e6-0d97" hidden="false" type="rule" targetId="cf93-ad4d-2f08-a79d"/>
+              </infoLinks>
+            </selectionEntry>
+            <selectionEntry type="upgrade" import="true" name="Impact Power Lance" hidden="false" id="721f-b5de-f72e-2a30" collective="false">
+              <profiles>
+                <profile name="Impact Power Lance" typeId="8a40-4aaa-c780-9046" typeName="Melee Weapons" hidden="false" id="d733-2488-83bf-2c3c">
+                  <characteristics>
+                    <characteristic name="Range" typeId="914c-b413-91e3-a132">Melee</characteristic>
+                    <characteristic name="A" typeId="2337-daa1-6682-b110">4</characteristic>
+                    <characteristic name="WS" typeId="95d1-95f-45b4-11d6">2</characteristic>
+                    <characteristic name="S" typeId="ab33-d393-96ce-ccba">6</characteristic>
+                    <characteristic name="AP" typeId="41a0-1301-112a-e2f2">-2</characteristic>
+                    <characteristic name="D" typeId="3254-9fe6-d824-513e">2</characteristic>
+                    <characteristic name="Keywords" typeId="893f-9000-ccf7-648e"/>
+                  </characteristics>
+                  <comment>Space Hulk content</comment>
+                  <alias>Impact Power Lance</alias>
+                </profile>
+                <profile name="Blazing Impact" typeId="9cc3-6d83-4dd3-9b64" typeName="Abilities" hidden="false" id="11ff-1d8b-c43f-c9b8">
+                  <characteristics>
+                    <characteristic name="Description" typeId="9b8f-694b-e5e-b573">If this model moved a total of 16 inches or more this turn and made a successful charge (including the movement of the charge), then the Impact Power Lance gains Extra Attacks.</characteristic>
+                  </characteristics>
+                  <comment>Space Hulk content</comment>
+                </profile>
+              </profiles>
+              <costs>
+                <cost name="pts" typeId="51b2-306e-1021-d207" value="0"/>
+                <cost name="Crusade Points" typeId="b03b-c239-15a5-da55" value="0"/>
+                <cost name="Crusade: Battle Honours" typeId="75bb-ded1-c86d-bdf0" value="0"/>
+                <cost name="Crusade: Experience" typeId="a623-fe74-1d33-cddf" value="0"/>
+                <cost name="Crusade: Weapon Modifications" typeId="716d-91b7-d55a-1022" value="0"/>
+                <cost name="Blackstone Fragments" typeId="ac6b-ced3-9b5e-9a6e" value="0"/>
+                <cost name="Space Hulk: Requisition" typeId="ba9c-608d-dedc-1ee0" value="1"/>
+              </costs>
+              <categoryLinks>
+                <categoryLink name="Ranged Weapon" hidden="false" id="6c8f-a4a0-15b0-cf66" targetId="eeda-8544-a2f3-3fab" primary="false"/>
+              </categoryLinks>
+              <comment>Space Hulk content</comment>
+              <modifiers>
+                <modifier type="set" value="true" field="hidden">
+                  <conditions>
+                    <condition type="notEqualTo" value="1" field="selections" scope="parent" childId="8433-8bd7-5bbe-c117" shared="true"/>
+                  </conditions>
+                </modifier>
+              </modifiers>
+            </selectionEntry>
+            <selectionEntry type="upgrade" import="true" name="Commander’s Blade" hidden="false" id="29bc-ae37-1a34-3293" collective="false">
+              <profiles>
+                <profile name="Commander’s Blade" typeId="8a40-4aaa-c780-9046" typeName="Melee Weapons" hidden="false" id="cd7b-8055-6b71-f2d2">
+                  <characteristics>
+                    <characteristic name="Range" typeId="914c-b413-91e3-a132">Melee</characteristic>
+                    <characteristic name="A" typeId="2337-daa1-6682-b110">4</characteristic>
+                    <characteristic name="WS" typeId="95d1-95f-45b4-11d6">2</characteristic>
+                    <characteristic name="S" typeId="ab33-d393-96ce-ccba">6</characteristic>
+                    <characteristic name="AP" typeId="41a0-1301-112a-e2f2">-2</characteristic>
+                    <characteristic name="D" typeId="3254-9fe6-d824-513e">2</characteristic>
+                    <characteristic name="Keywords" typeId="893f-9000-ccf7-648e"/>
+                  </characteristics>
+                  <comment>Space Hulk content</comment>
+                  <alias>Commander’s Blade</alias>
+                </profile>
+                <profile name="The Blade&apos;s Command" typeId="9cc3-6d83-4dd3-9b64" typeName="Abilities" hidden="false" id="90e7-8657-562b-ae9b">
+                  <characteristics>
+                    <characteristic name="Description" typeId="9b8f-694b-e5e-b573">If this model has a bodyguard unit, then attacks made by models in the unit have Sustained Hits 1 and Lethal Hits. If this model provides one of these bonuses already, then critical hits occur on 5+ for that ability.</characteristic>
+                  </characteristics>
+                  <comment>Space Hulk content</comment>
+                </profile>
+              </profiles>
+              <costs>
+                <cost name="pts" typeId="51b2-306e-1021-d207" value="0"/>
+                <cost name="Crusade Points" typeId="b03b-c239-15a5-da55" value="0"/>
+                <cost name="Crusade: Battle Honours" typeId="75bb-ded1-c86d-bdf0" value="0"/>
+                <cost name="Crusade: Experience" typeId="a623-fe74-1d33-cddf" value="0"/>
+                <cost name="Crusade: Weapon Modifications" typeId="716d-91b7-d55a-1022" value="0"/>
+                <cost name="Blackstone Fragments" typeId="ac6b-ced3-9b5e-9a6e" value="0"/>
+                <cost name="Space Hulk: Requisition" typeId="ba9c-608d-dedc-1ee0" value="1"/>
+              </costs>
+              <categoryLinks>
+                <categoryLink name="Ranged Weapon" hidden="false" id="1cfd-4287-9721-fbae" targetId="eeda-8544-a2f3-3fab" primary="false"/>
+              </categoryLinks>
+              <comment>Space Hulk content</comment>
+              <modifiers>
+                <modifier type="set" value="true" field="hidden">
+                  <conditions>
+                    <condition type="notEqualTo" value="1" field="selections" scope="parent" childId="afa2-74a0-9359-34bc" shared="true"/>
+                  </conditions>
+                </modifier>
+              </modifiers>
+            </selectionEntry>
+            <selectionEntry type="upgrade" import="true" name="Heartseeking Wristblade" hidden="false" id="e13d-135d-3086-458b" collective="false">
+              <profiles>
+                <profile name="Heartseeking Wristblade" typeId="8a40-4aaa-c780-9046" typeName="Melee Weapons" hidden="false" id="74d1-b035-a53f-3e1e">
+                  <characteristics>
+                    <characteristic name="Range" typeId="914c-b413-91e3-a132">Melee</characteristic>
+                    <characteristic name="A" typeId="2337-daa1-6682-b110">4</characteristic>
+                    <characteristic name="WS" typeId="95d1-95f-45b4-11d6">3</characteristic>
+                    <characteristic name="S" typeId="ab33-d393-96ce-ccba">5</characteristic>
+                    <characteristic name="AP" typeId="41a0-1301-112a-e2f2">-1</characteristic>
+                    <characteristic name="D" typeId="3254-9fe6-d824-513e">D3</characteristic>
+                    <characteristic name="Keywords" typeId="893f-9000-ccf7-648e"/>
+                  </characteristics>
+                  <comment>Space Hulk content</comment>
+                  <alias>Heartseeking Wristblade</alias>
+                </profile>
+                <profile name="Heartseeker Strike" typeId="9cc3-6d83-4dd3-9b64" typeName="Abilities" hidden="false" id="640f-39c9-120b-734c">
+                  <characteristics>
+                    <characteristic name="Description" typeId="9b8f-694b-e5e-b573">At the beginning of the fight phase, select a unit this model is within engagement range of it. That unit cannot benefit from Feel No Pain or saving throws (excluding Invulnerable Saves).</characteristic>
+                  </characteristics>
+                  <comment>Space Hulk content</comment>
+                </profile>
+              </profiles>
+              <costs>
+                <cost name="pts" typeId="51b2-306e-1021-d207" value="0"/>
+                <cost name="Crusade Points" typeId="b03b-c239-15a5-da55" value="0"/>
+                <cost name="Crusade: Battle Honours" typeId="75bb-ded1-c86d-bdf0" value="0"/>
+                <cost name="Crusade: Experience" typeId="a623-fe74-1d33-cddf" value="0"/>
+                <cost name="Crusade: Weapon Modifications" typeId="716d-91b7-d55a-1022" value="0"/>
+                <cost name="Blackstone Fragments" typeId="ac6b-ced3-9b5e-9a6e" value="0"/>
+                <cost name="Space Hulk: Requisition" typeId="ba9c-608d-dedc-1ee0" value="1"/>
+              </costs>
+              <categoryLinks>
+                <categoryLink name="Ranged Weapon" hidden="false" id="ed37-3899-d12d-1839" targetId="eeda-8544-a2f3-3fab" primary="false"/>
+              </categoryLinks>
+              <comment>Space Hulk content</comment>
+              <modifiers>
+                <modifier type="set" value="true" field="hidden">
+                  <conditions>
+                    <condition type="notEqualTo" value="1" field="selections" scope="parent" childId="afa2-74a0-9359-34bc" shared="true"/>
+                  </conditions>
+                </modifier>
+              </modifiers>
+            </selectionEntry>
+            <selectionEntry type="upgrade" import="true" name="Rune-Marked Axe" hidden="false" id="2d49-6050-81aa-69e0" collective="false">
+              <profiles>
+                <profile name="Rune-Marked Axe" typeId="8a40-4aaa-c780-9046" typeName="Melee Weapons" hidden="false" id="9e13-e58d-93fa-e30a">
+                  <characteristics>
+                    <characteristic name="Range" typeId="914c-b413-91e3-a132">Melee</characteristic>
+                    <characteristic name="A" typeId="2337-daa1-6682-b110">5</characteristic>
+                    <characteristic name="WS" typeId="95d1-95f-45b4-11d6">2</characteristic>
+                    <characteristic name="S" typeId="ab33-d393-96ce-ccba">6</characteristic>
+                    <characteristic name="AP" typeId="41a0-1301-112a-e2f2">-2</characteristic>
+                    <characteristic name="D" typeId="3254-9fe6-d824-513e">2</characteristic>
+                    <characteristic name="Keywords" typeId="893f-9000-ccf7-648e"/>
+                  </characteristics>
+                  <comment>Space Hulk content</comment>
+                  <alias>Rune-Marked Axe</alias>
+                </profile>
+                <profile name="Rune-Marked" typeId="9cc3-6d83-4dd3-9b64" typeName="Abilities" hidden="false" id="124f-329e-6bf2-3722">
+                  <characteristics>
+                    <characteristic name="Description" typeId="9b8f-694b-e5e-b573">If this model is equipped with weapons that have extra attacks, it may use the Rune-Marked Axe for those attacks instead.</characteristic>
+                  </characteristics>
+                  <comment>Space Hulk content</comment>
+                </profile>
+              </profiles>
+              <costs>
+                <cost name="pts" typeId="51b2-306e-1021-d207" value="0"/>
+                <cost name="Crusade Points" typeId="b03b-c239-15a5-da55" value="0"/>
+                <cost name="Crusade: Battle Honours" typeId="75bb-ded1-c86d-bdf0" value="0"/>
+                <cost name="Crusade: Experience" typeId="a623-fe74-1d33-cddf" value="0"/>
+                <cost name="Crusade: Weapon Modifications" typeId="716d-91b7-d55a-1022" value="0"/>
+                <cost name="Blackstone Fragments" typeId="ac6b-ced3-9b5e-9a6e" value="0"/>
+                <cost name="Space Hulk: Requisition" typeId="ba9c-608d-dedc-1ee0" value="1"/>
+              </costs>
+              <categoryLinks>
+                <categoryLink name="Ranged Weapon" hidden="false" id="2629-e610-e183-e33f" targetId="eeda-8544-a2f3-3fab" primary="false"/>
+              </categoryLinks>
+              <comment>Space Hulk content</comment>
+              <modifiers>
+                <modifier type="set" value="true" field="hidden">
+                  <conditions>
+                    <condition type="notEqualTo" value="1" field="selections" scope="parent" childId="1154-ae09-f0a3-4bb3" shared="true"/>
+                  </conditions>
+                </modifier>
+              </modifiers>
+            </selectionEntry>
+            <selectionEntry type="upgrade" import="true" name="Balanced Shortsword" hidden="false" id="5a9d-abdd-bd70-20a4" collective="false">
+              <profiles>
+                <profile name="Balanced Shortsword" typeId="8a40-4aaa-c780-9046" typeName="Melee Weapons" hidden="false" id="48d5-e94c-ea76-64b3">
+                  <characteristics>
+                    <characteristic name="Range" typeId="914c-b413-91e3-a132">Melee</characteristic>
+                    <characteristic name="A" typeId="2337-daa1-6682-b110">4</characteristic>
+                    <characteristic name="WS" typeId="95d1-95f-45b4-11d6">3</characteristic>
+                    <characteristic name="S" typeId="ab33-d393-96ce-ccba">5</characteristic>
+                    <characteristic name="AP" typeId="41a0-1301-112a-e2f2">-1</characteristic>
+                    <characteristic name="D" typeId="3254-9fe6-d824-513e">1</characteristic>
+                    <characteristic name="Keywords" typeId="893f-9000-ccf7-648e">Extra Attacks</characteristic>
+                  </characteristics>
+                  <comment>Space Hulk content</comment>
+                  <alias>Balanced Shortsword</alias>
+                </profile>
+              </profiles>
+              <costs>
+                <cost name="pts" typeId="51b2-306e-1021-d207" value="0"/>
+                <cost name="Crusade Points" typeId="b03b-c239-15a5-da55" value="0"/>
+                <cost name="Crusade: Battle Honours" typeId="75bb-ded1-c86d-bdf0" value="0"/>
+                <cost name="Crusade: Experience" typeId="a623-fe74-1d33-cddf" value="0"/>
+                <cost name="Crusade: Weapon Modifications" typeId="716d-91b7-d55a-1022" value="0"/>
+                <cost name="Blackstone Fragments" typeId="ac6b-ced3-9b5e-9a6e" value="0"/>
+                <cost name="Space Hulk: Requisition" typeId="ba9c-608d-dedc-1ee0" value="1"/>
+              </costs>
+              <categoryLinks>
+                <categoryLink name="Ranged Weapon" hidden="false" id="30f4-018e-b714-0fae" targetId="eeda-8544-a2f3-3fab" primary="false"/>
+              </categoryLinks>
+              <comment>Space Hulk content</comment>
+              <modifiers>
+                <modifier type="set" value="true" field="hidden">
+                  <conditions>
+                    <condition type="notEqualTo" value="1" field="selections" scope="parent" childId="1154-ae09-f0a3-4bb3" shared="true"/>
+                  </conditions>
+                </modifier>
+              </modifiers>
+              <infoLinks>
+                <infoLink name="Extra Attacks" id="04ea-18ad-bd67-631a" hidden="false" type="rule" targetId="115b-79dc-f723-d761"/>
+              </infoLinks>
+            </selectionEntry>
+            <selectionEntry type="upgrade" import="true" name="Wild Destruction Claw" hidden="false" id="f3cc-4c92-468b-72a9" collective="false">
+              <profiles>
+                <profile name="Wild Destruction Claw" typeId="8a40-4aaa-c780-9046" typeName="Melee Weapons" hidden="false" id="2c2d-7f10-6596-918b">
+                  <characteristics>
+                    <characteristic name="Range" typeId="914c-b413-91e3-a132">Melee</characteristic>
+                    <characteristic name="A" typeId="2337-daa1-6682-b110">5</characteristic>
+                    <characteristic name="WS" typeId="95d1-95f-45b4-11d6">4</characteristic>
+                    <characteristic name="S" typeId="ab33-d393-96ce-ccba">9</characteristic>
+                    <characteristic name="AP" typeId="41a0-1301-112a-e2f2">-2</characteristic>
+                    <characteristic name="D" typeId="3254-9fe6-d824-513e">4</characteristic>
+                    <characteristic name="Keywords" typeId="893f-9000-ccf7-648e">Hazardous, Anti-VEHICLE 3+, Anti-MONSTER 3+</characteristic>
+                  </characteristics>
+                  <comment>Space Hulk content</comment>
+                  <alias>Wild Destruction Claw</alias>
+                </profile>
+              </profiles>
+              <costs>
+                <cost name="pts" typeId="51b2-306e-1021-d207" value="0"/>
+                <cost name="Crusade Points" typeId="b03b-c239-15a5-da55" value="0"/>
+                <cost name="Crusade: Battle Honours" typeId="75bb-ded1-c86d-bdf0" value="0"/>
+                <cost name="Crusade: Experience" typeId="a623-fe74-1d33-cddf" value="0"/>
+                <cost name="Crusade: Weapon Modifications" typeId="716d-91b7-d55a-1022" value="0"/>
+                <cost name="Blackstone Fragments" typeId="ac6b-ced3-9b5e-9a6e" value="0"/>
+                <cost name="Space Hulk: Requisition" typeId="ba9c-608d-dedc-1ee0" value="1"/>
+              </costs>
+              <categoryLinks>
+                <categoryLink name="Ranged Weapon" hidden="false" id="2832-3922-bc04-1226" targetId="eeda-8544-a2f3-3fab" primary="false"/>
+              </categoryLinks>
+              <comment>Space Hulk content</comment>
+              <modifiers>
+                <modifier type="set" value="true" field="hidden">
+                  <conditions>
+                    <condition type="notEqualTo" value="1" field="selections" scope="parent" childId="1154-ae09-f0a3-4bb3" shared="true"/>
+                  </conditions>
+                </modifier>
+              </modifiers>
+              <infoLinks>
+                <infoLink name="Hazardous" id="c58b-a528-d688-e0d5" hidden="false" type="rule" targetId="8367-374c-f87-c627"/>
+                <infoLink name="Anti-" id="ffe3-e924-15cd-d446" hidden="false" type="rule" targetId="4111-82e3-9444-e942"/>
+              </infoLinks>
+            </selectionEntry>
+            <selectionEntry type="upgrade" import="true" name="Massive Spiked Mace" hidden="false" id="d1b7-9c4f-e4c2-ade2" collective="false">
+              <profiles>
+                <profile name="Massive Spiked Mace" typeId="8a40-4aaa-c780-9046" typeName="Melee Weapons" hidden="false" id="1373-6da4-6491-9b8e">
+                  <characteristics>
+                    <characteristic name="Range" typeId="914c-b413-91e3-a132">Melee</characteristic>
+                    <characteristic name="A" typeId="2337-daa1-6682-b110">1</characteristic>
+                    <characteristic name="WS" typeId="95d1-95f-45b4-11d6">2</characteristic>
+                    <characteristic name="S" typeId="ab33-d393-96ce-ccba">12</characteristic>
+                    <characteristic name="AP" typeId="41a0-1301-112a-e2f2">-2</characteristic>
+                    <characteristic name="D" typeId="3254-9fe6-d824-513e">D6+6</characteristic>
+                    <characteristic name="Keywords" typeId="893f-9000-ccf7-648e">Devastating Wounds, Anti-VEHICLE 4+, Anti-INFANTRY 4+, Anti-MOUNTED 4+, Anti-MONSTER 4+</characteristic>
+                  </characteristics>
+                  <comment>Space Hulk content</comment>
+                  <alias>Massive Spiked Mace</alias>
+                </profile>
+                <profile name="Speak Softly" typeId="9cc3-6d83-4dd3-9b64" typeName="Abilities" hidden="false" id="54a4-72e5-7526-92e1">
+                  <characteristics>
+                    <characteristic name="Description" typeId="9b8f-694b-e5e-b573">You can reroll the wound roll when making attacks with the Massive Spiked Mace</characteristic>
+                  </characteristics>
+                  <comment>Space Hulk content</comment>
+                </profile>
+              </profiles>
+              <costs>
+                <cost name="pts" typeId="51b2-306e-1021-d207" value="0"/>
+                <cost name="Crusade Points" typeId="b03b-c239-15a5-da55" value="0"/>
+                <cost name="Crusade: Battle Honours" typeId="75bb-ded1-c86d-bdf0" value="0"/>
+                <cost name="Crusade: Experience" typeId="a623-fe74-1d33-cddf" value="0"/>
+                <cost name="Crusade: Weapon Modifications" typeId="716d-91b7-d55a-1022" value="0"/>
+                <cost name="Blackstone Fragments" typeId="ac6b-ced3-9b5e-9a6e" value="0"/>
+                <cost name="Space Hulk: Requisition" typeId="ba9c-608d-dedc-1ee0" value="1"/>
+              </costs>
+              <categoryLinks>
+                <categoryLink name="Ranged Weapon" hidden="false" id="1eef-d162-c228-c99c" targetId="eeda-8544-a2f3-3fab" primary="false"/>
+              </categoryLinks>
+              <comment>Space Hulk content</comment>
+              <modifiers>
+                <modifier type="set" value="true" field="hidden">
+                  <conditions>
+                    <condition type="notEqualTo" value="1" field="selections" scope="parent" childId="1154-ae09-f0a3-4bb3" shared="true"/>
+                  </conditions>
+                </modifier>
+              </modifiers>
+              <infoLinks>
+                <infoLink name="Anti-" id="7666-2ecc-f342-cd3e" hidden="false" type="rule" targetId="4111-82e3-9444-e942"/>
+                <infoLink name="Devastating Wounds" id="823e-3dd5-367e-d514" hidden="false" type="rule" targetId="be1e-ac8e-1e2c-3528"/>
+              </infoLinks>
+            </selectionEntry>
+            <selectionEntry type="upgrade" import="true" name="Daemonskin Blade" hidden="false" id="d953-f638-5e13-a643" collective="false">
+              <profiles>
+                <profile name="Daemonskin Blade" typeId="8a40-4aaa-c780-9046" typeName="Melee Weapons" hidden="false" id="5cbd-c389-060c-cf9b">
+                  <characteristics>
+                    <characteristic name="Range" typeId="914c-b413-91e3-a132">Melee</characteristic>
+                    <characteristic name="A" typeId="2337-daa1-6682-b110">5</characteristic>
+                    <characteristic name="WS" typeId="95d1-95f-45b4-11d6">3</characteristic>
+                    <characteristic name="S" typeId="ab33-d393-96ce-ccba">5</characteristic>
+                    <characteristic name="AP" typeId="41a0-1301-112a-e2f2">-4</characteristic>
+                    <characteristic name="D" typeId="3254-9fe6-d824-513e">1</characteristic>
+                    <characteristic name="Keywords" typeId="893f-9000-ccf7-648e">Psychic</characteristic>
+                  </characteristics>
+                  <comment>Space Hulk content</comment>
+                  <alias>Daemonskin Blade</alias>
+                </profile>
+                <profile name="Blade of the Neverborn" typeId="9cc3-6d83-4dd3-9b64" typeName="Abilities" hidden="false" id="18f1-9d2c-e50b-76db">
+                  <characteristics>
+                    <characteristic name="Description" typeId="9b8f-694b-e5e-b573">Wounds made with the Daemonskin Blade can ignore invulnerable saves.</characteristic>
+                  </characteristics>
+                  <comment>Space Hulk content</comment>
+                </profile>
+              </profiles>
+              <costs>
+                <cost name="pts" typeId="51b2-306e-1021-d207" value="0"/>
+                <cost name="Crusade Points" typeId="b03b-c239-15a5-da55" value="0"/>
+                <cost name="Crusade: Battle Honours" typeId="75bb-ded1-c86d-bdf0" value="0"/>
+                <cost name="Crusade: Experience" typeId="a623-fe74-1d33-cddf" value="0"/>
+                <cost name="Crusade: Weapon Modifications" typeId="716d-91b7-d55a-1022" value="0"/>
+                <cost name="Blackstone Fragments" typeId="ac6b-ced3-9b5e-9a6e" value="0"/>
+                <cost name="Space Hulk: Requisition" typeId="ba9c-608d-dedc-1ee0" value="1"/>
+              </costs>
+              <categoryLinks>
+                <categoryLink name="Ranged Weapon" hidden="false" id="4089-66d4-1353-abcd" targetId="eeda-8544-a2f3-3fab" primary="false"/>
+              </categoryLinks>
+              <comment>Space Hulk content</comment>
+              <modifiers>
+                <modifier type="set" value="true" field="hidden">
+                  <conditions>
+                    <condition type="notEqualTo" value="1" field="selections" scope="parent" childId="42f7-dfca-e478-2b57" shared="true"/>
+                  </conditions>
+                </modifier>
+              </modifiers>
+              <infoLinks>
+                <infoLink name="Psychic" id="4274-b90b-994e-beb6" hidden="false" type="rule" targetId="e9c4-2bb8-12ee-cd1b"/>
+              </infoLinks>
+            </selectionEntry>
+            <selectionEntry type="upgrade" import="true" name="Morphing Metal Bracer" hidden="false" id="4b03-0694-fb68-1a9a" collective="false">
+              <profiles>
+                <profile name="Morphing Metal Bracer" typeId="8a40-4aaa-c780-9046" typeName="Melee Weapons" hidden="false" id="99f8-df1e-4431-c11a">
+                  <characteristics>
+                    <characteristic name="Range" typeId="914c-b413-91e3-a132">Melee</characteristic>
+                    <characteristic name="A" typeId="2337-daa1-6682-b110">4</characteristic>
+                    <characteristic name="WS" typeId="95d1-95f-45b4-11d6">3</characteristic>
+                    <characteristic name="S" typeId="ab33-d393-96ce-ccba">4</characteristic>
+                    <characteristic name="AP" typeId="41a0-1301-112a-e2f2">-1</characteristic>
+                    <characteristic name="D" typeId="3254-9fe6-d824-513e">D3</characteristic>
+                    <characteristic name="Keywords" typeId="893f-9000-ccf7-648e">Psychic</characteristic>
+                  </characteristics>
+                  <comment>Space Hulk content</comment>
+                  <alias>Morphing Metal Bracer</alias>
+                </profile>
+                <profile name="Wishful Thinking" typeId="9cc3-6d83-4dd3-9b64" typeName="Abilities" hidden="false" id="c3b1-2879-8061-908d">
+                  <characteristics>
+                    <characteristic name="Description" typeId="9b8f-694b-e5e-b573">At the beginning of the fight phase, you may select a model that is visible to the bearer. Select a melee weapon on that model. Replace all stats of the Morphing Metal Bracer with the chosen melee weapon instead for the duration of the battle round.</characteristic>
+                  </characteristics>
+                  <comment>Space Hulk content</comment>
+                </profile>
+              </profiles>
+              <costs>
+                <cost name="pts" typeId="51b2-306e-1021-d207" value="0"/>
+                <cost name="Crusade Points" typeId="b03b-c239-15a5-da55" value="0"/>
+                <cost name="Crusade: Battle Honours" typeId="75bb-ded1-c86d-bdf0" value="0"/>
+                <cost name="Crusade: Experience" typeId="a623-fe74-1d33-cddf" value="0"/>
+                <cost name="Crusade: Weapon Modifications" typeId="716d-91b7-d55a-1022" value="0"/>
+                <cost name="Blackstone Fragments" typeId="ac6b-ced3-9b5e-9a6e" value="0"/>
+                <cost name="Space Hulk: Requisition" typeId="ba9c-608d-dedc-1ee0" value="1"/>
+              </costs>
+              <categoryLinks>
+                <categoryLink name="Ranged Weapon" hidden="false" id="b83d-e4b6-2989-5946" targetId="eeda-8544-a2f3-3fab" primary="false"/>
+              </categoryLinks>
+              <comment>Space Hulk content</comment>
+              <modifiers>
+                <modifier type="set" value="true" field="hidden">
+                  <conditions>
+                    <condition type="notEqualTo" value="1" field="selections" scope="parent" childId="42f7-dfca-e478-2b57" shared="true"/>
+                  </conditions>
+                </modifier>
+              </modifiers>
+              <infoLinks>
+                <infoLink name="Psychic" id="967f-5734-d325-4da7" hidden="false" type="rule" targetId="e9c4-2bb8-12ee-cd1b"/>
+              </infoLinks>
+            </selectionEntry>
+            <selectionEntry type="upgrade" import="true" name="Parrying Blade" hidden="false" id="ea19-0b1a-8a44-24e4" collective="false">
+              <profiles>
+                <profile name="Parrying Blade" typeId="8a40-4aaa-c780-9046" typeName="Melee Weapons" hidden="false" id="0ce0-76a0-9e2d-2932">
+                  <characteristics>
+                    <characteristic name="Range" typeId="914c-b413-91e3-a132">Melee</characteristic>
+                    <characteristic name="A" typeId="2337-daa1-6682-b110">3</characteristic>
+                    <characteristic name="WS" typeId="95d1-95f-45b4-11d6">3</characteristic>
+                    <characteristic name="S" typeId="ab33-d393-96ce-ccba">4</characteristic>
+                    <characteristic name="AP" typeId="41a0-1301-112a-e2f2">-2</characteristic>
+                    <characteristic name="D" typeId="3254-9fe6-d824-513e">1</characteristic>
+                    <characteristic name="Keywords" typeId="893f-9000-ccf7-648e"/>
+                  </characteristics>
+                  <comment>Space Hulk content</comment>
+                  <alias>Parrying Blade</alias>
+                </profile>
+                <profile name="Perfect Parry" typeId="9cc3-6d83-4dd3-9b64" typeName="Abilities" hidden="false" id="83ca-1f85-e003-a61f">
+                  <characteristics>
+                    <characteristic name="Description" typeId="9b8f-694b-e5e-b573">At the start of the fight phase, you may declare a Perfect Parry. If so, the user gains the Fights First ability and all melee attacks must be made with the Parrying Blade. If any attacks made by the Parrying Blade hit an enemy unit, that unit becomes battle-shocked until the end of the turn.</characteristic>
+                  </characteristics>
+                  <comment>Space Hulk content</comment>
+                </profile>
+              </profiles>
+              <costs>
+                <cost name="pts" typeId="51b2-306e-1021-d207" value="0"/>
+                <cost name="Crusade Points" typeId="b03b-c239-15a5-da55" value="0"/>
+                <cost name="Crusade: Battle Honours" typeId="75bb-ded1-c86d-bdf0" value="0"/>
+                <cost name="Crusade: Experience" typeId="a623-fe74-1d33-cddf" value="0"/>
+                <cost name="Crusade: Weapon Modifications" typeId="716d-91b7-d55a-1022" value="0"/>
+                <cost name="Blackstone Fragments" typeId="ac6b-ced3-9b5e-9a6e" value="0"/>
+                <cost name="Space Hulk: Requisition" typeId="ba9c-608d-dedc-1ee0" value="1"/>
+              </costs>
+              <categoryLinks>
+                <categoryLink name="Ranged Weapon" hidden="false" id="4c85-8795-be7b-c38a" targetId="eeda-8544-a2f3-3fab" primary="false"/>
+              </categoryLinks>
+              <comment>Space Hulk content</comment>
+              <modifiers>
+                <modifier type="set" value="true" field="hidden">
+                  <conditions>
+                    <condition type="notEqualTo" value="1" field="selections" scope="parent" childId="d229-98f0-cff6-c1d5" shared="true"/>
+                  </conditions>
+                </modifier>
+              </modifiers>
+            </selectionEntry>
+            <selectionEntry type="upgrade" import="true" name="Punch Shield of Vengeance" hidden="false" id="3ba0-44ea-0640-1df6" collective="false">
+              <profiles>
+                <profile name="Punch Shield of Vengeance" typeId="8a40-4aaa-c780-9046" typeName="Melee Weapons" hidden="false" id="b1d4-213e-57c2-abd4">
+                  <characteristics>
+                    <characteristic name="Range" typeId="914c-b413-91e3-a132">Melee</characteristic>
+                    <characteristic name="A" typeId="2337-daa1-6682-b110">3</characteristic>
+                    <characteristic name="WS" typeId="95d1-95f-45b4-11d6">2</characteristic>
+                    <characteristic name="S" typeId="ab33-d393-96ce-ccba">6</characteristic>
+                    <characteristic name="AP" typeId="41a0-1301-112a-e2f2">-2</characteristic>
+                    <characteristic name="D" typeId="3254-9fe6-d824-513e">D3</characteristic>
+                    <characteristic name="Keywords" typeId="893f-9000-ccf7-648e">Lethal Hits</characteristic>
+                  </characteristics>
+                  <comment>Space Hulk content</comment>
+                  <alias>Punch Shield of Vengeance</alias>
+                </profile>
+                <profile name="No You Didn&apos;t" typeId="9cc3-6d83-4dd3-9b64" typeName="Abilities" hidden="false" id="76a4-a7d4-8a6b-9a80">
+                  <characteristics>
+                    <characteristic name="Description" typeId="9b8f-694b-e5e-b573">If this model attacks an enemy unit in that dealt damage to the bearer during this Fight Phase, double the stats of the Punch Shield of Vengeance in every category. (Strength 12, 6 attacks, 4+ WS, AP -4, 2D3 damage)</characteristic>
+                  </characteristics>
+                  <comment>Space Hulk content</comment>
+                </profile>
+              </profiles>
+              <costs>
+                <cost name="pts" typeId="51b2-306e-1021-d207" value="0"/>
+                <cost name="Crusade Points" typeId="b03b-c239-15a5-da55" value="0"/>
+                <cost name="Crusade: Battle Honours" typeId="75bb-ded1-c86d-bdf0" value="0"/>
+                <cost name="Crusade: Experience" typeId="a623-fe74-1d33-cddf" value="0"/>
+                <cost name="Crusade: Weapon Modifications" typeId="716d-91b7-d55a-1022" value="0"/>
+                <cost name="Blackstone Fragments" typeId="ac6b-ced3-9b5e-9a6e" value="0"/>
+                <cost name="Space Hulk: Requisition" typeId="ba9c-608d-dedc-1ee0" value="1"/>
+              </costs>
+              <categoryLinks>
+                <categoryLink name="Ranged Weapon" hidden="false" id="e43c-4678-0234-db8c" targetId="eeda-8544-a2f3-3fab" primary="false"/>
+              </categoryLinks>
+              <comment>Space Hulk content</comment>
+              <modifiers>
+                <modifier type="set" value="true" field="hidden">
+                  <conditions>
+                    <condition type="notEqualTo" value="1" field="selections" scope="parent" childId="d229-98f0-cff6-c1d5" shared="true"/>
+                  </conditions>
+                </modifier>
+              </modifiers>
+            </selectionEntry>
+          </selectionEntries>
+        </selectionEntryGroup>
+      </selectionEntryGroups>
     </selectionEntryGroup>
   </sharedSelectionEntryGroups>
 </gameSystem>

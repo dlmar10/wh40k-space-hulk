@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" standalone="yes"?>
-<catalogue xmlns="http://www.battlescribe.net/schema/catalogueSchema" id="1069-10ff-3ba9-873b" name="Chaos - Thousand Sons" revision="83" battleScribeVersion="2.03" library="false" gameSystemId="sys-352e-adc2-7639-d6a9" gameSystemRevision="1" type="catalogue">
+<catalogue xmlns="http://www.battlescribe.net/schema/catalogueSchema" id="1069-10ff-3ba9-873b" name="Chaos - Thousand Sons" revision="84" battleScribeVersion="2.03" library="false" gameSystemId="sys-352e-adc2-7639-d6a9" gameSystemRevision="1" type="catalogue">
   <publications>
     <publication id="015a-6212-d737-9044" name="Index - Thousand Sons"/>
   </publications>
@@ -2057,6 +2057,7 @@
     <entryLink import="true" name="Kairos Fateweaver" hidden="false" id="bd22-9def-df57-baad" type="selectionEntry" targetId="8f70-9bec-9b83-216b"/>
     <entryLink import="true" name="Blue Horrors" hidden="false" id="f91f-6730-445a-22b0" type="selectionEntry" targetId="aec5-4419-39e7-3e63"/>
     <entryLink import="true" name="Order of Battle" hidden="false" id="aff5-c855-0ddb-7ce1" type="selectionEntry" targetId="eda7-8b4b-3719-af36"/>
+    <entryLink import="true" name="Enhancements" hidden="false" id="3588-011c-795d-6103" type="selectionEntryGroup" targetId="8af7-be51-b381-21c5"/>
   </entryLinks>
   <sharedSelectionEntries>
     <selectionEntry id="3b0d-dccf-8661-be1c" name="Detachment" hidden="false" collective="false" import="true" type="upgrade">
@@ -4055,6 +4056,9 @@ Each time a ^^**Thousand Sons Vehicle^^** model from your army with the Deadly D
         <entryLink id="8231-b608-4df9-7ed4" name="Warlord" hidden="false" collective="false" import="true" targetId="a021-c1a0-c35c-f10f" type="selectionEntry" sortIndex="2"/>
         <entryLink id="c184-aa8c-0332-da76" name="Enhancements" hidden="false" collective="false" import="true" targetId="25f1-9949-5ee8-8b93" type="selectionEntryGroup" sortIndex="3"/>
         <entryLink import="true" name="Crusade" hidden="false" id="9a3d-9018-8578-ed46" type="selectionEntryGroup" targetId="965a-b245-f1be-9dbd" sortIndex="1"/>
+        <entryLink import="true" name="Expertise" hidden="false" id="d4dd-ca94-7094-1100" type="selectionEntryGroup" targetId="5a83-de9d-1ee5-d48f"/>
+        <entryLink import="true" name="Expertise Enhancements" hidden="false" id="07b0-ee30-4e50-5e7a" type="selectionEntryGroup" targetId="8af7-be51-b381-21c5" collapsible="false"/>
+        <entryLink import="true" name="Expertise Wargear" hidden="false" id="8240-2910-ba08-baf5" type="selectionEntryGroup" targetId="f80f-ffe2-668b-6fa1"/>
       </entryLinks>
       <costs>
         <cost name="pts" typeId="51b2-306e-1021-d207" value="80"/>
@@ -4393,6 +4397,9 @@ Each time a ^^**Thousand Sons Vehicle^^** model from your army with the Deadly D
         <entryLink id="5b2b-06d6-2792-daa9" name="Warlord" hidden="false" collective="false" import="true" targetId="a021-c1a0-c35c-f10f" type="selectionEntry" sortIndex="2"/>
         <entryLink id="58c8-75d4-a684-c507" name="Enhancements" hidden="false" collective="false" import="true" targetId="25f1-9949-5ee8-8b93" type="selectionEntryGroup" sortIndex="3"/>
         <entryLink import="true" name="Crusade" hidden="false" id="7804-dbd5-923a-22d9" type="selectionEntryGroup" targetId="965a-b245-f1be-9dbd" sortIndex="1"/>
+        <entryLink import="true" name="Expertise" hidden="false" id="b9f2-8997-16fd-d010" type="selectionEntryGroup" targetId="5a83-de9d-1ee5-d48f"/>
+        <entryLink import="true" name="Expertise Enhancements" hidden="false" id="a2fd-c35b-8112-f901" type="selectionEntryGroup" targetId="8af7-be51-b381-21c5" collapsible="false"/>
+        <entryLink import="true" name="Expertise Wargear" hidden="false" id="bf44-8266-a9d2-c01d" type="selectionEntryGroup" targetId="f80f-ffe2-668b-6fa1"/>
       </entryLinks>
       <costs>
         <cost name="pts" typeId="51b2-306e-1021-d207" value="100"/>
@@ -5668,6 +5675,9 @@ Each time a ^^**Thousand Sons Vehicle^^** model from your army with the Deadly D
         <entryLink id="b197-5515-edd7-d146" name="Warlord" hidden="false" collective="false" import="true" targetId="a021-c1a0-c35c-f10f" type="selectionEntry" sortIndex="2"/>
         <entryLink id="d4f9-d775-ee24-ba0d" name="Enhancements" hidden="false" collective="false" import="true" targetId="25f1-9949-5ee8-8b93" type="selectionEntryGroup" sortIndex="3"/>
         <entryLink import="true" name="Crusade" hidden="false" id="2eb9-1072-88db-af47" type="selectionEntryGroup" targetId="965a-b245-f1be-9dbd" sortIndex="1"/>
+        <entryLink import="true" name="Expertise" hidden="false" id="e048-2fa1-ca09-e16a" type="selectionEntryGroup" targetId="5a83-de9d-1ee5-d48f"/>
+        <entryLink import="true" name="Expertise Enhancements" hidden="false" id="58c3-d9bc-e569-7008" type="selectionEntryGroup" targetId="8af7-be51-b381-21c5" collapsible="false"/>
+        <entryLink import="true" name="Expertise Wargear" hidden="false" id="267c-6f2e-bc33-3106" type="selectionEntryGroup" targetId="f80f-ffe2-668b-6fa1"/>
       </entryLinks>
       <costs>
         <cost name="pts" typeId="51b2-306e-1021-d207" value="85"/>
@@ -7681,6 +7691,9 @@ Wound roll.</characteristic>
         <entryLink id="275c-eee9-4ed3-bb0e" name="Enhancements" hidden="false" collective="false" import="true" targetId="25f1-9949-5ee8-8b93" type="selectionEntryGroup" sortIndex="3"/>
         <entryLink id="d7b9-e7da-6d73-2fcd" name="Warlord" hidden="false" collective="false" import="true" targetId="a021-c1a0-c35c-f10f" type="selectionEntry" sortIndex="2"/>
         <entryLink import="true" name="Crusade" hidden="false" id="026d-e392-0b48-4877" type="selectionEntryGroup" targetId="965a-b245-f1be-9dbd" sortIndex="1"/>
+        <entryLink import="true" name="Expertise" hidden="false" id="44e8-3d31-e040-d9af" type="selectionEntryGroup" targetId="5a83-de9d-1ee5-d48f"/>
+        <entryLink import="true" name="Expertise Enhancements" hidden="false" id="6980-5333-0238-4092" type="selectionEntryGroup" targetId="8af7-be51-b381-21c5" collapsible="false"/>
+        <entryLink import="true" name="Expertise Wargear" hidden="false" id="4c3d-a4bd-bab9-14c8" type="selectionEntryGroup" targetId="f80f-ffe2-668b-6fa1"/>
       </entryLinks>
       <costs>
         <cost name="pts" typeId="51b2-306e-1021-d207" value="75"/>
@@ -7883,6 +7896,9 @@ Wound roll.</characteristic>
         <entryLink id="a4f9-5084-b8ef-c7b8" name="Enhancements" hidden="false" collective="false" import="true" targetId="25f1-9949-5ee8-8b93" type="selectionEntryGroup" sortIndex="3"/>
         <entryLink id="93c-195f-6587-5ac6" name="Warlord" hidden="false" collective="false" import="true" targetId="a021-c1a0-c35c-f10f" type="selectionEntry" sortIndex="2"/>
         <entryLink import="true" name="Crusade" hidden="false" id="9946-e944-7004-b516" type="selectionEntryGroup" targetId="965a-b245-f1be-9dbd" sortIndex="1"/>
+        <entryLink import="true" name="Expertise" hidden="false" id="d195-4f8e-daa7-8271" type="selectionEntryGroup" targetId="5a83-de9d-1ee5-d48f"/>
+        <entryLink import="true" name="Expertise Enhancements" hidden="false" id="7172-9f5f-b72d-53d4" type="selectionEntryGroup" targetId="8af7-be51-b381-21c5" collapsible="false"/>
+        <entryLink import="true" name="Expertise Wargear" hidden="false" id="0518-543b-85e7-387f" type="selectionEntryGroup" targetId="f80f-ffe2-668b-6fa1"/>
       </entryLinks>
       <profiles>
         <profile id="f69f-b275-2ada-7881" name="Leader" hidden="false" typeId="9cc3-6d83-4dd3-9b64" typeName="Abilities">
@@ -8871,6 +8887,9 @@ Wound roll.</characteristic>
         <entryLink import="true" name="Warlord" hidden="false" type="selectionEntry" id="8792-e726-9aee-9830" targetId="a021-c1a0-c35c-f10f" sortIndex="2"/>
         <entryLink import="true" name="Enhancements" hidden="false" type="selectionEntryGroup" id="fc0d-11fe-163c-c975" targetId="25f1-9949-5ee8-8b93" sortIndex="3"/>
         <entryLink import="true" name="Crusade" hidden="false" id="1f8d-e5cd-356c-5ec6" type="selectionEntryGroup" targetId="965a-b245-f1be-9dbd" sortIndex="1"/>
+        <entryLink import="true" name="Expertise" hidden="false" id="3cb2-b464-de55-566d" type="selectionEntryGroup" targetId="5a83-de9d-1ee5-d48f"/>
+        <entryLink import="true" name="Expertise Enhancements" hidden="false" id="37ce-ee71-ea6b-65c0" type="selectionEntryGroup" targetId="8af7-be51-b381-21c5" collapsible="false"/>
+        <entryLink import="true" name="Expertise Wargear" hidden="false" id="d2a3-5e01-d16b-c1cc" type="selectionEntryGroup" targetId="f80f-ffe2-668b-6fa1"/>
       </entryLinks>
       <selectionEntryGroups>
         <selectionEntryGroup name="Wargear" id="2285-98f5-f8cc-c8c9" hidden="false" sortIndex="4">
