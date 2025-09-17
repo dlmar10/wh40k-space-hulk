@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" standalone="yes"?>
-<catalogue xmlns="http://www.battlescribe.net/schema/catalogueSchema" id="e0af-67df-9d63-8fb7" name="Imperium - Adeptus Astartes - Space Marines" revision="149" battleScribeVersion="2.03" library="false" gameSystemId="sys-352e-adc2-7639-d6a9" gameSystemRevision="1" type="catalogue" authorName="Acebaur">
+<catalogue xmlns="http://www.battlescribe.net/schema/catalogueSchema" id="e0af-67df-9d63-8fb7" name="Imperium - Adeptus Astartes - Space Marines" revision="151" battleScribeVersion="2.03" library="false" gameSystemId="sys-352e-adc2-7639-d6a9" gameSystemRevision="1" type="catalogue" authorName="Acebaur">
   <categoryEntries>
     <categoryEntry id="5179-8ede-45e3-49a2" name="Tacticus" hidden="false"/>
     <categoryEntry id="930d-2875-125b-a65e" name="Bladeguard Veteran Squad" hidden="false"/>
@@ -2996,6 +2996,7 @@
         <entryLink id="b29-1397-edf-bf99" name="Warlord" hidden="false" collective="false" import="true" targetId="caa-f869-3cbd-b48e" type="selectionEntry" sortIndex="2"/>
         <entryLink import="true" name="Enhancements" hidden="false" type="selectionEntryGroup" id="bc41-9bd9-b7a-ca90" targetId="9e5d-de4c-c5d1-1d3e" sortIndex="3"/>
         <entryLink import="true" name="Crusade" hidden="false" id="3575-ed51-29b4-2b85" type="selectionEntryGroup" targetId="9a99-f13c-a667-e698" sortIndex="1"/>
+        <entryLink import="true" name="Space Hulk" hidden="false" id="c636-b16a-41f2-ce2b" type="selectionEntryGroup" targetId="db6b-e394-5ec6-753e" sortIndex="2"/>
       </entryLinks>
       <costs>
         <cost name="pts" typeId="51b2-306e-1021-d207" value="80"/>
@@ -3211,6 +3212,7 @@
         <entryLink import="true" name="Enhancements" hidden="false" type="selectionEntryGroup" id="2e37-8205-7b63-e5d1" targetId="9e5d-de4c-c5d1-1d3e" sortIndex="3"/>
         <entryLink id="a86d-28dd-aa1b-fc5" name="Warlord" hidden="false" collective="false" import="true" targetId="caa-f869-3cbd-b48e" type="selectionEntry" sortIndex="2"/>
         <entryLink import="true" name="Crusade" hidden="false" id="ffdf-93aa-9859-5d06" type="selectionEntryGroup" targetId="9a99-f13c-a667-e698" sortIndex="1"/>
+        <entryLink import="true" name="Space Hulk" hidden="false" id="d88c-52e8-a5b2-8094" type="selectionEntryGroup" targetId="db6b-e394-5ec6-753e" sortIndex="2"/>
       </entryLinks>
       <profiles>
         <profile name="Master of Deceit" hidden="false" typeId="9cc3-6d83-4dd3-9b64" typeName="Abilities" id="2d39-4b7-eecd-9111">
@@ -3473,6 +3475,7 @@
         <entryLink import="true" name="Enhancements" hidden="false" type="selectionEntryGroup" id="770c-2532-7d6-1a45" targetId="9e5d-de4c-c5d1-1d3e" sortIndex="3"/>
         <entryLink id="26b7-1153-5895-a3dc" name="Warlord" hidden="false" collective="false" import="true" targetId="caa-f869-3cbd-b48e" type="selectionEntry" sortIndex="2"/>
         <entryLink import="true" name="Crusade" hidden="false" id="2e73-1207-da99-caa3" type="selectionEntryGroup" targetId="9a99-f13c-a667-e698" sortIndex="1"/>
+        <entryLink import="true" name="Space Hulk" hidden="false" id="a1fc-4d1e-d79a-872e" type="selectionEntryGroup" targetId="db6b-e394-5ec6-753e" sortIndex="2"/>
       </entryLinks>
       <costs>
         <cost name="pts" typeId="51b2-306e-1021-d207" value="95"/>
@@ -3835,6 +3838,7 @@
         <entryLink import="true" name="Enhancements" hidden="false" type="selectionEntryGroup" id="411-eca0-713f-fa99" targetId="9e5d-de4c-c5d1-1d3e" sortIndex="3"/>
         <entryLink id="a4ca-3d53-781f-1798" name="Warlord" hidden="false" collective="false" import="true" targetId="caa-f869-3cbd-b48e" type="selectionEntry" sortIndex="2"/>
         <entryLink import="true" name="Crusade" hidden="false" id="9852-8ea4-b26e-5666" type="selectionEntryGroup" targetId="9a99-f13c-a667-e698" sortIndex="1"/>
+        <entryLink import="true" name="Space Hulk" hidden="false" id="8a55-fbaf-22d8-fb1b" type="selectionEntryGroup" targetId="db6b-e394-5ec6-753e" sortIndex="2"/>
       </entryLinks>
       <costs>
         <cost name="pts" typeId="51b2-306e-1021-d207" value="75"/>
@@ -23833,7 +23837,7 @@ Normal move. If it does so, until the end of the turn, this unit is not eligible
         </modifierGroup>
       </modifierGroups>
     </selectionEntry>
-    <selectionEntry type="model" import="true" name="Lieutenant" hidden="false" id="ce15-e87e-7cff-b129">
+    <selectionEntry type="model" import="true" name="Lieutenant" hidden="false" id="ce15-e87e-7cff-b129" sortIndex="">
       <costs>
         <cost name="pts" typeId="51b2-306e-1021-d207" value="65"/>
       </costs>
@@ -23860,6 +23864,7 @@ Normal move. If it does so, until the end of the turn, this unit is not eligible
         </entryLink>
         <entryLink import="true" name="Enhancements" hidden="false" type="selectionEntryGroup" id="4bfa-543a-d74d-1db6" targetId="9e5d-de4c-c5d1-1d3e" sortIndex="3"/>
         <entryLink import="true" name="Crusade" hidden="false" id="d40c-1860-1a33-24d9" type="selectionEntryGroup" targetId="9a99-f13c-a667-e698" sortIndex="1"/>
+        <entryLink import="true" name="Space Hulk" hidden="false" id="a89f-3899-c28f-b36b" type="selectionEntryGroup" targetId="db6b-e394-5ec6-753e" sortIndex="2"/>
       </entryLinks>
       <infoLinks>
         <infoLink name="Leader" type="rule" id="a044-bd4a-8c06-5183" targetId="b4dd-3e1f-41cb-218f"/>
@@ -24169,6 +24174,7 @@ You can attach this model a unit it can lead even if one Captain or Chapter Mas
         </entryLink>
         <entryLink import="true" name="Enhancements" hidden="false" type="selectionEntryGroup" id="9325-f915-af50-f7e1" targetId="9e5d-de4c-c5d1-1d3e" sortIndex="3"/>
         <entryLink import="true" name="Crusade" hidden="false" id="7b7e-b71b-99d7-04d1" type="selectionEntryGroup" targetId="9a99-f13c-a667-e698" sortIndex="1"/>
+        <entryLink import="true" name="Space Hulk" hidden="false" id="f1c7-b532-9a58-aad5" type="selectionEntryGroup" targetId="db6b-e394-5ec6-753e" sortIndex="2"/>
       </entryLinks>
       <constraints>
         <constraint field="selections" scope="roster" value="3" percentValue="false" shared="true" includeChildSelections="false" includeChildForces="false" id="9280-f394-94e9-331f" type="max"/>
@@ -24370,6 +24376,7 @@ You can attach this model to a unit it can lead units even if one Captain or Ch
         </entryLink>
         <entryLink import="true" name="Enhancements" hidden="false" type="selectionEntryGroup" id="6fe1-65a2-8b26-9704" targetId="9e5d-de4c-c5d1-1d3e" sortIndex="3"/>
         <entryLink import="true" name="Crusade" hidden="false" id="1c21-f3ca-8e51-a34e" type="selectionEntryGroup" targetId="9a99-f13c-a667-e698" sortIndex="1"/>
+        <entryLink import="true" name="Space Hulk" hidden="false" id="7afe-afdc-c7ae-6ad4" type="selectionEntryGroup" targetId="db6b-e394-5ec6-753e" sortIndex="2"/>
       </entryLinks>
       <constraints>
         <constraint field="selections" scope="roster" value="3" percentValue="false" shared="true" includeChildSelections="false" includeChildForces="false" id="644d-e6d4-23e7-2172" type="max"/>
@@ -24550,6 +24557,7 @@ You can attach this model to a unit it can lead units even if one Captain or Ch
         </entryLink>
         <entryLink import="true" name="Enhancements" hidden="false" type="selectionEntryGroup" id="9180-2020-d231-94f9" targetId="9e5d-de4c-c5d1-1d3e" sortIndex="3"/>
         <entryLink import="true" name="Crusade" hidden="false" id="db25-0d51-ea3d-f0e3" type="selectionEntryGroup" targetId="9a99-f13c-a667-e698" sortIndex="1"/>
+        <entryLink import="true" name="Space Hulk" hidden="false" id="df58-3f88-393c-7507" type="selectionEntryGroup" targetId="db6b-e394-5ec6-753e" sortIndex="2"/>
       </entryLinks>
       <profiles>
         <profile name="Librarian" typeId="c547-1836-d8a-ff4f" typeName="Unit" hidden="false" id="4d0f-7850-67ce-15b2">
@@ -24806,6 +24814,7 @@ You can attach this model to a unit it can lead units even if one Captain or Ch
         </entryLink>
         <entryLink import="true" name="Enhancements" hidden="false" type="selectionEntryGroup" id="18db-4736-8457-fccf" targetId="9e5d-de4c-c5d1-1d3e" sortIndex="3"/>
         <entryLink import="true" name="Crusade" hidden="false" id="8139-d5d8-ba57-2c25" type="selectionEntryGroup" targetId="9a99-f13c-a667-e698" sortIndex="1"/>
+        <entryLink import="true" name="Space Hulk" hidden="false" id="1f9a-9b74-485e-76e0" type="selectionEntryGroup" targetId="db6b-e394-5ec6-753e" sortIndex="2"/>
       </entryLinks>
       <profiles>
         <profile name="Shrouding [Psychic]" typeId="9cc3-6d83-4dd3-9b64" typeName="Abilities" hidden="false" id="3f4a-63fb-254-9364">
@@ -24986,6 +24995,7 @@ model is within 12&quot;.</characteristic>
         </entryLink>
         <entryLink import="true" name="Enhancements" hidden="false" type="selectionEntryGroup" id="ab5d-2547-ab51-ff2a" targetId="9e5d-de4c-c5d1-1d3e" sortIndex="3"/>
         <entryLink import="true" name="Crusade" hidden="false" id="0cfd-02de-6e64-a8cd" type="selectionEntryGroup" targetId="9a99-f13c-a667-e698" sortIndex="1"/>
+        <entryLink import="true" name="Space Hulk" hidden="false" id="3301-7ca5-2703-e458" type="selectionEntryGroup" targetId="db6b-e394-5ec6-753e" sortIndex="2"/>
       </entryLinks>
       <selectionEntryGroups>
         <selectionEntryGroup name="Wargear" id="f993-f691-adfd-9725" hidden="false" sortIndex="4">
@@ -25397,6 +25407,7 @@ model is within 12&quot;.</characteristic>
         </entryLink>
         <entryLink import="true" name="Enhancements" hidden="false" type="selectionEntryGroup" id="610b-b628-f6cc-bb07" targetId="9e5d-de4c-c5d1-1d3e" sortIndex="3"/>
         <entryLink import="true" name="Crusade" hidden="false" id="68ba-9de3-f62a-e9a6" type="selectionEntryGroup" targetId="9a99-f13c-a667-e698" sortIndex="1"/>
+        <entryLink import="true" name="Space Hulk" hidden="false" id="18cd-6113-eeca-aa9e" type="selectionEntryGroup" targetId="db6b-e394-5ec6-753e" sortIndex="2"/>
       </entryLinks>
       <constraints>
         <constraint field="selections" scope="roster" value="3" percentValue="false" shared="true" includeChildSelections="false" includeChildForces="false" id="fd1f-ab0d-a987-36aa" type="max"/>
@@ -25570,6 +25581,7 @@ model is within 12&quot;.</characteristic>
         </entryLink>
         <entryLink import="true" name="Enhancements" hidden="false" type="selectionEntryGroup" id="db57-377c-ca5b-df39" targetId="9e5d-de4c-c5d1-1d3e" sortIndex="3"/>
         <entryLink import="true" name="Crusade" hidden="false" id="b403-6d50-06f5-1dba" type="selectionEntryGroup" targetId="9a99-f13c-a667-e698" sortIndex="1"/>
+        <entryLink import="true" name="Space Hulk" hidden="false" id="5f27-9a9c-a884-0b9e" type="selectionEntryGroup" targetId="db6b-e394-5ec6-753e" sortIndex="2"/>
       </entryLinks>
       <infoLinks>
         <infoLink name="Invulnerable Save" hidden="false" type="profile" id="5f08-976e-fded-4612" targetId="db19-dee7-9530-ef0e"/>
@@ -25755,6 +25767,7 @@ model is within 12&quot;.</characteristic>
         </entryLink>
         <entryLink import="true" name="Enhancements" hidden="false" type="selectionEntryGroup" id="497b-70e4-5dae-eab" targetId="9e5d-de4c-c5d1-1d3e" sortIndex="3"/>
         <entryLink import="true" name="Crusade" hidden="false" id="62d9-2663-e1f3-b220" type="selectionEntryGroup" targetId="9a99-f13c-a667-e698" sortIndex="1"/>
+        <entryLink import="true" name="Space Hulk" hidden="false" id="eb3f-1aaf-e9b4-6d96" type="selectionEntryGroup" targetId="db6b-e394-5ec6-753e" sortIndex="2"/>
       </entryLinks>
       <infoLinks>
         <infoLink name="Invulnerable Save" hidden="false" type="profile" id="cba6-cb18-b041-7591" targetId="db19-dee7-9530-ef0e"/>
@@ -25932,6 +25945,7 @@ weapons equipped by models in this model’s unit have the [DEVASTATING WOUNDS]
         </entryLink>
         <entryLink import="true" name="Enhancements" hidden="false" type="selectionEntryGroup" id="d378-d127-aeda-5683" targetId="9e5d-de4c-c5d1-1d3e" sortIndex="3"/>
         <entryLink import="true" name="Crusade" hidden="false" id="9d2c-d6ba-8a60-a43c" type="selectionEntryGroup" targetId="9a99-f13c-a667-e698" sortIndex="1"/>
+        <entryLink import="true" name="Space Hulk" hidden="false" id="f6a5-3b57-0a75-90e9" type="selectionEntryGroup" targetId="db6b-e394-5ec6-753e" sortIndex="2"/>
       </entryLinks>
       <infoLinks>
         <infoLink name="Invulnerable Save" hidden="false" type="profile" id="2632-da2a-e191-40f8" targetId="db19-dee7-9530-ef0e"/>
@@ -26127,6 +26141,7 @@ weapons equipped by models in this model’s unit have the [DEVASTATING WOUNDS]
         </entryLink>
         <entryLink import="true" name="Enhancements" hidden="false" type="selectionEntryGroup" id="a975-ccc2-5f0b-377" targetId="9e5d-de4c-c5d1-1d3e" sortIndex="3"/>
         <entryLink import="true" name="Crusade" hidden="false" id="0ec0-470d-eb19-b003" type="selectionEntryGroup" targetId="9a99-f13c-a667-e698" sortIndex="1"/>
+        <entryLink import="true" name="Space Hulk" hidden="false" id="0b33-b8f7-07b8-2529" type="selectionEntryGroup" targetId="db6b-e394-5ec6-753e" sortIndex="2"/>
       </entryLinks>
       <constraints>
         <constraint field="selections" scope="roster" value="3" percentValue="false" shared="true" includeChildSelections="false" includeChildForces="false" id="6d0d-a4ca-5514-13d2" type="max"/>
@@ -26621,6 +26636,7 @@ Attacks characteristic of 7.</characteristic>
       <entryLinks>
         <entryLink import="true" name="Enhancements" hidden="false" type="selectionEntryGroup" id="7cc2-133e-bc3a-6d25" targetId="9e5d-de4c-c5d1-1d3e" sortIndex="2"/>
         <entryLink import="true" name="Crusade" hidden="false" id="4f6e-6abf-bc1a-faf3" type="selectionEntryGroup" targetId="9a99-f13c-a667-e698" sortIndex="1"/>
+        <entryLink import="true" name="Space Hulk" hidden="false" id="eb05-50fd-8866-c5d9" type="selectionEntryGroup" targetId="db6b-e394-5ec6-753e" sortIndex="2"/>
       </entryLinks>
       <profiles>
         <profile name="Lieutenant with Combi-weapon" typeId="c547-1836-d8a-ff4f" typeName="Unit" hidden="false" id="b021-99a0-2829-f73e">
@@ -26989,6 +27005,7 @@ Attacks characteristic of 7.</characteristic>
         </entryLink>
         <entryLink import="true" name="Enhancements" hidden="false" type="selectionEntryGroup" id="8bda-6702-97af-350e" targetId="9e5d-de4c-c5d1-1d3e" sortIndex="3"/>
         <entryLink import="true" name="Crusade" hidden="false" id="9008-e755-299e-9007" type="selectionEntryGroup" targetId="9a99-f13c-a667-e698" sortIndex="1"/>
+        <entryLink import="true" name="Space Hulk" hidden="false" id="4085-1c9e-432a-21e0" type="selectionEntryGroup" targetId="db6b-e394-5ec6-753e" sortIndex="2"/>
       </entryLinks>
       <profiles>
         <profile name="Primaris Apothecary" typeId="c547-1836-d8a-ff4f" typeName="Unit" hidden="false" id="3e73-5871-b359-b78">
@@ -27191,6 +27208,7 @@ You can attach this model to one of the above units even if one Captain, Chapte
         <entryLink id="15f1-f783-aee4-f802" name="Warlord" hidden="false" collective="false" import="true" targetId="caa-f869-3cbd-b48e" type="selectionEntry" sortIndex="2"/>
         <entryLink import="true" name="Enhancements" hidden="false" type="selectionEntryGroup" id="74cf-3cd0-57e2-7cd9" targetId="9e5d-de4c-c5d1-1d3e" sortIndex="3"/>
         <entryLink import="true" name="Crusade" hidden="false" id="5de3-1363-bb30-cd9a" type="selectionEntryGroup" targetId="9a99-f13c-a667-e698" sortIndex="1"/>
+        <entryLink import="true" name="Space Hulk" hidden="false" id="f02a-7060-6dc8-bb91" type="selectionEntryGroup" targetId="db6b-e394-5ec6-753e" sortIndex="2"/>
       </entryLinks>
       <profiles>
         <profile name="Apothecary Biologis" typeId="c547-1836-d8a-ff4f" typeName="Unit" hidden="false" id="6dda-2643-4010-1cb8">
@@ -27385,6 +27403,7 @@ You can attach this model to one of the above units even if one Captain, Chapte
         </entryLink>
         <entryLink import="true" name="Enhancements" hidden="false" type="selectionEntryGroup" id="cc35-6238-3e3a-637a" targetId="9e5d-de4c-c5d1-1d3e" sortIndex="3"/>
         <entryLink import="true" name="Crusade" hidden="false" id="636e-eafe-53d6-a95a" type="selectionEntryGroup" targetId="9a99-f13c-a667-e698" sortIndex="1"/>
+        <entryLink import="true" name="Space Hulk" hidden="false" id="0989-98e3-061f-f0d2" type="selectionEntryGroup" targetId="db6b-e394-5ec6-753e" sortIndex="2"/>
       </entryLinks>
       <constraints>
         <constraint field="selections" scope="roster" value="3" percentValue="false" shared="true" includeChildSelections="false" includeChildForces="false" id="3605-d8c7-cddd-27b0" type="max"/>
@@ -27547,6 +27566,7 @@ You can attach this model to one of the above units even if one Captain, Chapte
         <entryLink id="c952-9937-d6aa-e934" name="Warlord" hidden="false" collective="false" import="true" targetId="caa-f869-3cbd-b48e" type="selectionEntry" sortIndex="2"/>
         <entryLink import="true" name="Enhancements" hidden="false" type="selectionEntryGroup" id="1bc5-245b-1250-c19" targetId="9e5d-de4c-c5d1-1d3e" sortIndex="3"/>
         <entryLink import="true" name="Crusade" hidden="false" id="29bf-67d3-df5d-f957" type="selectionEntryGroup" targetId="9a99-f13c-a667-e698" sortIndex="1"/>
+        <entryLink import="true" name="Space Hulk" hidden="false" id="51ad-f167-fd87-c78d" type="selectionEntryGroup" targetId="db6b-e394-5ec6-753e" sortIndex="2"/>
       </entryLinks>
       <profiles>
         <profile name="Bladeguard Ancient" typeId="c547-1836-d8a-ff4f" typeName="Unit" hidden="false" id="bdf-a17c-a74c-4f">
@@ -27695,6 +27715,7 @@ You can attach this model to the above unit even if one Captain, Chapter Master
         <entryLink id="97a0-a592-2933-89e6" name="Warlord" hidden="false" collective="false" import="true" targetId="caa-f869-3cbd-b48e" type="selectionEntry" sortIndex="2"/>
         <entryLink import="true" name="Enhancements" hidden="false" type="selectionEntryGroup" id="bd0f-b471-577e-1e5b" targetId="9e5d-de4c-c5d1-1d3e" sortIndex="3"/>
         <entryLink import="true" name="Crusade" hidden="false" id="b4bf-4ba5-f7fa-e272" type="selectionEntryGroup" targetId="9a99-f13c-a667-e698" sortIndex="1"/>
+        <entryLink import="true" name="Space Hulk" hidden="false" id="ede0-0521-5bfe-793f" type="selectionEntryGroup" targetId="db6b-e394-5ec6-753e" sortIndex="2"/>
       </entryLinks>
       <constraints>
         <constraint type="max" value="3" field="selections" scope="roster" shared="true" id="f91a-348e-3778-bf6b"/>
@@ -28510,6 +28531,7 @@ You can attach this model to one of the above units even if one Captain, Chapte
           </constraints>
         </entryLink>
         <entryLink import="true" name="Crusade" hidden="false" id="93f9-6604-34b5-c43d" type="selectionEntryGroup" targetId="9a99-f13c-a667-e698" sortIndex="1"/>
+        <entryLink import="true" name="Space Hulk" hidden="false" id="68ec-3573-f36a-3832" type="selectionEntryGroup" targetId="db6b-e394-5ec6-753e" sortIndex="2"/>
       </entryLinks>
       <modifierGroups>
         <modifierGroup type="and">
@@ -28669,6 +28691,7 @@ You can attach this model to one of the above units even if one Captain, Chapte
           </constraints>
         </entryLink>
         <entryLink import="true" name="Crusade" hidden="false" id="2106-21c1-43fb-fa71" type="selectionEntryGroup" targetId="9a99-f13c-a667-e698" sortIndex="1"/>
+        <entryLink import="true" name="Space Hulk" hidden="false" id="b44b-7190-f8a0-e40d" type="selectionEntryGroup" targetId="db6b-e394-5ec6-753e" sortIndex="2"/>
       </entryLinks>
       <infoLinks>
         <infoLink name="Finest Hour" type="profile" id="891a-e8c7-6549-4399" targetId="fdf1-64a5-906c-3474"/>
@@ -46134,6 +46157,13 @@ Until the end of the phase, this model&apos;s melee weapons have that ability.</
             <entryLink import="true" name="Codex Crusade Relic Upgrades" hidden="false" id="f6e8-59dd-b44c-8dd3" type="selectionEntryGroup" targetId="eb04-f0c1-5346-7865" flatten="true"/>
           </entryLinks>
         </entryLink>
+      </entryLinks>
+    </selectionEntryGroup>
+    <selectionEntryGroup name="Space Hulk" id="db6b-e394-5ec6-753e" hidden="false" collapsible="true">
+      <comment>Space Hulk content</comment>
+      <entryLinks>
+        <entryLink import="true" name="Expertise" hidden="false" id="f83a-8e1f-1bc1-ea70" type="selectionEntryGroup" targetId="5a83-de9d-1ee5-d48f" sortIndex="1"/>
+        <entryLink import="true" name="Armory" hidden="false" id="f2e8-b587-fb18-56f9" type="selectionEntryGroup" targetId="f80f-ffe2-668b-6fa1" sortIndex="2"/>
       </entryLinks>
     </selectionEntryGroup>
   </sharedSelectionEntryGroups>

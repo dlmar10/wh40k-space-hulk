@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" standalone="yes"?>
-<catalogue xmlns="http://www.battlescribe.net/schema/catalogueSchema" id="b984-7317-81cc-20f" name="Xenos - Tyranids" revision="102" battleScribeVersion="2.03" library="false" gameSystemId="sys-352e-adc2-7639-d6a9" gameSystemRevision="1" type="catalogue" authorName="Dunamis55">
+<catalogue xmlns="http://www.battlescribe.net/schema/catalogueSchema" id="b984-7317-81cc-20f" name="Xenos - Tyranids" revision="104" battleScribeVersion="2.03" library="false" gameSystemId="sys-352e-adc2-7639-d6a9" gameSystemRevision="1" type="catalogue" authorName="Dunamis55">
   <categoryEntries>
     <categoryEntry name="Synapse" hidden="false" id="4129-a453-686a-d38a"/>
     <categoryEntry id="4f10-fe01-4b80-8d6b" name="Winged Hive Tyrant" hidden="false"/>
@@ -1497,6 +1497,7 @@
         <entryLink id="bb45-238-ecfc-eaf" name="Enhancements" hidden="false" collective="false" import="true" targetId="fa5b-f646-b960-a8d3" type="selectionEntryGroup" sortIndex="3"/>
         <entryLink import="true" name="Warlord" hidden="false" type="selectionEntry" id="a319-b5d3-1c1e-2480" targetId="ceab-62d9-31bf-7c61" sortIndex="2"/>
         <entryLink import="true" name="Crusade" hidden="false" id="3699-191e-f1b4-c367" type="selectionEntryGroup" targetId="2fa5-0a8d-013e-fc12" sortIndex="1"/>
+        <entryLink import="true" name="Space Hulk" hidden="false" id="c20e-0460-6464-166d" type="selectionEntryGroup" targetId="e6b6-97e7-6410-bd4e" sortIndex="2"/>
       </entryLinks>
       <costs>
         <cost name="pts" typeId="51b2-306e-1021-d207" value="80"/>
@@ -1690,6 +1691,7 @@
         <entryLink import="true" name="Warlord" hidden="false" type="selectionEntry" id="cafa-9b65-e363-2844" targetId="ceab-62d9-31bf-7c61" sortIndex="2"/>
         <entryLink import="true" name="Enhancements" hidden="false" type="selectionEntryGroup" id="a00-6a4f-539-68e3" targetId="fa5b-f646-b960-a8d3" sortIndex="3"/>
         <entryLink import="true" name="Crusade" hidden="false" id="eeb1-6e4f-6fea-065f" type="selectionEntryGroup" targetId="2fa5-0a8d-013e-fc12" sortIndex="1"/>
+        <entryLink import="true" name="Space Hulk" hidden="false" id="95b5-a1c6-a3d4-1906" type="selectionEntryGroup" targetId="e6b6-97e7-6410-bd4e" sortIndex="2"/>
       </entryLinks>
       <infoGroups>
         <infoGroup name="Leader" hidden="false" id="4057-b638-888f-2474">
@@ -3575,6 +3577,7 @@
         <entryLink import="true" name="Enhancements" hidden="false" type="selectionEntryGroup" id="18d0-b3e-56dc-49a1" targetId="fa5b-f646-b960-a8d3" sortIndex="3"/>
         <entryLink import="true" name="Warlord" hidden="false" type="selectionEntry" id="7f6a-367b-d29-9d32" targetId="ceab-62d9-31bf-7c61" sortIndex="2"/>
         <entryLink import="true" name="Crusade" hidden="false" id="a420-d428-bc21-0b7e" type="selectionEntryGroup" targetId="2fa5-0a8d-013e-fc12" sortIndex="1"/>
+        <entryLink import="true" name="Space Hulk" hidden="false" id="a6e3-4ccf-9fb8-e39a" type="selectionEntryGroup" targetId="e6b6-97e7-6410-bd4e" sortIndex="2"/>
       </entryLinks>
       <infoGroups>
         <infoGroup name="Leader" hidden="false" id="f533-526c-8ad3-e379">
@@ -5444,6 +5447,7 @@
         <entryLink import="true" name="Enhancements" hidden="false" type="selectionEntryGroup" id="268b-1435-81be-2aaa" targetId="fa5b-f646-b960-a8d3" sortIndex="3"/>
         <entryLink import="true" name="Warlord" hidden="false" type="selectionEntry" id="1d8c-61cd-7450-a058" targetId="ceab-62d9-31bf-7c61" sortIndex="2"/>
         <entryLink import="true" name="Crusade" hidden="false" id="6db2-9c48-d9d6-ff39" type="selectionEntryGroup" targetId="2fa5-0a8d-013e-fc12" sortIndex="1"/>
+        <entryLink import="true" name="Space Hulk" hidden="false" id="67dc-d8da-5e39-ee41" type="selectionEntryGroup" targetId="e6b6-97e7-6410-bd4e" sortIndex="2"/>
       </entryLinks>
       <constraints>
         <constraint type="max" value="3" field="selections" scope="roster" shared="true" id="40be-d448-295c-f3f3" includeChildSelections="true" includeChildForces="true"/>
@@ -13646,6 +13650,13 @@ In the Muster Armies step, you can select up to 2 **^^Trygon^^** models from y
           </constraints>
         </selectionEntryGroup>
       </selectionEntryGroups>
+    </selectionEntryGroup>
+    <selectionEntryGroup name="Space Hulk" id="e6b6-97e7-6410-bd4e" hidden="false" collapsible="true">
+      <comment>Space Hulk content</comment>
+      <entryLinks>
+        <entryLink import="true" name="Expertise" hidden="false" id="7fa6-a769-85fd-faca" type="selectionEntryGroup" targetId="5a83-de9d-1ee5-d48f" sortIndex="1"/>
+        <entryLink import="true" name="Armory" hidden="false" id="4fa6-0ac3-2249-188c" type="selectionEntryGroup" targetId="f80f-ffe2-668b-6fa1" sortIndex="2"/>
+      </entryLinks>
     </selectionEntryGroup>
   </sharedSelectionEntryGroups>
   <sharedProfiles>

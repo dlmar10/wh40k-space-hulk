@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" standalone="yes"?>
-<catalogue xmlns="http://www.battlescribe.net/schema/catalogueSchema" library="false" id="a55f-b7b3-6c65-a05f" name="Xenos - Orks" gameSystemId="sys-352e-adc2-7639-d6a9" gameSystemRevision="1" revision="112" battleScribeVersion="2.03" type="catalogue" authorName="BSData Developers" authorContact="Dunamis55 &amp; AbonShell">
+<catalogue xmlns="http://www.battlescribe.net/schema/catalogueSchema" library="false" id="a55f-b7b3-6c65-a05f" name="Xenos - Orks" gameSystemId="sys-352e-adc2-7639-d6a9" gameSystemRevision="1" revision="114" battleScribeVersion="2.03" type="catalogue" authorName="BSData Developers" authorContact="Dunamis55 &amp; AbonShell">
   <sharedSelectionEntries>
     <selectionEntry type="upgrade" import="true" name="Warlord" id="8b5-898c-f79b-5a9c">
       <categoryLinks>
@@ -675,6 +675,7 @@
         <entryLink import="true" name="Warlord" hidden="false" type="selectionEntry" id="1c9d-d911-1547-1fc7" targetId="8b5-898c-f79b-5a9c" sortIndex="2"/>
         <entryLink import="true" name="Enhancements" hidden="false" type="selectionEntryGroup" id="83df-d478-5655-dc17" targetId="1dd8-39ae-cbd8-a9fa" sortIndex="3" collapsible="false"/>
         <entryLink import="true" name="Crusade" hidden="false" id="4121-b272-1632-8861" type="selectionEntryGroup" targetId="87e9-baa9-52e2-5cce" sortIndex="1"/>
+        <entryLink import="true" name="Space Hulk" hidden="false" id="352f-6b60-6ef1-3504" type="selectionEntryGroup" targetId="1f72-0844-577e-2711" sortIndex="2"/>
       </entryLinks>
       <infoGroups>
         <infoGroup name="Leader" hidden="false" id="7eb0-a046-5306-ae94">
@@ -922,6 +923,7 @@
         <entryLink import="true" name="Enhancements" hidden="false" type="selectionEntryGroup" id="6ab6-f56b-46f3-7c49" targetId="1dd8-39ae-cbd8-a9fa" sortIndex="3"/>
         <entryLink import="true" name="Warlord" hidden="false" type="selectionEntry" id="e76a-a378-7155-3bf9" targetId="8b5-898c-f79b-5a9c" sortIndex="2"/>
         <entryLink import="true" name="Crusade" hidden="false" id="0f50-2a32-db78-90a4" type="selectionEntryGroup" targetId="87e9-baa9-52e2-5cce" sortIndex="1"/>
+        <entryLink import="true" name="Space Hulk" hidden="false" id="156f-c321-4868-2bd0" type="selectionEntryGroup" targetId="1f72-0844-577e-2711" sortIndex="2"/>
       </entryLinks>
       <selectionEntryGroups>
         <selectionEntryGroup name="Wargear" id="b89a-f2fc-a891-c2f8" hidden="false" sortIndex="4">
@@ -1333,6 +1335,7 @@ Designer’s Note: Place a Grot Oiler token next to the unit, removing it once t
         <entryLink import="true" name="Enhancements" hidden="false" type="selectionEntryGroup" id="98ee-9ea4-d545-dd5c" targetId="1dd8-39ae-cbd8-a9fa" sortIndex="3"/>
         <entryLink import="true" name="Warlord" hidden="false" type="selectionEntry" id="97f7-b1c4-144e-b0e" targetId="8b5-898c-f79b-5a9c" sortIndex="2"/>
         <entryLink import="true" name="Crusade" hidden="false" id="f27e-3e3d-ca7b-860d" type="selectionEntryGroup" targetId="87e9-baa9-52e2-5cce" sortIndex="1"/>
+        <entryLink import="true" name="Space Hulk" hidden="false" id="b66b-3e90-0cdf-fdb4" type="selectionEntryGroup" targetId="1f72-0844-577e-2711" sortIndex="2"/>
       </entryLinks>
       <costs>
         <cost name="pts" typeId="51b2-306e-1021-d207" value="90"/>
@@ -1691,6 +1694,7 @@ Designer’s Note: Place a Grot Helper token next to the bearer, removing it onc
         <entryLink import="true" name="Enhancements" hidden="false" type="selectionEntryGroup" id="e3cf-c1a6-301d-c6cc" targetId="1dd8-39ae-cbd8-a9fa" sortIndex="3"/>
         <entryLink import="true" name="Warlord" hidden="false" type="selectionEntry" id="49fa-d537-b58f-7213" targetId="8b5-898c-f79b-5a9c" sortIndex="2"/>
         <entryLink import="true" name="Crusade" hidden="false" id="9a0a-249f-e4a7-cd6b" type="selectionEntryGroup" targetId="87e9-baa9-52e2-5cce" sortIndex="1"/>
+        <entryLink import="true" name="Space Hulk" hidden="false" id="ef70-2735-0443-857b" type="selectionEntryGroup" targetId="1f72-0844-577e-2711" sortIndex="2"/>
       </entryLinks>
       <infoGroups>
         <infoGroup name="Leader" hidden="false" id="4e22-8266-ca1f-883">
@@ -3897,6 +3901,7 @@ Designer’s Note: Place a Grot Helper token next to the bearer, removing it onc
         <entryLink import="true" name="Enhancements" hidden="false" type="selectionEntryGroup" id="b946-bcc1-ccc5-5c05" targetId="1dd8-39ae-cbd8-a9fa" sortIndex="3"/>
         <entryLink import="true" name="Warlord" hidden="false" type="selectionEntry" id="d72b-91c5-6000-65fd" targetId="8b5-898c-f79b-5a9c" sortIndex="2"/>
         <entryLink import="true" name="Crusade" hidden="false" id="ab6b-faee-ca31-7167" type="selectionEntryGroup" targetId="87e9-baa9-52e2-5cce" sortIndex="1"/>
+        <entryLink import="true" name="Space Hulk" hidden="false" id="8556-8640-98c3-90fa" type="selectionEntryGroup" targetId="1f72-0844-577e-2711" sortIndex="2"/>
       </entryLinks>
       <selectionEntryGroups>
         <selectionEntryGroup name="Wargear" id="51a7-a637-9198-66b0" hidden="false" sortIndex="4">
@@ -7559,6 +7564,7 @@ If this unit’s Bodyguard unit is destroyed, Ghazghkull Thraka and Makari becom
         <entryLink import="true" name="Warlord" hidden="false" type="selectionEntry" id="b027-9402-dbb-2983" targetId="8b5-898c-f79b-5a9c" sortIndex="2"/>
         <entryLink import="true" name="Enhancements" hidden="false" type="selectionEntryGroup" id="63c9-b7ee-40b2-de3e" targetId="1dd8-39ae-cbd8-a9fa" sortIndex="3"/>
         <entryLink import="true" name="Crusade" hidden="false" id="d3ec-36bf-0e1a-ff60" type="selectionEntryGroup" targetId="87e9-baa9-52e2-5cce" sortIndex="1"/>
+        <entryLink import="true" name="Space Hulk" hidden="false" id="fafa-c0d2-a312-b1b0" type="selectionEntryGroup" targetId="1f72-0844-577e-2711" sortIndex="2"/>
       </entryLinks>
       <infoGroups>
         <infoGroup name="Leader" hidden="false" id="11cb-3f08-498a-b830">
@@ -9127,6 +9133,7 @@ Designer’s Note: Place the relevant number of Ammo Runt tokens next to the uni
         <entryLink import="true" name="Warlord" hidden="false" type="selectionEntry" id="1408-6654-b016-c33b" targetId="8b5-898c-f79b-5a9c" sortIndex="2"/>
         <entryLink import="true" name="Enhancements" hidden="false" type="selectionEntryGroup" id="69d9-9c95-b2d5-73f0" targetId="1dd8-39ae-cbd8-a9fa" sortIndex="3"/>
         <entryLink import="true" name="Crusade" hidden="false" id="2fec-d6ea-e104-4a2b" type="selectionEntryGroup" targetId="87e9-baa9-52e2-5cce" sortIndex="1"/>
+        <entryLink import="true" name="Space Hulk" hidden="false" id="18db-a98b-e0a2-3ac2" type="selectionEntryGroup" targetId="1f72-0844-577e-2711" sortIndex="2"/>
       </entryLinks>
       <selectionEntryGroups>
         <selectionEntryGroup name="Wargear" id="e678-3063-de93-7a9e" hidden="false" sortIndex="4">
@@ -9345,6 +9352,7 @@ Designer’s Note: Place the relevant number of Ammo Runt tokens next to the uni
         <entryLink import="true" name="Warlord" hidden="false" type="selectionEntry" id="39a5-a26c-6e22-f756" targetId="8b5-898c-f79b-5a9c" sortIndex="2"/>
         <entryLink import="true" name="Enhancements" hidden="false" type="selectionEntryGroup" id="ab7e-8600-28b9-aa11" targetId="1dd8-39ae-cbd8-a9fa" sortIndex="3"/>
         <entryLink import="true" name="Crusade" hidden="false" id="af9a-b1bf-6711-2665" type="selectionEntryGroup" targetId="87e9-baa9-52e2-5cce" sortIndex="1"/>
+        <entryLink import="true" name="Space Hulk" hidden="false" id="5de7-57e6-3e2f-c316" type="selectionEntryGroup" targetId="1f72-0844-577e-2711" sortIndex="2"/>
       </entryLinks>
       <infoGroups>
         <infoGroup name="Leader" hidden="false" id="6741-7eb-a917-d21">
@@ -11383,6 +11391,7 @@ Designer’s Note: Place a Squig Mine token next to the model, removing it once 
         <entryLink import="true" name="Warlord" hidden="false" type="selectionEntry" id="fb9-271-6549-2596" targetId="8b5-898c-f79b-5a9c" sortIndex="2"/>
         <entryLink import="true" name="Enhancements" hidden="false" type="selectionEntryGroup" id="e565-6420-be38-1670" targetId="1dd8-39ae-cbd8-a9fa" sortIndex="3"/>
         <entryLink import="true" name="Crusade" hidden="false" id="a122-c091-ddf1-73da" type="selectionEntryGroup" targetId="87e9-baa9-52e2-5cce" sortIndex="1"/>
+        <entryLink import="true" name="Space Hulk" hidden="false" id="6c38-9d18-b709-8ace" type="selectionEntryGroup" targetId="1f72-0844-577e-2711" sortIndex="2"/>
       </entryLinks>
       <selectionEntryGroups>
         <selectionEntryGroup name="Wargear" id="eec2-6ed3-27cd-f0cd" hidden="false" sortIndex="4">
@@ -11648,6 +11657,7 @@ Designer’s Note: Place a Squig Mine token next to the model, removing it once 
         <entryLink import="true" name="Warlord" hidden="false" type="selectionEntry" id="1fce-b0a4-2950-4ab6" targetId="8b5-898c-f79b-5a9c" sortIndex="2"/>
         <entryLink import="true" name="Enhancements" hidden="false" type="selectionEntryGroup" id="c55f-19bb-5be6-28ed" targetId="1dd8-39ae-cbd8-a9fa" sortIndex="3"/>
         <entryLink import="true" name="Crusade" hidden="false" id="9b7b-a307-c3f1-de8a" type="selectionEntryGroup" targetId="87e9-baa9-52e2-5cce" sortIndex="1"/>
+        <entryLink import="true" name="Space Hulk" hidden="false" id="70fe-d3dd-59a8-723c" type="selectionEntryGroup" targetId="1f72-0844-577e-2711" sortIndex="2"/>
       </entryLinks>
       <categoryLinks>
         <categoryLink targetId="9cfd-1c32-585f-7d5c" id="a621-ac84-87cd-556d" primary="true" name="Character"/>
@@ -12163,6 +12173,7 @@ Designer’s Note: Place a Squig Mine token next to the model, removing it once 
         <entryLink import="true" name="Warlord" hidden="false" type="selectionEntry" id="fd-2a89-7d92-2808" targetId="8b5-898c-f79b-5a9c" sortIndex="2"/>
         <entryLink import="true" name="Enhancements" hidden="false" type="selectionEntryGroup" id="7090-9ba6-336f-3428" targetId="1dd8-39ae-cbd8-a9fa" sortIndex="3"/>
         <entryLink import="true" name="Crusade" hidden="false" id="9f98-a0f8-38d9-700d" type="selectionEntryGroup" targetId="87e9-baa9-52e2-5cce" sortIndex="1"/>
+        <entryLink import="true" name="Space Hulk" hidden="false" id="73e5-f478-c077-cd63" type="selectionEntryGroup" targetId="1f72-0844-577e-2711" sortIndex="2"/>
       </entryLinks>
       <costs>
         <cost name="pts" typeId="51b2-306e-1021-d207" value="65"/>
@@ -12384,6 +12395,7 @@ Designer’s Note: Place a Squig Mine token next to the model, removing it once 
         <entryLink import="true" name="Warlord" hidden="false" type="selectionEntry" id="d91d-a8c9-9f09-10c1" targetId="8b5-898c-f79b-5a9c" sortIndex="2"/>
         <entryLink import="true" name="Enhancements" hidden="false" type="selectionEntryGroup" id="2e11-1a35-3d79-a6c3" targetId="1dd8-39ae-cbd8-a9fa" sortIndex="3"/>
         <entryLink import="true" name="Crusade" hidden="false" id="cd2a-a26d-48fa-c97b" type="selectionEntryGroup" targetId="87e9-baa9-52e2-5cce" sortIndex="1"/>
+        <entryLink import="true" name="Space Hulk" hidden="false" id="19bd-9d7e-17eb-c44b" type="selectionEntryGroup" targetId="1f72-0844-577e-2711" sortIndex="2"/>
       </entryLinks>
       <costs>
         <cost name="pts" typeId="51b2-306e-1021-d207" value="60"/>
@@ -19407,6 +19419,7 @@ Designer’s Note: Place a Squig Mine token next to the model, removing it once 
         <entryLink import="true" name="Warlord" hidden="false" id="9988-ab71-8e2a-37a6" type="selectionEntry" targetId="8b5-898c-f79b-5a9c" sortIndex="2"/>
         <entryLink import="true" name="Enhancements" hidden="false" id="25b-7e2d-9dd0-842b" type="selectionEntryGroup" targetId="1dd8-39ae-cbd8-a9fa" sortIndex="3"/>
         <entryLink import="true" name="Crusade" hidden="false" id="bee2-a0d8-6332-08c4" type="selectionEntryGroup" targetId="87e9-baa9-52e2-5cce" sortIndex="1"/>
+        <entryLink import="true" name="Space Hulk" hidden="false" id="72dd-fdc1-8705-d336" type="selectionEntryGroup" targetId="1f72-0844-577e-2711" sortIndex="2"/>
       </entryLinks>
       <constraints>
         <constraint type="max" value="0" field="716d-91b7-d55a-1022" scope="self" shared="true" id="9126-eaaf-99f4-d1c0" includeChildSelections="true"/>
@@ -23560,6 +23573,13 @@ Each time the bearer&apos;s unit is selected to shoot, if that unit is not withi
           </entryLinks>
         </selectionEntryGroup>
       </selectionEntryGroups>
+    </selectionEntryGroup>
+    <selectionEntryGroup name="Space Hulk" id="1f72-0844-577e-2711" hidden="false" collapsible="true">
+      <comment>Space Hulk content</comment>
+      <entryLinks>
+        <entryLink import="true" name="Expertise" hidden="false" id="fb5c-34c1-01a3-4acf" type="selectionEntryGroup" targetId="5a83-de9d-1ee5-d48f" sortIndex="1"/>
+        <entryLink import="true" name="Armory" hidden="false" id="0419-c380-d758-b03a" type="selectionEntryGroup" targetId="f80f-ffe2-668b-6fa1" sortIndex="2"/>
+      </entryLinks>
     </selectionEntryGroup>
   </sharedSelectionEntryGroups>
   <categoryEntries>

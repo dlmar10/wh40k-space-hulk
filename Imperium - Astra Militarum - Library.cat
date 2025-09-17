@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" standalone="yes"?>
-<catalogue xmlns="http://www.battlescribe.net/schema/catalogueSchema" library="true" id="5a44-f048-114b-e3ff" name="Imperium - Astra Militarum - Library" gameSystemId="sys-352e-adc2-7639-d6a9" gameSystemRevision="1" revision="149" battleScribeVersion="2.03" type="catalogue">
+<catalogue xmlns="http://www.battlescribe.net/schema/catalogueSchema" library="true" id="5a44-f048-114b-e3ff" name="Imperium - Astra Militarum - Library" gameSystemId="sys-352e-adc2-7639-d6a9" gameSystemRevision="1" revision="151" battleScribeVersion="2.03" type="catalogue">
   <sharedSelectionEntries>
     <selectionEntry type="model" import="true" name="Aegis Defence Line" hidden="false" id="cb99-456-f100-40ed">
       <categoryLinks>
@@ -1885,6 +1885,7 @@
         <entryLink import="true" name="Warlord" hidden="false" type="selectionEntry" id="da19-add6-1f36-bff0" targetId="ea3f-b52b-8dc7-d365" sortIndex="2"/>
         <entryLink import="true" name="Enhancements" hidden="false" type="selectionEntryGroup" id="4bf2-7b8b-c07b-c574" targetId="33fd-bb93-1bf4-f1c" sortIndex="3"/>
         <entryLink import="true" name="Crusade" hidden="false" id="b8fc-1b8c-a827-be66" type="selectionEntryGroup" targetId="56e1-e9a8-6946-0518" sortIndex="1"/>
+        <entryLink import="true" name="Space Hulk" hidden="false" id="f41e-04ef-7128-c7e9" type="selectionEntryGroup" targetId="4a57-b142-3811-c835" sortIndex="2"/>
       </entryLinks>
       <modifiers>
         <modifier type="set-primary" value="887b-ab87-92a2-20f5" field="category">
@@ -3344,6 +3345,7 @@
         <entryLink import="true" name="Warlord" hidden="false" type="selectionEntry" id="9135-5f9b-ecbd-57ec" targetId="ea3f-b52b-8dc7-d365" sortIndex="2"/>
         <entryLink import="true" name="Enhancements" hidden="false" type="selectionEntryGroup" id="7b8-f243-91a2-2b52" targetId="33fd-bb93-1bf4-f1c" sortIndex="3"/>
         <entryLink import="true" name="Crusade" hidden="false" id="5e75-c2e8-939b-9b8a" type="selectionEntryGroup" targetId="56e1-e9a8-6946-0518" sortIndex="1"/>
+        <entryLink import="true" name="Space Hulk" hidden="false" id="b9e8-46a3-fde2-a49c" type="selectionEntryGroup" targetId="4a57-b142-3811-c835" sortIndex="2"/>
       </entryLinks>
       <selectionEntryGroups>
         <selectionEntryGroup name="Wargear" id="e380-c8f1-f67b-1564" hidden="false" sortIndex="4">
@@ -9676,6 +9678,7 @@ This model cannot be selected as your **^^Warlord^^** and cannot be given Enhanc
         <entryLink import="true" name="Warlord" hidden="false" type="selectionEntry" id="ed9b-bf53-3395-5277" targetId="ea3f-b52b-8dc7-d365" sortIndex="2"/>
         <entryLink import="true" name="Enhancements" hidden="false" id="c4a2-c608-0add-817a" type="selectionEntryGroup" targetId="33fd-bb93-1bf4-f1c" sortIndex="3"/>
         <entryLink import="true" name="Crusade" hidden="false" id="1a39-acf0-02e5-2139" type="selectionEntryGroup" targetId="56e1-e9a8-6946-0518" sortIndex="1"/>
+        <entryLink import="true" name="Space Hulk" hidden="false" id="c1e1-cab7-55b0-307a" type="selectionEntryGroup" targetId="4a57-b142-3811-c835" sortIndex="2"/>
       </entryLinks>
       <profiles>
         <profile name="Psychic Barrier (Psychic)" typeId="9cc3-6d83-4dd3-9b64" typeName="Abilities" hidden="false" id="9609-45b8-af09-de5b">
@@ -10238,6 +10241,7 @@ While this unit is joined to a unit, it can embark within any **^^Transport^^** 
         <entryLink import="true" name="Warlord" hidden="false" type="selectionEntry" id="ddd4-4fa6-5da-fffe" targetId="ea3f-b52b-8dc7-d365" sortIndex="2"/>
         <entryLink import="true" name="Enhancements" hidden="false" id="eb63-59e8-0140-d976" type="selectionEntryGroup" targetId="33fd-bb93-1bf4-f1c" sortIndex="3"/>
         <entryLink import="true" name="Crusade" hidden="false" id="efad-0959-100a-15e9" type="selectionEntryGroup" targetId="56e1-e9a8-6946-0518" sortIndex="1"/>
+        <entryLink import="true" name="Space Hulk" hidden="false" id="8cd1-1262-29e4-a938" type="selectionEntryGroup" targetId="4a57-b142-3811-c835" sortIndex="2"/>
       </entryLinks>
       <modifierGroups>
         <modifierGroup type="and">
@@ -31075,6 +31079,7 @@ Designer&apos;s Note: Place a Servo-scribes token next to the unit, removing it 
         <entryLink import="true" name="Warlord" hidden="false" type="selectionEntry" id="dac3-57ec-ad5d-23de" targetId="ea3f-b52b-8dc7-d365" sortIndex="2"/>
         <entryLink import="true" name="Enhancements" hidden="false" type="selectionEntryGroup" id="de80-6f18-a9ab-d557" targetId="33fd-bb93-1bf4-f1c" sortIndex="3"/>
         <entryLink import="true" name="Crusade" hidden="false" id="376d-6894-fae3-e724" type="selectionEntryGroup" targetId="56e1-e9a8-6946-0518" sortIndex="1"/>
+        <entryLink import="true" name="Space Hulk" hidden="false" id="e3ff-f338-e679-fa96" type="selectionEntryGroup" targetId="4a57-b142-3811-c835" sortIndex="2"/>
       </entryLinks>
       <selectionEntryGroups>
         <selectionEntryGroup name="Wargear" id="1fb8-255b-9971-17de" hidden="false" sortIndex="4">
@@ -37154,6 +37159,13 @@ In addition:
           </constraints>
         </selectionEntry>
       </selectionEntries>
+    </selectionEntryGroup>
+    <selectionEntryGroup name="Space Hulk" id="4a57-b142-3811-c835" hidden="false" collapsible="true">
+      <comment>Space Hulk content</comment>
+      <entryLinks>
+        <entryLink import="true" name="Expertise" hidden="false" id="2963-b59e-6c41-c4bc" type="selectionEntryGroup" targetId="5a83-de9d-1ee5-d48f" sortIndex="1"/>
+        <entryLink import="true" name="Armory" hidden="false" id="4f03-173b-5301-2535" type="selectionEntryGroup" targetId="f80f-ffe2-668b-6fa1" sortIndex="2"/>
+      </entryLinks>
     </selectionEntryGroup>
   </sharedSelectionEntryGroups>
   <sharedRules>

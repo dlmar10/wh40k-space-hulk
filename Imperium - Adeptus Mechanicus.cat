@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" standalone="yes"?>
-<catalogue xmlns="http://www.battlescribe.net/schema/catalogueSchema" id="77b9-2f66-3f9b-5cf3" name="Imperium - Adeptus Mechanicus" revision="80" battleScribeVersion="2.03" library="false" gameSystemId="sys-352e-adc2-7639-d6a9" gameSystemRevision="1" type="catalogue">
+<catalogue xmlns="http://www.battlescribe.net/schema/catalogueSchema" id="77b9-2f66-3f9b-5cf3" name="Imperium - Adeptus Mechanicus" revision="83" battleScribeVersion="2.03" library="false" gameSystemId="sys-352e-adc2-7639-d6a9" gameSystemRevision="1" type="catalogue">
   <categoryEntries>
     <categoryEntry id="f826-1ad1-a542-2058" name="Archaeopter Fusilave" hidden="false"/>
     <categoryEntry id="37b3-cded-c814-6e63" name="Archaeopter Stratoraptor" hidden="false"/>
@@ -4590,6 +4590,7 @@ In either case, if it does, until the end of the turn, this unit is not eligible
         </entryLink>
         <entryLink id="14f8-77fd-ef8f-c7ca" name="Enhancements" hidden="false" collective="false" import="true" targetId="65bb-2001-cac8-2761" type="selectionEntryGroup" sortIndex="3"/>
         <entryLink import="true" name="Crusade" hidden="false" id="a31a-4449-5f49-9d4d" type="selectionEntryGroup" targetId="631d-2f3a-99a1-2ab0" sortIndex="1"/>
+        <entryLink import="true" name="Space Hulk" hidden="false" id="2327-4486-21a5-e29c" type="selectionEntryGroup" targetId="6c22-f320-a0c7-bb2a" sortIndex="2"/>
       </entryLinks>
       <costs>
         <cost name="pts" typeId="51b2-306e-1021-d207" value="35"/>
@@ -6559,6 +6560,7 @@ as the target of a Stratagem, roll one D6: on a 5+, you gain 1CP.</characteristi
         </entryLink>
         <entryLink id="7c7a-e18d-61ff-d869" name="Enhancements" hidden="false" collective="false" import="true" targetId="65bb-2001-cac8-2761" type="selectionEntryGroup" sortIndex="3"/>
         <entryLink import="true" name="Crusade" hidden="false" id="cbf7-2dab-a559-cfaa" type="selectionEntryGroup" targetId="631d-2f3a-99a1-2ab0" sortIndex="1"/>
+        <entryLink import="true" name="Space Hulk" hidden="false" id="89ea-f607-3bcf-9006" type="selectionEntryGroup" targetId="6c22-f320-a0c7-bb2a" sortIndex="2"/>
       </entryLinks>
       <costs>
         <cost name="pts" typeId="51b2-306e-1021-d207" value="65"/>
@@ -6702,6 +6704,7 @@ as the target of a Stratagem, roll one D6: on a 5+, you gain 1CP.</characteristi
         </entryLink>
         <entryLink id="5f02-f928-746f-8af4" name="Enhancements" hidden="false" collective="false" import="true" targetId="65bb-2001-cac8-2761" type="selectionEntryGroup" sortIndex="3"/>
         <entryLink import="true" name="Crusade" hidden="false" id="9a7d-9654-b198-77ae" type="selectionEntryGroup" targetId="631d-2f3a-99a1-2ab0" sortIndex="1"/>
+        <entryLink import="true" name="Space Hulk" hidden="false" id="e9d5-7f77-1eec-ea0c" type="selectionEntryGroup" targetId="6c22-f320-a0c7-bb2a" sortIndex="2"/>
       </entryLinks>
       <costs>
         <cost name="pts" typeId="51b2-306e-1021-d207" value="55"/>
@@ -7035,6 +7038,7 @@ as the target of a Stratagem, roll one D6: on a 5+, you gain 1CP.</characteristi
         </entryLink>
         <entryLink id="993a-1c06-a910-d0ef" name="Enhancements" hidden="false" collective="false" import="true" targetId="65bb-2001-cac8-2761" type="selectionEntryGroup" sortIndex="3"/>
         <entryLink import="true" name="Crusade" hidden="false" id="6ec3-4ada-b021-31ae" type="selectionEntryGroup" targetId="631d-2f3a-99a1-2ab0" sortIndex="1"/>
+        <entryLink import="true" name="Space Hulk" hidden="false" id="38ac-94da-4672-d359" type="selectionEntryGroup" targetId="6c22-f320-a0c7-bb2a" sortIndex="2"/>
       </entryLinks>
       <costs>
         <cost name="pts" typeId="51b2-306e-1021-d207" value="60"/>
@@ -7172,6 +7176,7 @@ as the target of a Stratagem, roll one D6: on a 5+, you gain 1CP.</characteristi
         </entryLink>
         <entryLink id="318b-87d8-48f4-8665" name="Enhancements" hidden="false" collective="false" import="true" targetId="65bb-2001-cac8-2761" type="selectionEntryGroup" sortIndex="3"/>
         <entryLink import="true" name="Crusade" hidden="false" id="1a14-9b11-b356-4600" type="selectionEntryGroup" targetId="631d-2f3a-99a1-2ab0" sortIndex="1"/>
+        <entryLink import="true" name="Space Hulk" hidden="false" id="744e-753d-a8a2-acc0" type="selectionEntryGroup" targetId="6c22-f320-a0c7-bb2a" sortIndex="2"/>
       </entryLinks>
       <costs>
         <cost name="pts" typeId="51b2-306e-1021-d207" value="45"/>
@@ -12629,6 +12634,13 @@ Bodyguard unit, and that Bodyguard unit’s Starting Strength is increased acco
           </selectionEntries>
         </selectionEntryGroup>
       </selectionEntryGroups>
+    </selectionEntryGroup>
+    <selectionEntryGroup name="Space Hulk" id="6c22-f320-a0c7-bb2a" hidden="false" collapsible="true">
+      <comment>Space Hulk content</comment>
+      <entryLinks>
+        <entryLink import="true" name="Expertise" hidden="false" id="7abf-36fd-87bf-691f" type="selectionEntryGroup" targetId="5a83-de9d-1ee5-d48f" sortIndex="1"/>
+        <entryLink import="true" name="Armory" hidden="false" id="ee98-26b5-0d88-f5d8" type="selectionEntryGroup" targetId="f80f-ffe2-668b-6fa1" sortIndex="2"/>
+      </entryLinks>
     </selectionEntryGroup>
   </sharedSelectionEntryGroups>
   <sharedRules>
