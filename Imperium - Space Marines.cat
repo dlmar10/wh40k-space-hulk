@@ -2715,6 +2715,25 @@
       <categoryLinks>
         <categoryLink targetId="5c0e-4c31-d51b-e470" id="1527-94f9-b9d7-783b" primary="false" name="Warlord"/>
       </categoryLinks>
+      <modifiers>
+        <modifier type="set" value="true" field="hidden">
+          <conditionGroups>
+            <conditionGroup type="and">
+              <conditionGroups>
+                <conditionGroup type="or">
+                  <conditions>
+                    <condition type="instanceOf" value="140" field="51b2-306e-1021-d207" scope="ancestor" childId="unit" shared="true" includeChildSelections="false" includeChildForces="false"/>
+                    <condition type="greaterThan" value="140" field="51b2-306e-1021-d207" scope="model-or-unit" childId="self" shared="true"/>
+                  </conditions>
+                </conditionGroup>
+              </conditionGroups>
+              <conditions>
+                <condition type="instanceOf" value="1" field="selections" scope="force" childId="0d6d-d36a-5a9a-ce09" shared="true" includeChildSelections="true"/>
+              </conditions>
+            </conditionGroup>
+          </conditionGroups>
+        </modifier>
+      </modifiers>
     </selectionEntry>
     <selectionEntry id="1d56-1cc3-de57-10e2" name="Captain in Gravis Armour" hidden="false" collective="false" import="true" type="model">
       <constraints>
@@ -23837,7 +23856,7 @@ Normal move. If it does so, until the end of the turn, this unit is not eligible
         </modifierGroup>
       </modifierGroups>
     </selectionEntry>
-    <selectionEntry type="model" import="true" name="Lieutenant" hidden="false" id="ce15-e87e-7cff-b129" sortIndex="">
+    <selectionEntry type="model" import="true" name="Lieutenant" hidden="false" id="ce15-e87e-7cff-b129">
       <costs>
         <cost name="pts" typeId="51b2-306e-1021-d207" value="65"/>
       </costs>

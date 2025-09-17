@@ -2175,6 +2175,25 @@ Each time a ^^**Thousand Sons Vehicle^^** model from your army with the Deadly D
       <costs>
         <cost name="pts" typeId="51b2-306e-1021-d207" value="0"/>
       </costs>
+      <modifiers>
+        <modifier type="set" value="true" field="hidden">
+          <conditionGroups>
+            <conditionGroup type="and">
+              <conditionGroups>
+                <conditionGroup type="or">
+                  <conditions>
+                    <condition type="instanceOf" value="140" field="51b2-306e-1021-d207" scope="ancestor" childId="unit" shared="true" includeChildSelections="false" includeChildForces="false"/>
+                    <condition type="greaterThan" value="140" field="51b2-306e-1021-d207" scope="model-or-unit" childId="self" shared="true"/>
+                  </conditions>
+                </conditionGroup>
+              </conditionGroups>
+              <conditions>
+                <condition type="instanceOf" value="1" field="selections" scope="force" childId="0d6d-d36a-5a9a-ce09" shared="true" includeChildSelections="true"/>
+              </conditions>
+            </conditionGroup>
+          </conditionGroups>
+        </modifier>
+      </modifiers>
     </selectionEntry>
     <selectionEntry id="3bfa-bf00-b5ed-cc81" name="Ahriman" hidden="false" collective="false" import="true" type="model">
       <constraints>
@@ -7635,7 +7654,7 @@ Wound roll.</characteristic>
         </modifierGroup>
       </modifierGroups>
     </selectionEntry>
-    <selectionEntry type="model" import="true" name="Sorcerer" hidden="false" id="af1e-9a3d-785c-47f8" sortIndex="">
+    <selectionEntry type="model" import="true" name="Sorcerer" hidden="false" id="af1e-9a3d-785c-47f8">
       <categoryLinks>
         <categoryLink targetId="7002-1fbb-7571-e8e7" id="fe6a-6cdf-d8fc-aada" primary="false" name="Faction: Thousand Sons"/>
         <categoryLink targetId="cf47-a0d7-7207-29dc" id="2d8c-f7e2-c7b9-29f3" primary="false" name="Infantry"/>

@@ -8,6 +8,25 @@
       <constraints>
         <constraint type="max" value="1" field="selections" scope="parent" shared="true" id="7ca5-48b6-5801-c3ef"/>
       </constraints>
+      <modifiers>
+        <modifier type="set" value="true" field="hidden">
+          <conditionGroups>
+            <conditionGroup type="and">
+              <conditionGroups>
+                <conditionGroup type="or">
+                  <conditions>
+                    <condition type="instanceOf" value="140" field="51b2-306e-1021-d207" scope="ancestor" childId="unit" shared="true" includeChildSelections="false" includeChildForces="false"/>
+                    <condition type="greaterThan" value="140" field="51b2-306e-1021-d207" scope="model-or-unit" childId="self" shared="true"/>
+                  </conditions>
+                </conditionGroup>
+              </conditionGroups>
+              <conditions>
+                <condition type="instanceOf" value="1" field="selections" scope="force" childId="0d6d-d36a-5a9a-ce09" shared="true" includeChildSelections="true"/>
+              </conditions>
+            </conditionGroup>
+          </conditionGroups>
+        </modifier>
+      </modifiers>
     </selectionEntry>
     <selectionEntry type="model" import="true" name="Battlewagon" hidden="false" id="306a-b2ac-aaf1-9a7c">
       <profiles>
